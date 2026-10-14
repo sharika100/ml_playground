@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Compass, FlaskConical, Calculator, Video, BookMarked, User, Menu, X, ArrowRight } from 'lucide-react';
+import { Sparkles, Compass, FlaskConical, Calculator, Video, BookMarked, User, Menu, X, ArrowRight, Film } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
@@ -13,6 +13,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onStart
   const navItems = [
     { id: 'home', label: 'Home', icon: <Sparkles className="w-4 h-4" /> },
     { id: 'journey', label: 'Learning Journey', icon: <Compass className="w-4 h-4" /> },
+    { id: 'scenarios', label: 'Animated Scenarios', icon: <Film className="w-4 h-4" /> },
     { id: 'lab', label: 'Interactive Lab', icon: <FlaskConical className="w-4 h-4" /> },
     { id: 'maths', label: 'Maths Playground', icon: <Calculator className="w-4 h-4" /> },
     { id: 'videos', label: 'Video Lectures', icon: <Video className="w-4 h-4" /> },

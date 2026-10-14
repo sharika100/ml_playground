@@ -15,6 +15,7 @@ import {
   Gauge,
   TrendingUp,
   GitBranch,
+  Film,
 } from 'lucide-react';
 import { YoutubeIcon } from '../components/common/YoutubeIcon';
 import { CURRICULUM } from '../data/curriculum';
@@ -65,10 +66,10 @@ export const HomePage: React.FC<HomePageProps> = ({
               Explore concepts. Play with models. Understand the maths. Discover how machines learn from observations—with live simulations, step-by-step derivations, and zero fluff.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-xl mx-auto">
               <button
                 onClick={onStartLearning}
-                className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-sm shadow-xl shadow-brand-500/25 transition-all hover:scale-105 active:scale-95"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-sm shadow-xl shadow-brand-500/25 transition-all hover:scale-105 active:scale-95"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Start Learning Journey</span>
@@ -76,11 +77,19 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
 
               <button
+                onClick={() => onNavigateTab('scenarios')}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white font-extrabold text-sm shadow-lg shadow-amber-500/25 transition-all hover:scale-105 active:scale-95"
+              >
+                <Film className="w-4 h-4" />
+                <span>Watch Animated Scenarios</span>
+              </button>
+
+              <button
                 onClick={() => onNavigateTab('lab')}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm border border-slate-200 dark:border-slate-700 shadow-sm transition-all hover:scale-105 active:scale-95"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm border border-slate-200 dark:border-slate-700 shadow-sm transition-all hover:scale-105 active:scale-95"
               >
                 <Cpu className="w-4 h-4 text-brand-600 dark:text-brand-400" />
-                <span>Explore Interactive Labs</span>
+                <span>Labs</span>
               </button>
             </div>
           </div>

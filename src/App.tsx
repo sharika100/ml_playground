@@ -9,6 +9,7 @@ import { MathsPlaygroundPage } from './pages/MathsPlaygroundPage';
 import { VideoLearningPage } from './pages/VideoLearningPage';
 import { RevisionStudioPage } from './pages/RevisionStudioPage';
 import { AboutPage } from './pages/AboutPage';
+import { ScenariosGalleryPage } from './pages/ScenariosGalleryPage';
 
 // Helper to determine initial tab and topic from current window location
 function parseLocation(): { tab: string; topicId: string } {
@@ -16,7 +17,7 @@ function parseLocation(): { tab: string; topicId: string } {
   const searchParams = new URLSearchParams(window.location.search);
   const topicParam = searchParams.get('topic');
 
-  const validTabs = ['home', 'journey', 'lesson', 'lab', 'maths', 'videos', 'revision', 'about'];
+  const validTabs = ['home', 'journey', 'scenarios', 'lesson', 'lab', 'maths', 'videos', 'revision', 'about'];
 
   if (!path || path === '') {
     return { tab: 'home', topicId: topicParam || 'topic-1' };
@@ -112,6 +113,10 @@ export function App() {
             onSelectTopic={handleSelectTopic}
             onBackToJourney={() => navigate('journey')}
           />
+        )}
+
+        {activeTab === 'scenarios' && (
+          <ScenariosGalleryPage onNavigateToTopic={handleSelectTopic} />
         )}
 
         {activeTab === 'lab' && <LabPage />}

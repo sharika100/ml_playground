@@ -9,6 +9,11 @@ import { EntropyExplorer } from '../components/interactive/EntropyExplorer';
 import { InformationGainCalculator } from '../components/interactive/InformationGainCalculator';
 import { HypothesisPlayground } from '../components/interactive/HypothesisPlayground';
 import { RegressionPlayground } from '../components/interactive/RegressionPlayground';
+import { RobotMazeScenario } from '../components/scenarios/RobotMazeScenario';
+import { EmailClassifierScenario } from '../components/scenarios/EmailClassifierScenario';
+import { DecisionTreeJourneyScenario } from '../components/scenarios/DecisionTreeJourneyScenario';
+import { ClusteringScenario } from '../components/scenarios/ClusteringScenario';
+import { AspectSentimentScenario } from '../components/scenarios/AspectSentimentScenario';
 import {
   ArrowLeft,
   ArrowRight,
@@ -225,26 +230,48 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
           </section>
         )}
 
-        {/* STAGE 4: INTERACTIVE LABS */}
+        {/* STAGE 4: INTERACTIVE LABS & ANIMATED SCENARIOS */}
         {(viewMode === 'full' || activeStage === 4) && (
-          <section className="space-y-4">
+          <section className="space-y-6">
             <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-xs font-black uppercase tracking-wider">
               <Sparkles className="w-4 h-4" />
-              <span>Stage 4: Interactive Simulation & Visual Proof</span>
+              <span>Stage 4: Interactive Simulation & Animated Scenarios</span>
             </div>
 
             <div className="space-y-8">
-              {lesson.topicNumber === 1 && <LearningSorter />}
-              {lesson.topicNumber === 2 && <LearningSorter />}
+              {lesson.topicNumber === 1 && (
+                <div className="space-y-8">
+                  <RobotMazeScenario />
+                  <EmailClassifierScenario />
+                  <ClusteringScenario />
+                  <LearningSorter />
+                </div>
+              )}
+
+              {lesson.topicNumber === 2 && (
+                <div className="space-y-8">
+                  <EmailClassifierScenario />
+                  <LearningSorter />
+                </div>
+              )}
+
               {lesson.topicNumber === 3 && (
                 <div className="space-y-8">
+                  <DecisionTreeJourneyScenario />
                   <DecisionTreeBuilder />
                   <EntropyExplorer />
                   <InformationGainCalculator />
                 </div>
               )}
+
               {lesson.topicNumber === 4 && <HypothesisPlayground />}
-              {lesson.topicNumber === 5 && <RegressionPlayground />}
+
+              {lesson.topicNumber === 5 && (
+                <div className="space-y-8">
+                  <RegressionPlayground />
+                  <AspectSentimentScenario />
+                </div>
+              )}
             </div>
           </section>
         )}
