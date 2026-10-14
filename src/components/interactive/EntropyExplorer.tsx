@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { calculateEntropy, calculateGini } from '../../math/entropy';
 import { Sparkles, Gauge, HelpCircle, CheckCircle2, RotateCcw } from 'lucide-react';
+import { InlineMath, MathText } from '../common/MathFormula';
 
 export const EntropyExplorer: React.FC = () => {
   const [yesCount, setYesCount] = useState<number>(9);
@@ -338,41 +339,48 @@ export const EntropyExplorer: React.FC = () => {
           </div>
 
           {/* Stepped Numerical Derivation */}
-          <div className="p-5 rounded-3xl bg-slate-900 text-slate-100 font-mono text-xs border border-slate-800 shadow-md space-y-2.5">
+          <div className="p-5 rounded-3xl bg-slate-900 text-slate-100 text-xs border border-slate-800 shadow-md space-y-3">
             <div className="text-brand-400 font-bold uppercase tracking-wider text-[11px] flex items-center justify-between">
               <span>Step-by-Step Numerical Substitution:</span>
               <span className="text-slate-400 font-normal">N = {total} samples</span>
             </div>
 
-            <div className="space-y-1.5 text-slate-300">
-              <div className="text-slate-400">
-                1. Probabilities: P(+) = {yesCount}/{total} = <span className="text-white font-bold">{pYes.toFixed(4)}</span>, P(−) = {noCount}/{total} = <span className="text-white font-bold">{pNo.toFixed(4)}</span>
+            <div className="space-y-2 text-slate-300">
+              <div className="text-slate-300 overflow-x-auto py-0.5">
+                1. Probabilities:{' '}
+                <InlineMath math={`P(+) = \\frac{${yesCount}}{${total}} = ${pYes.toFixed(4)}, \\quad P(-) = \\frac{${noCount}}{${total}} = ${pNo.toFixed(4)}`} />
               </div>
 
               {metric === 'entropy' ? (
                 <>
-                  <div className="text-slate-400">
-                    2. Shannon Formula: H(S) = - P(+) * log₂(P(+)) - P(−) * log₂(P(−))
+                  <div className="text-slate-400 overflow-x-auto py-0.5">
+                    2. Shannon Formula:{' '}
+                    <InlineMath math="H(S) = - P(+) \\log_2(P(+)) - P(-) \\log_2(P(-))" />
                   </div>
-                  <div className="text-amber-300">
-                    3. Substitution:
-                    {yesCount > 0 ? ` - (${pYes.toFixed(4)} * ${Math.log2(pYes).toFixed(4)})` : ' - 0'}
-                    {noCount > 0 ? ` - (${pNo.toFixed(4)} * ${Math.log2(pNo).toFixed(4)})` : ' - 0'}
+                  <div className="text-amber-300 overflow-x-auto py-0.5">
+                    3. Substitution:{' '}
+                    <InlineMath
+                      math={`H(S) = ${yesCount > 0 ? `- (${pYes.toFixed(4)} \\cdot (${Math.log2(pYes).toFixed(4)}))` : '- 0'} ${noCount > 0 ? `- (${pNo.toFixed(4)} \\cdot (${Math.log2(pNo).toFixed(4)}))` : '- 0'}`}
+                    />
                   </div>
-                  <div className="text-emerald-400 font-bold text-sm pt-1 border-t border-slate-800">
-                    4. Final Entropy: H(S) = {entropyResult.entropy.toFixed(4)} bits
+                  <div className="text-emerald-400 font-bold text-sm pt-1.5 border-t border-slate-800">
+                    4. Final Entropy: <InlineMath math={`H(S) = ${entropyResult.entropy.toFixed(4)} \\text{ bits}`} />
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="text-slate-400">
-                    2. Gini Formula: Gini(S) = 1 - [P(+)² + P(−)²]
+                  <div className="text-slate-400 overflow-x-auto py-0.5">
+                    2. Gini Formula:{' '}
+                    <InlineMath math="\\text{Gini}(S) = 1 - \\left(P(+)^2 + P(-)^2\\right)" />
                   </div>
-                  <div className="text-amber-300">
-                    3. Substitution: 1 - [({pYes.toFixed(4)})² + ({pNo.toFixed(4)})²] = 1 - [{(pYes * pYes).toFixed(4)} + {(pNo * pNo).toFixed(4)}]
+                  <div className="text-amber-300 overflow-x-auto py-0.5">
+                    3. Substitution:{' '}
+                    <InlineMath
+                      math={`1 - \\left[(${pYes.toFixed(4)})^2 + (${pNo.toFixed(4)})^2\\right] = 1 - [${(pYes * pYes).toFixed(4)} + ${(pNo * pNo).toFixed(4)}]`}
+                    />
                   </div>
-                  <div className="text-emerald-400 font-bold text-sm pt-1 border-t border-slate-800">
-                    4. Final Gini Impurity: Gini(S) = {giniResult.gini.toFixed(4)}
+                  <div className="text-emerald-400 font-bold text-sm pt-1.5 border-t border-slate-800">
+                    4. Final Gini Impurity: <InlineMath math={`\\text{Gini}(S) = ${giniResult.gini.toFixed(4)}`} />
                   </div>
                 </>
               )}

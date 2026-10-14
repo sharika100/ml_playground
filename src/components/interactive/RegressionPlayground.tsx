@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Point2D, computeBestFitLine, evaluateLine } from '../../math/linearRegression';
 import { triggerCelebration } from '../common/Celebration';
 import { Wand2, RefreshCw, TrendingUp, HelpCircle, CheckCircle2, Sliders } from 'lucide-react';
+import { InlineMath, MathText } from '../common/MathFormula';
 
 const INITIAL_POINTS: Point2D[] = [
   { x: 1, y: 1.5, id: 'p1' },
@@ -66,7 +67,7 @@ export const RegressionPlayground: React.FC = () => {
             Linear Regression & Cost Function (MSE) Playground
           </h3>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-            Adjust slope a₁ and intercept a₀ to minimize Mean Squared Error (MSE) and maximize R².
+            <MathText text="Adjust slope $a_1$ and intercept $a_0$ to minimize Mean Squared Error ($\text{MSE}$) and maximize $R^2$." />
           </p>
         </div>
 
@@ -92,8 +93,9 @@ export const RegressionPlayground: React.FC = () => {
         {/* Interactive SVG Chart */}
         <div className="lg:col-span-7 bg-slate-50 dark:bg-slate-800/50 p-5 rounded-3xl border border-slate-200 dark:border-slate-700/60">
           <div className="flex flex-wrap items-center justify-between mb-3 gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
-              Scatter Plot & Residuals (yᵢ − ŷᵢ)
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 flex items-center gap-1">
+              <span>Scatter Plot & Residuals</span>
+              <InlineMath math="(y_i - \hat{y}_i)" />
             </span>
             <div className="flex items-center gap-3 text-xs">
               <label className="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 cursor-pointer">
@@ -112,7 +114,10 @@ export const RegressionPlayground: React.FC = () => {
                   onChange={(e) => setShowSquares(e.target.checked)}
                   className="rounded text-brand-600 accent-brand-600"
                 />
-                Squared Areas (eᵢ²)
+                <span className="flex items-center gap-1">
+                  <span>Squared Areas</span>
+                  <InlineMath math="(e_i^2)" />
+                </span>
               </label>
             </div>
           </div>
@@ -208,7 +213,12 @@ export const RegressionPlayground: React.FC = () => {
           </div>
 
           <div className="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-200 dark:border-slate-700/60">
-            <span>Model: <strong className="font-mono text-brand-600 dark:text-brand-400">ŷ = {intercept.toFixed(2)} + {slope.toFixed(2)}x</strong></span>
+            <span className="flex items-center gap-1.5">
+              <span>Model:</span>
+              <span className="font-semibold text-brand-600 dark:text-brand-400">
+                <InlineMath math={`\\hat{y} = ${intercept.toFixed(2)} + ${slope.toFixed(2)}x`} />
+              </span>
+            </span>
             <span>Target: Minimize sum of squared residual areas</span>
           </div>
         </div>
@@ -221,7 +231,7 @@ export const RegressionPlayground: React.FC = () => {
               <div className="flex justify-between items-center text-xs font-bold text-slate-800 dark:text-slate-200 mb-1.5">
                 <span className="flex items-center gap-1.5">
                   <Sliders className="w-3.5 h-3.5 text-brand-600" />
-                  Slope (a₁):
+                  <span>Slope (<InlineMath math="a_1" />):</span>
                 </span>
                 <span className="font-mono text-sm text-brand-600 dark:text-brand-400">
                   {slope.toFixed(2)} (OLS: {bestFit.slope.toFixed(2)})
@@ -246,7 +256,7 @@ export const RegressionPlayground: React.FC = () => {
               <div className="flex justify-between items-center text-xs font-bold text-slate-800 dark:text-slate-200 mb-1.5">
                 <span className="flex items-center gap-1.5">
                   <Sliders className="w-3.5 h-3.5 text-brand-600" />
-                  Intercept (a₀):
+                  <span>Intercept (<InlineMath math="a_0" />):</span>
                 </span>
                 <span className="font-mono text-sm text-brand-600 dark:text-brand-400">
                   {intercept.toFixed(2)} (OLS: {bestFit.intercept.toFixed(2)})
@@ -299,8 +309,9 @@ export const RegressionPlayground: React.FC = () => {
                   : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800'
               }`}
             >
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                R² Goodness of Fit
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                <InlineMath math="R^2" />
+                <span>Goodness of Fit</span>
               </span>
               <div
                 className={`text-2xl font-black font-mono mt-1 ${
@@ -309,7 +320,9 @@ export const RegressionPlayground: React.FC = () => {
               >
                 {(metrics.r2 * 100).toFixed(1)}%
               </div>
-              <span className="text-[10px] text-slate-400">R² = 1 − (SSE / SST)</span>
+              <span className="text-[10px] text-slate-400">
+                <InlineMath math="R^2 = 1 - \frac{\text{SSE}}{\text{SST}}" />
+              </span>
             </div>
           </div>
 
@@ -321,7 +334,7 @@ export const RegressionPlayground: React.FC = () => {
             </div>
             {isOptimal ? (
               <p className="text-emerald-300 leading-relaxed">
-                🎉 <strong>Perfect Least Squares Solution!</strong> This line minimizes the sum of squared errors ∑(yᵢ − ŷᵢ)² analytically using the normal equations derived in Module 5.
+                🎉 <strong>Perfect Least Squares Solution!</strong> <MathText text="This line minimizes the sum of squared errors $\sum (y_i - \hat{y}_i)^2$ analytically using the normal equations derived in Module 5." />
               </p>
             ) : isNearOptimal ? (
               <p className="text-amber-300 leading-relaxed">
@@ -329,7 +342,7 @@ export const RegressionPlayground: React.FC = () => {
               </p>
             ) : (
               <p className="text-slate-300 leading-relaxed">
-                Notice the red dotted lines: they represent residuals eᵢ = yᵢ − ŷᵢ. By adjusting slope and intercept, your goal is to shrink these drop lines as small as possible.
+                <MathText text="Notice the red dotted lines: they represent residuals $e_i = y_i - \hat{y}_i$. By adjusting slope and intercept, your goal is to shrink these drop lines as small as possible." />
               </p>
             )}
           </div>

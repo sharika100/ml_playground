@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { QuizCard } from '../components/interactive/QuizCard';
-import { MathFormula } from '../components/common/MathFormula';
+import { MathFormula, InlineMath, MathText } from '../components/common/MathFormula';
 import { Callout } from '../components/common/Callout';
 import { BookMarked, CheckCircle2, FileText, HelpCircle, Trophy, Sparkles, Download, Layers } from 'lucide-react';
 import { QuizQuestion } from '../types';
@@ -11,7 +11,7 @@ const FINAL_MASTERY_CHALLENGE: QuizQuestion[] = [
     question: 'A decision node has 6 positive and 6 negative instances (50/50 equal distribution). What is its Shannon Entropy?',
     options: ['0.0 bits', '0.5 bits', '1.0 bit', '12.0 bits'],
     correctAnswer: 2,
-    explanation: 'Shannon entropy is at its maximum (1.0 bit) when classes are equally probable: - (0.5 * log2 0.5) - (0.5 * log2 0.5) = 0.5 + 0.5 = 1.0 bit.',
+    explanation: 'Shannon entropy is at its maximum ($1.0\\text{ bit}$) when classes are equally probable: $- (0.5 \\log_2 0.5) - (0.5 \\log_2 0.5) = 0.5 + 0.5 = 1.0\\text{ bit}$.',
   },
   {
     id: 'final-2',
@@ -23,7 +23,7 @@ const FINAL_MASTERY_CHALLENGE: QuizQuestion[] = [
       'Because it eliminates the need for training data',
     ],
     correctAnswer: 1,
-    explanation: 'Information Gain = Parent Entropy - Weighted Child Entropy. Higher gain means more uncertainty was eliminated by testing that feature.',
+    explanation: '$\\text{Gain}(S, A) = H(S) - \\sum \\frac{|S_v|}{|S|} H(S_v)$. Higher gain means more uncertainty was eliminated by testing that feature.',
   },
   {
     id: 'final-3',
@@ -35,19 +35,19 @@ const FINAL_MASTERY_CHALLENGE: QuizQuestion[] = [
       'It requires equal weighting of all candidate functions',
     ],
     correctAnswer: 1,
-    explanation: 'Ockham’s razor advises that simpler models (e.g. low degree polynomials) have higher prior probability and generalize better to novel instances.',
+    explanation: 'Ockham’s razor advises that simpler models (e.g. low degree polynomials) have higher prior probability $P(h)$ and generalize better to novel instances.',
   },
   {
     id: 'final-4',
-    question: 'In Simple Linear Regression y = a₀ + a₁x + ε, what does the parameter a₁ represent geometrically?',
+    question: 'In Simple Linear Regression $y = a_0 + a_1 x + \\varepsilon$, what does the parameter $a_1$ represent geometrically?',
     options: [
-      'The point where the line crosses the y-axis when x = 0',
-      'The slope of the line, indicating the change in y per unit change in x',
+      'The point where the line crosses the y-axis when $x = 0$',
+      'The slope of the line, indicating the change in $y$ per unit change in $x$',
       'The total number of data points',
-      'The random irreducible error',
+      'The random irreducible error $\\varepsilon$',
     ],
     correctAnswer: 1,
-    explanation: 'a₁ is the regression coefficient/slope, dictating the steepness and direction (positive or negative) of the relationship.',
+    explanation: '$a_1$ is the regression coefficient/slope, dictating the steepness and direction (positive or negative) of the relationship.',
   },
   {
     id: 'final-5',
@@ -138,7 +138,7 @@ export const RevisionStudioPage: React.FC = () => {
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">Shannon Entropy</h3>
             <MathFormula formula="H(S) = - \sum_{i=1}^{c} p_i \log_2(p_i)" block />
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Measures class label disorder. When a subset is pure (all positive or all negative), $H(S) = 0$. When classes are split 50/50, $H(S) = 1.0$ bit. Convention: $0 \log_2(0) = 0$.
+              <MathText text="Measures class label disorder. When a subset is pure (all positive or all negative), $H(S) = 0$. When classes are split 50/50, $H(S) = 1.0\text{ bit}$. Convention: $0 \log_2(0) = 0$." />
             </p>
           </div>
 
@@ -149,7 +149,7 @@ export const RevisionStudioPage: React.FC = () => {
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">Information Gain</h3>
             <MathFormula formula="\text{Gain}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)" block />
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Measures reduction in entropy after splitting on attribute A. The attribute with maximum information gain is selected as the decision node.
+              <MathText text="Measures reduction in entropy after splitting on attribute $A$. The attribute with maximum information gain is selected as the decision node." />
             </p>
           </div>
 
@@ -160,7 +160,7 @@ export const RevisionStudioPage: React.FC = () => {
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">Gini Index</h3>
             <MathFormula formula="\text{Gini}(S) = 1 - \sum_{j} p_j^2" block />
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Alternative impurity metric used in the CART algorithm for binary splits. A pure node has Gini = 0. Algorithms prefer attributes with lower Gini values.
+              <MathText text="Alternative impurity metric used in the CART algorithm for binary splits. A pure node has $\text{Gini} = 0$. Algorithms prefer attributes with lower Gini values." />
             </p>
           </div>
 
@@ -171,7 +171,7 @@ export const RevisionStudioPage: React.FC = () => {
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">Mean Squared Error (MSE)</h3>
             <MathFormula formula="\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} \left(y_i - (a_1 x_i + a_0)\right)^2" block />
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Cost function measuring model fit. Gradient descent iteratively updates $a_0$ and $a_1$ to minimize MSE to its global minimum.
+              <MathText text="Cost function measuring model fit. Gradient descent iteratively updates $a_0$ and $a_1$ to minimize MSE to its global minimum." />
             </p>
           </div>
         </div>
@@ -187,31 +187,32 @@ export const RevisionStudioPage: React.FC = () => {
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
               Computing Outlook Information Gain on Play Tennis Dataset
             </h3>
-            <div className="text-xs text-slate-700 dark:text-slate-300 space-y-2 leading-relaxed">
+            <div className="text-xs text-slate-700 dark:text-slate-300 space-y-3 leading-relaxed">
               <p>
-                <strong>Given:</strong> Total samples $|S| = 14$ (9 Yes, 5 No).
+                <strong>Given:</strong> Total samples <InlineMath math="|S| = 14" /> (9 Yes, 5 No).
               </p>
-              <p>
+              <div>
                 <strong>Step 1 (Parent Entropy):</strong>
-              </p>
-              <MathFormula formula="H(S) = - \frac{9}{14} \log_2\left(\frac{9}{14}\right) - \frac{5}{14} \log_2\left(\frac{5}{14}\right) = 0.940 \text{ bits}" block />
-              <p>
+                <MathFormula formula="H(S) = - \frac{9}{14} \log_2\left(\frac{9}{14}\right) - \frac{5}{14} \log_2\left(\frac{5}{14}\right) = 0.940 \text{ bits}" block />
+              </div>
+              <div className="space-y-1.5">
                 <strong>Step 2 (Partition by Outlook):</strong>
-                <br />
-                • <strong>Sunny:</strong> 5 samples (2 Yes, 3 No) ➔ <MathFormula formula="H(S_{Sunny}) = 0.971 \text{ bits}" />
-                <br />
-                • <strong>Overcast:</strong> 4 samples (4 Yes, 0 No) ➔ <MathFormula formula="H(S_{Overcast}) = 0.0 \text{ bits (Pure!)}" />
-                <br />
-                • <strong>Rain:</strong> 5 samples (3 Yes, 2 No) ➔ <MathFormula formula="H(S_{Rain}) = 0.971 \text{ bits}" />
-              </p>
-              <p>
+                <div className="pl-2 space-y-1">
+                  <div>• <strong>Sunny:</strong> 5 samples (2 Yes, 3 No) ➔ <InlineMath math="H(S_{\text{Sunny}}) = 0.971 \text{ bits}" /></div>
+                  <div>• <strong>Overcast:</strong> 4 samples (4 Yes, 0 No) ➔ <InlineMath math="H(S_{\text{Overcast}}) = 0.0 \text{ bits (Pure!)}" /></div>
+                  <div>• <strong>Rain:</strong> 5 samples (3 Yes, 2 No) ➔ <InlineMath math="H(S_{\text{Rain}}) = 0.971 \text{ bits}" /></div>
+                </div>
+              </div>
+              <div>
                 <strong>Step 3 (Weighted Average Child Entropy):</strong>
-              </p>
-              <MathFormula formula="\sum \frac{|S_v|}{|S|} H(S_v) = \frac{5}{14}(0.971) + \frac{4}{14}(0) + \frac{5}{14}(0.971) = 0.693 \text{ bits}" block />
-              <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-semibold space-y-1">
+                <MathFormula formula="\sum_{v} \frac{|S_v|}{|S|} H(S_v) = \frac{5}{14}(0.971) + \frac{4}{14}(0) + \frac{5}{14}(0.971) = 0.693 \text{ bits}" block />
+              </div>
+              <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-semibold space-y-2">
                 <div><strong>Step 4 (Final Information Gain):</strong></div>
                 <MathFormula formula="\text{Gain}(S, \text{Outlook}) = H(S) - 0.693 = 0.940 - 0.693 = 0.247 \text{ bits}" block />
-                <div>Because 0.247 exceeds Humidity (0.151), Wind (0.048), and Temperature (0.029), <strong>Outlook</strong> is selected as the Root Decision Node!</div>
+                <div className="text-xs font-normal">
+                  Because 0.247 exceeds Humidity (0.151), Wind (0.048), and Temperature (0.029), <strong>Outlook</strong> is mathematically verified as the Root Decision Node!
+                </div>
               </div>
             </div>
           </div>

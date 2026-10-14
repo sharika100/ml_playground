@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CURRICULUM } from '../data/curriculum';
-import { MathFormula } from '../components/common/MathFormula';
+import { MathFormula, InlineMath, MathText } from '../components/common/MathFormula';
 import { Callout } from '../components/common/Callout';
 import { QuizCard } from '../components/interactive/QuizCard';
 import { LearningSorter } from '../components/interactive/LearningSorter';
@@ -221,8 +221,12 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
                     key={idx}
                     className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 text-xs"
                   >
-                    <div className="font-bold text-slate-900 dark:text-white mb-1">{t.term}</div>
-                    <div className="text-slate-600 dark:text-slate-400 leading-relaxed">{t.definition}</div>
+                    <div className="font-bold text-slate-900 dark:text-white mb-1">
+                      <MathText text={t.term} />
+                    </div>
+                    <div className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                      <MathText text={t.definition} />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -302,31 +306,39 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
                       key={idx}
                       className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-baseline gap-2"
                     >
-                      <span className="font-mono font-bold text-brand-600 dark:text-brand-400">
-                        {s.symbol}:
+                      <span className="font-bold text-brand-600 dark:text-brand-400 shrink-0">
+                        <InlineMath math={s.symbol} />:
                       </span>
-                      <span className="text-slate-600 dark:text-slate-300">{s.meaning}</span>
+                      <span className="text-slate-600 dark:text-slate-300">
+                        <MathText text={s.meaning} />
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Numerical Walkthrough */}
-              <div className="p-6 rounded-3xl bg-slate-900 text-slate-100 font-mono text-xs space-y-4 border border-slate-800 shadow-xl">
+              <div className="p-6 rounded-3xl bg-slate-900 text-slate-100 font-mono text-xs space-y-4 border border-slate-800 shadow-xl overflow-hidden">
                 <div className="text-brand-400 font-bold uppercase tracking-wider text-[11px]">
                   Worked Numerical Example: {lesson.mathsSimple.numericalExample.problem}
                 </div>
-                <div className="space-y-2.5">
+                <div className="space-y-3">
                   {lesson.mathsSimple.numericalExample.steps.map((st, idx) => (
-                    <div key={idx} className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/60">
-                      <div className="text-slate-400 text-[10px] font-sans font-bold mb-1">{st.stepName}</div>
-                      <div className="text-amber-300 font-bold">{st.calculation} ➔ {st.result}</div>
-                      <div className="text-slate-300 text-[11px] font-sans italic mt-1">{st.explanation}</div>
+                    <div key={idx} className="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/60 overflow-hidden">
+                      <div className="text-slate-400 text-[10px] font-sans font-bold mb-1.5">{st.stepName}</div>
+                      <div className="text-amber-300 font-bold flex flex-wrap items-center gap-2 overflow-x-auto py-1 text-xs sm:text-sm">
+                        <InlineMath math={st.calculation} />
+                        <span className="text-slate-400 text-xs">➔</span>
+                        <InlineMath math={st.result} />
+                      </div>
+                      <div className="text-slate-300 text-[11px] font-sans italic mt-1.5 leading-relaxed">
+                        <MathText text={st.explanation} />
+                      </div>
                     </div>
                   ))}
                 </div>
-                <div className="pt-3 border-t border-slate-800 text-emerald-400 text-xs font-sans">
-                  <strong>Result Meaning:</strong> {lesson.mathsSimple.numericalExample.finalMeaning}
+                <div className="pt-3 border-t border-slate-800 text-emerald-400 text-xs font-sans leading-relaxed">
+                  <strong>Result Meaning:</strong> <MathText text={lesson.mathsSimple.numericalExample.finalMeaning} />
                 </div>
               </div>
             </div>
@@ -342,7 +354,7 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
             </div>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">{lesson.tryItYourself.instruction}</p>
             <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
-              ❓ {lesson.tryItYourself.prompt}
+              ❓ <MathText text={lesson.tryItYourself.prompt} />
             </div>
 
             <div>
@@ -356,7 +368,7 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
 
               {showPredictionSolution && (
                 <div className="mt-3 p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 text-emerald-950 dark:text-emerald-200 text-xs leading-relaxed animate-fade-in">
-                  <strong>Scientific Solution:</strong> {lesson.tryItYourself.solution}
+                  <strong>Scientific Solution:</strong> <MathText text={lesson.tryItYourself.solution} />
                 </div>
               )}
             </div>

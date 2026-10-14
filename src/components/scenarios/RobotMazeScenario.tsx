@@ -203,7 +203,7 @@ export const RobotMazeScenario: React.FC = () => {
       userPrediction={userPrediction}
       onSelectPrediction={setUserPrediction}
       currentStepDescription={currentActionDesc}
-      scientificExplanation="The robot implements Q-Learning (Watkins, 1989). An action a taken in state s yields reward R and transition to s'. The Bellman update Q(s, a) ← Q(s, a) + α[R + γ max Q(s', a') - Q(s, a)] propagates value backwards from the goal reward (+10), teaching the agent to avoid step penalties (-1) and obstacle collisions (-5)."
+      scientificExplanation="The robot implements Q-Learning (Watkins, 1989). An action $a$ taken in state $s$ yields reward $R$ and transition to $s'$. The Bellman update $Q(s, a) \\leftarrow Q(s, a) + \\alpha [R + \\gamma \\max_{a'} Q(s', a') - Q(s, a)]$ propagates value backwards from the goal reward (+10), teaching the agent to avoid step penalties (-1) and obstacle collisions (-5)."
       formalConcept="Module 5 Form of Learning #3: Reinforcement Learning. Unlike supervised learning where teacher labels exist, an RL agent learns purely by active interaction with its environment through numerical rewards and penalties."
       followUpChallenge="Click any empty grid cell to add an obstacle while the robot is running and observe how it redirects its learned path!"
       telemetry={

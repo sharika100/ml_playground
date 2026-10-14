@@ -1,6 +1,7 @@
 import React from 'react';
 import { Play, Pause, RotateCcw, SkipForward, HelpCircle, CheckCircle2, XCircle, Sparkles, Sliders } from 'lucide-react';
 import { triggerCelebration } from '../common/Celebration';
+import { MathText } from '../common/MathFormula';
 
 export interface PredictionOption {
   id: string;
@@ -72,7 +73,7 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
             {title}
           </h3>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-2xl leading-relaxed">
-            {story}
+            <MathText text={story} />
           </p>
         </div>
 
@@ -111,7 +112,7 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
 
           <button
             onClick={onReset}
-            className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 transition-all"
+            className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:white bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 transition-all"
             title="Reset scenario to initial state"
           >
             <RotateCcw className="w-3.5 h-3.5" />
@@ -148,7 +149,7 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
           <div className="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse shrink-0"></div>
           <div className="text-xs text-slate-700 dark:text-slate-300">
             <strong className="text-slate-900 dark:text-white block sm:inline mr-1">Current Action:</strong>
-            <span>{currentStepDescription}</span>
+            <span><MathText text={currentStepDescription} /></span>
           </div>
         </div>
 
@@ -167,7 +168,7 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
             <span>Learner Prediction Challenge</span>
           </div>
           <h4 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
-            {prediction.question}
+            <MathText text={prediction.question} />
           </h4>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -194,7 +195,7 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
                   }}
                   className={`p-3.5 rounded-2xl border text-left text-xs transition-all flex items-center justify-between ${style}`}
                 >
-                  <span>{opt.label}</span>
+                  <span><MathText text={opt.label} /></span>
                   {userPrediction && opt.isCorrect && (
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 ml-2" />
                   )}
@@ -215,7 +216,7 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
               }`}
             >
               <strong>{selectedOpt.isCorrect ? '✓ Spot On!' : '✕ Scientific Clarification:'}</strong>{' '}
-              {selectedOpt.explanation}
+              <MathText text={selectedOpt.explanation} />
             </div>
           )}
         </div>
@@ -228,7 +229,7 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
             The Science Behind The Movement
           </span>
           <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-            {scientificExplanation}
+            <MathText text={scientificExplanation} />
           </p>
         </div>
 
@@ -237,11 +238,11 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
             Course Curriculum Connection
           </span>
           <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-            {formalConcept}
+            <MathText text={formalConcept} />
           </p>
           {followUpChallenge && (
             <div className="text-[11px] font-semibold text-brand-700 dark:text-brand-300 pt-1 border-t border-slate-200 dark:border-slate-700">
-              💡 <strong>Follow-up Experiment:</strong> {followUpChallenge}
+              💡 <strong>Follow-up Experiment:</strong> <MathText text={followUpChallenge} />
             </div>
           )}
         </div>

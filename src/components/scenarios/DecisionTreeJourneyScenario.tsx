@@ -99,10 +99,10 @@ export const DecisionTreeJourneyScenario: React.FC = () => {
     options: [
       {
         id: 'opt-pure',
-        label: 'Because the Overcast subset is 100% pure [4+, 0-] with Entropy H = 0.0 bits. Every recorded overcast day played tennis!',
+        label: 'Because the Overcast subset is 100% pure [4+, 0-] with Entropy $H = 0.0\\text{ bits}$. Every recorded overcast day played tennis!',
         isCorrect: true,
         explanation:
-          'ID3 terminates tree expansion at a node when all sample instances belong to the exact same class (Shannon Entropy = 0). Further questions are mathematically redundant.',
+          'ID3 terminates tree expansion at a node when all sample instances belong to the exact same class (Shannon Entropy $H = 0$). Further questions are mathematically redundant.',
       },
       {
         id: 'opt-memory',
@@ -124,7 +124,7 @@ export const DecisionTreeJourneyScenario: React.FC = () => {
       title="Scenario C: Build a Decision Tree & Character Journey"
       badge="Decision Trees • ID3 Induction & Traversal"
       badgeColor="bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800"
-      story="Watch a tennis player character walk through the branches of the ID3 decision tree based on incoming weather observations. Notice how the tree terminates as soon as a pure leaf (Entropy = 0) is reached."
+      story="Watch a tennis player character walk through the branches of the ID3 decision tree based on incoming weather observations. Notice how the tree terminates as soon as a pure leaf (Entropy $H = 0$) is reached."
       isRunning={isRunning}
       onTogglePlay={() => setIsRunning(!isRunning)}
       onStep={stepJourney}
@@ -135,7 +135,7 @@ export const DecisionTreeJourneyScenario: React.FC = () => {
       userPrediction={userPrediction}
       onSelectPrediction={setUserPrediction}
       currentStepDescription={currentActionDesc}
-      scientificExplanation="Decision Tree induction partitions a dataset S by selecting the attribute A with the highest Information Gain: Gain(S, A) = H(S) - ∑ (|S_v|/|S|) H(S_v). In the Play Tennis dataset, Outlook yields the highest gain (0.247 bits). The tree recurses on impure child subsets until all samples at a node share the same label (H = 0), producing pure terminal leaves."
+      scientificExplanation="Decision Tree induction partitions a dataset $S$ by selecting the attribute $A$ with the highest Information Gain: $\\operatorname{Gain}(S, A) = H(S) - \\sum_{v \\in \\operatorname{Values}(A)} \\frac{|S_v|}{|S|} H(S_v)$. In the Play Tennis dataset, Outlook yields the highest gain ($0.247\\text{ bits}$). The tree recurses on impure child subsets until all samples at a node share the same label ($H = 0$), producing pure terminal leaves."
       formalConcept="Module 5 Topic 3: Decision Tree Induction & ID3 Algorithm. Decision trees represent disjunctions of conjunctions of constraints on the attribute values of instances."
       followUpChallenge="Select a different Day Scenario from the pills below and observe how the path dynamically shifts through the tree hierarchy!"
       telemetry={

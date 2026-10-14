@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { triggerCelebration } from '../common/Celebration';
 import { CheckCircle2, XCircle, Lightbulb, ArrowRight, RefreshCw, Eye, Sparkles, Calculator } from 'lucide-react';
+import { InlineMath, MathText } from '../common/MathFormula';
 
 interface ProblemDef {
   id: string;
@@ -27,7 +28,7 @@ const PROBLEMS: ProblemDef[] = [
     steps: [
       {
         instruction: 'Step 1: Compute probability of positive class P(+) = 9/14 (round to 3 decimals)',
-        formula: 'P(+) = 9 / 14',
+        formula: 'P(+) = \\frac{9}{14} \\approx 0.643',
         expectedAnswer: 0.643,
         tolerance: 0.005,
         unit: '',
@@ -36,7 +37,7 @@ const PROBLEMS: ProblemDef[] = [
       },
       {
         instruction: 'Step 2: Compute probability of negative class P(−) = 5/14 (round to 3 decimals)',
-        formula: 'P(−) = 5 / 14',
+        formula: 'P(-) = \\frac{5}{14} \\approx 0.357',
         expectedAnswer: 0.357,
         tolerance: 0.005,
         unit: '',
@@ -44,8 +45,8 @@ const PROBLEMS: ProblemDef[] = [
         explanation: '5 out of 14 days are No, so P(−) = 5/14 ≈ 0.357.',
       },
       {
-        instruction: 'Step 3: Calculate final parent Entropy H(S) = − P(+)log₂P(+) − P(−)log₂P(−) in bits',
-        formula: 'H(S) = − (9/14)log₂(9/14) − (5/14)log₂(5/14)',
+        instruction: 'Step 3: Calculate final parent Entropy H(S) in bits',
+        formula: 'H(S) = - P(+) \\log_2 P(+) - P(-) \\log_2 P(-)',
         expectedAnswer: 0.94,
         tolerance: 0.015,
         unit: 'bits',
@@ -62,7 +63,7 @@ const PROBLEMS: ProblemDef[] = [
     steps: [
       {
         instruction: 'Step 1: Compute entropy of the Strong Wind subset H(S_strong). It has 3 positive and 3 negative days (50/50 balanced).',
-        formula: 'H(S_strong) = − (3/6)log₂(3/6) − (3/6)log₂(3/6)',
+        formula: 'H(S_{\\text{strong}}) = - \\frac{3}{6} \\log_2\\left(\\frac{3}{6}\\right) - \\frac{3}{6} \\log_2\\left(\\frac{3}{6}\\right) = 1.000 \\text{ bits}',
         expectedAnswer: 1.0,
         tolerance: 0.01,
         unit: 'bits',
@@ -71,7 +72,7 @@ const PROBLEMS: ProblemDef[] = [
       },
       {
         instruction: 'Step 2: Compute the weighted expected entropy of both children: (8/14)*H(Weak) + (6/14)*H(Strong). Given H(Weak) = 0.811 bits.',
-        formula: 'E_weighted = (8/14)*0.811 + (6/14)*1.000',
+        formula: 'E_{\\text{weighted}} = \\frac{8}{14}(0.811) + \\frac{6}{14}(1.000) = 0.892 \\text{ bits}',
         expectedAnswer: 0.892,
         tolerance: 0.01,
         unit: 'bits',
@@ -80,7 +81,7 @@ const PROBLEMS: ProblemDef[] = [
       },
       {
         instruction: 'Step 3: Calculate Information Gain: Gain(S, Wind) = H(S) − E_weighted.',
-        formula: 'Gain(S, Wind) = 0.940 − 0.892',
+        formula: '\\text{Gain}(S, \\text{Wind}) = 0.940 - 0.892 = 0.048 \\text{ bits}',
         expectedAnswer: 0.048,
         tolerance: 0.005,
         unit: 'bits',
@@ -97,7 +98,7 @@ const PROBLEMS: ProblemDef[] = [
     steps: [
       {
         instruction: 'Step 1: Predict the expected salary ŷ for an engineer with X = 4 years of experience.',
-        formula: 'ŷ = 4.5 * 4 + 32.0',
+        formula: '\\hat{y} = 4.5(4) + 32.0 = 50.0',
         expectedAnswer: 50.0,
         tolerance: 0.1,
         unit: 'k$',
@@ -106,7 +107,7 @@ const PROBLEMS: ProblemDef[] = [
       },
       {
         instruction: 'Step 2: If the actual observed salary for this engineer is y = 53.0k$, compute the residual error e = y − ŷ.',
-        formula: 'e = y − ŷ',
+        formula: 'e = y - \\hat{y} = 53.0 - 50.0 = +3.0',
         expectedAnswer: 3.0,
         tolerance: 0.1,
         unit: 'k$',
@@ -256,13 +257,14 @@ export const StepByStepSolver: React.FC = () => {
             {step.instruction}
           </h4>
 
-          <div className="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 font-mono text-xs text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-            Formula: <span className="font-bold text-brand-600 dark:text-brand-400">{step.formula}</span>
+          <div className="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/80 text-xs text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 flex flex-wrap items-center gap-2">
+            <span className="font-bold text-slate-500 uppercase text-[10px] tracking-wider">Formula:</span>
+            <InlineMath math={step.formula} className="text-brand-600 dark:text-brand-400 font-bold" />
           </div>
 
           {showHint && (
             <div className="p-3.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-xs text-amber-900 dark:text-amber-200">
-              💡 <strong>Hint:</strong> {step.hint}
+              💡 <strong>Hint:</strong> <MathText text={step.hint} />
             </div>
           )}
 
@@ -324,13 +326,13 @@ export const StepByStepSolver: React.FC = () => {
                   </button>
                 )}
               </div>
-              <p className="text-xs leading-relaxed">{feedback.message}</p>
+              <p className="text-xs leading-relaxed"><MathText text={feedback.message} /></p>
             </div>
           )}
         </div>
       ) : (
         /* Full Worked Derivation View */
-        <div className="p-6 rounded-3xl bg-slate-900 text-white font-mono text-xs border border-slate-800 space-y-4">
+        <div className="p-6 rounded-3xl bg-slate-900 text-white text-xs border border-slate-800 space-y-4">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <span className="text-brand-400 font-bold uppercase tracking-wider text-[11px]">
               Complete Analytical Solution
@@ -339,11 +341,14 @@ export const StepByStepSolver: React.FC = () => {
           </div>
 
           {problem.steps.map((st, i) => (
-            <div key={i} className="space-y-1 pt-2 border-b border-slate-800/60 pb-3">
+            <div key={i} className="space-y-1.5 pt-2 border-b border-slate-800/60 pb-3">
               <div className="text-white font-bold">{st.instruction}</div>
-              <div className="text-brand-300">Formula: {st.formula}</div>
+              <div className="text-brand-300 flex items-center gap-2">
+                <span className="text-slate-400 text-[10px]">Formula:</span>
+                <InlineMath math={st.formula} />
+              </div>
               <div className="text-emerald-400 font-bold">
-                Answer: {st.expectedAnswer} {st.unit} — {st.explanation}
+                Answer: {st.expectedAnswer} {st.unit} — <MathText text={st.explanation} />
               </div>
             </div>
           ))}

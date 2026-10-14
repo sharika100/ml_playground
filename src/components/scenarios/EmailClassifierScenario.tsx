@@ -212,8 +212,8 @@ export const EmailClassifierScenario: React.FC = () => {
       userPrediction={userPrediction}
       onSelectPrediction={setUserPrediction}
       currentStepDescription={currentActionDesc}
-      scientificExplanation="Supervised classification maps an input feature vector x = [keywords, links, domain] to a categorical target y ∈ {SPAM, HAM}. The model evaluates a decision boundary f(x) ≥ θ. Adjusting θ shifts the trade-off between False Positives (good email sent to spam) and False Negatives (spam entering inbox)."
-      formalConcept="Module 5 Form of Learning #1: Supervised Learning. Training instances provide explicit pairs (x, y) containing both observations and ground-truth teacher labels."
+      scientificExplanation="Supervised classification maps an input feature vector $\\mathbf{x} = [\\text{keywords}, \\text{links}, \\text{domain}]$ to a categorical target $y \\in \\{\\text{SPAM}, \\text{HAM}\\}$. The model evaluates a decision boundary $f(\\mathbf{x}) \\ge \\theta$. Adjusting $\\theta$ shifts the trade-off between False Positives (good email sent to spam) and False Negatives (spam entering inbox)."
+      formalConcept="Module 5 Form of Learning #1: Supervised Learning. Training instances provide explicit pairs $(\\mathbf{x}, y)$ containing both observations and ground-truth teacher labels."
       followUpChallenge="Adjust the Spam Threshold slider below between 20 and 70 to test the trade-off on accuracy!"
       telemetry={
         <>
@@ -240,7 +240,7 @@ export const EmailClassifierScenario: React.FC = () => {
         <div className="w-full max-w-xl p-3.5 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-2 text-slate-300">
             <Sliders className="w-4 h-4 text-brand-400" />
-            <span className="font-bold">Spam Score Cutoff (θ):</span>
+            <span className="font-bold">Spam Score Cutoff (&theta;):</span>
           </div>
           <input
             type="range"
@@ -251,7 +251,7 @@ export const EmailClassifierScenario: React.FC = () => {
             className="flex-1 h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-500"
           />
           <span className="font-mono font-bold text-brand-400 w-12 text-right">
-            ≥ {threshold}
+            &ge; {threshold}
           </span>
         </div>
 

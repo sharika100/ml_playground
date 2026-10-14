@@ -64,3 +64,30 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Mathematical Rendering & Overflow Safety */
+.math-display-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+.katex-display {
+  margin: 0.5em 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding-bottom: 3px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.katex {
+  font-size: 1.05em;
+  text-rendering: optimizeLegibility;
+}
+
+.inline-math {
+  white-space: nowrap;
+}
+
+.inline-math .katex {
+  font-size: 1.02em;
+}

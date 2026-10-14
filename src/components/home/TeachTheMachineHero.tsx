@@ -19,6 +19,7 @@ import {
   Film
 } from 'lucide-react';
 import { triggerCelebration } from '../common/Celebration';
+import { InlineMath, MathText } from '../common/MathFormula';
 
 export interface DataItem {
   id: string;
@@ -852,30 +853,42 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
               <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                <span className="text-[10px] uppercase font-bold text-brand-400">Feature Vector x</span>
+                <span className="text-[10px] uppercase font-bold text-brand-400 flex items-center gap-1">
+                  <span>Feature Vector</span>
+                  <InlineMath math="\mathbf{x}" />
+                </span>
                 <p className="text-slate-300 text-[11px]">
                   Observable quantitative attribute (e.g. sugar sweetness in °Bx or spam keywords).
                 </p>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                <span className="text-[10px] uppercase font-bold text-emerald-400">Ground Truth y</span>
+                <span className="text-[10px] uppercase font-bold text-emerald-400 flex items-center gap-1">
+                  <span>Ground Truth</span>
+                  <InlineMath math="y" />
+                </span>
                 <p className="text-slate-300 text-[11px]">
                   The verified target label from training data (Apple vs Lemon, or Spam vs Work).
                 </p>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                <span className="text-[10px] uppercase font-bold text-cyan-400">Hypothesis ŷ = f(x; θ)</span>
+                <span className="text-[10px] uppercase font-bold text-cyan-400 flex items-center gap-1">
+                  <span>Hypothesis</span>
+                  <InlineMath math="\hat{y} = f(\mathbf{x}; \theta)" />
+                </span>
                 <p className="text-slate-300 text-[11px]">
-                  The classifier decision rule parameterized by threshold θ: ŷ = 1 if x ≥ θ, else 0.
+                  <MathText text="The classifier decision rule parameterized by threshold $\theta$: $\hat{y} = 1$ if $x \ge \theta$, else $0$." />
                 </p>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                <span className="text-[10px] uppercase font-bold text-rose-400">Loss Function L(y, ŷ)</span>
+                <span className="text-[10px] uppercase font-bold text-rose-400 flex items-center gap-1">
+                  <span>Loss Function</span>
+                  <InlineMath math="L(y, \hat{y})" />
+                </span>
                 <p className="text-slate-300 text-[11px]">
-                  Zero-one loss penalizes mismatches: L = 1 if y ≠ ŷ, else 0. Minimizing loss finds optimal θ*.
+                  <MathText text="Zero-one loss penalizes mismatches: $L = 1$ if $y \ne \hat{y}$, else $0$. Minimizing loss finds optimal $\theta^*$." />
                 </p>
               </div>
             </div>

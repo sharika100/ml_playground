@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { QuizQuestion } from '../../types';
 import { CheckCircle2, XCircle, Lightbulb, RefreshCw, Trophy, ArrowRight, Sparkles } from 'lucide-react';
 import { triggerCelebration } from '../common/Celebration';
+import { MathText } from '../common/MathFormula';
 
 interface QuizCardProps {
   questions: QuizQuestion[];
@@ -111,7 +112,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
       </div>
 
       <h4 className="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-snug">
-        {q.question}
+        <MathText text={q.question} />
       </h4>
 
       <div className="space-y-3">
@@ -140,7 +141,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
                 !isAnswered ? 'hover:scale-[1.01] active:scale-[0.99] cursor-pointer' : ''
               }`}
             >
-              <span className="leading-relaxed">{opt}</span>
+              <span className="leading-relaxed"><MathText text={opt} /></span>
               {isAnswered && isTarget && (
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 ml-2" />
               )}
@@ -163,7 +164,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
           </button>
           {showHint && (
             <div className="mt-2 p-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 text-amber-900 dark:text-amber-200 text-xs border border-amber-200 dark:border-amber-800">
-              💡 {q.hint}
+              💡 <MathText text={q.hint} />
             </div>
           )}
         </div>
@@ -181,7 +182,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
             {isCorrect ? <CheckCircle2 className="w-4 h-4" /> : <XCircle className="w-4 h-4" />}
             <span>{isCorrect ? 'Correct Scientific Reasoning' : 'Concept Clarification'}</span>
           </div>
-          <div>{q.explanation}</div>
+          <div><MathText text={q.explanation} /></div>
         </div>
       )}
 

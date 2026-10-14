@@ -129,7 +129,7 @@ export const CURRICULUM: LessonSection[] = [
     },
     mathsSimple: {
       whyNeeded: 'Mathematically distinguishing the data structures clarifies the learning objective.',
-      formulaLatex: '\\text{Supervised: } \\mathcal{D} = \\{(x_i, y_i)\\}_{i=1}^N \\quad \\text{vs} \\quad \\text{Unsupervised: } \\mathcal{D} = \\{x_i\\}_{i=1}^N',
+      formulaLatex: '\\begin{aligned} \\text{Supervised:}&\\quad \\mathcal{D} = \\{(x_i, y_i)\\}_{i=1}^N \\\\[4pt] \\text{Unsupervised:}&\\quad \\mathcal{D} = \\{x_i\\}_{i=1}^N \\end{aligned}',
       symbols: [
         { symbol: 'x_i', meaning: 'Feature vector representing the i-th input observation' },
         { symbol: 'y_i', meaning: 'Ground-truth target label (discrete class or continuous value)' },
@@ -138,8 +138,8 @@ export const CURRICULUM: LessonSection[] = [
       numericalExample: {
         problem: 'Contrast the data format for House Price Prediction (Supervised) vs Market Basket Association (Unsupervised).',
         steps: [
-          { stepName: 'Supervised Pair', calculation: '(x, y) = ([2000 \\text{ sqft}, 3 \\text{ bed}], \\$450,000)', result: 'Explicit continuous label y', explanation: 'Model learns function f(x) -> y.' },
-          { stepName: 'Unsupervised Set', calculation: 'x = \\{\\text{Bread, Butter, Milk}\\}', result: 'No label y', explanation: 'Model finds association rules: Support and Confidence.' },
+          { stepName: 'Supervised Pair', calculation: '(x, y) = ([2000 \\text{ sqft}, 3 \\text{ bed}], \\$450,000)', result: '\\text{Explicit target } y', explanation: 'Supervised mapping function f(x) \\to y.' },
+          { stepName: 'Unsupervised Set', calculation: 'x = \\{\\text{Bread, Butter, Milk}\\}', result: '\\text{No target label } y', explanation: 'Model discovers association rules directly from unlabelled data.' },
         ],
         finalMeaning: 'Supervised problems evaluate prediction error against y; unsupervised problems evaluate clustering cohesion or association support.',
       },
@@ -229,29 +229,29 @@ export const CURRICULUM: LessonSection[] = [
     },
     mathsSimple: {
       whyNeeded: 'Decision tree algorithms (like ID3 and C4.5) require a rigorous mathematical criterion to decide which attribute should be placed at the root node.',
-      formulaLatex: 'H(S) = -\\sum_{i=1}^{c} p_i \\log_2(p_i) \\quad \\text{and} \\quad \\text{Gain}(S, A) = H(S) - \\sum_{v \\in Values(A)} \\frac{|S_v|}{|S|} H(S_v)',
+      formulaLatex: '\\begin{aligned} H(S) &= -\\sum_{i=1}^{c} p_i \\log_2(p_i) \\\\[6pt] \\text{Gain}(S, A) &= H(S) - \\sum_{v \\in \\text{Values}(A)} \\frac{|S_v|}{|S|} H(S_v) \\end{aligned}',
       symbols: [
         { symbol: 'H(S)', meaning: 'Shannon Entropy of dataset S in bits' },
         { symbol: 'p_i', meaning: 'Proportion of samples in S belonging to class i' },
         { symbol: 'c', meaning: 'Number of distinct target classes (c = 2 for binary classification)' },
-        { symbol: 'Gain(S, A)', meaning: 'Information Gain obtained by splitting on attribute A' },
-        { symbol: '|S_v| / |S|', meaning: 'Weight (fraction of total samples) falling into branch v' },
+        { symbol: '\\text{Gain}(S, A)', meaning: 'Information Gain obtained by splitting on attribute A' },
+        { symbol: '\\frac{|S_v|}{|S|}', meaning: 'Weight (fraction of total samples) falling into branch v' },
       ],
       numericalExample: {
-        problem: 'Play Tennis Dataset (Slide 93): Total 14 days, with 9 "Yes" and 5 "No". Compute H(S).',
+        problem: 'Play Tennis Dataset: Total 14 days, with 9 "Yes" and 5 "No". Compute H(S).',
         steps: [
-          { stepName: 'Calculate Class Probabilities', calculation: 'P(Yes) = 9/14 \\approx 0.643, \\quad P(No) = 5/14 \\approx 0.357', result: 'p_1 = 0.643, p_2 = 0.357', explanation: 'Proportions of positive and negative examples.' },
-          { stepName: 'Compute Logarithms base 2', calculation: '\\log_2(9/14) \\approx -0.637, \\quad \\log_2(5/14) \\approx -1.485', result: '-0.637, -1.485', explanation: 'Using log2 since information is measured in binary bits.' },
-          { stepName: 'Substitute into Entropy Formula', calculation: 'H(S) = - [0.643 \\cdot (-0.637)] - [0.357 \\cdot (-1.485)]', result: '0.4098 + 0.5303 = 0.9402', explanation: 'Intermediate product terms.' },
-          { stepName: 'Final Shannon Entropy', calculation: 'H(S) \\approx 0.940 \\text{ bits}', result: '0.940 bits', explanation: 'The parent dataset has 0.940 bits of impurity.' },
+          { stepName: 'Calculate Class Probabilities', calculation: 'P(\\text{Yes}) = \\frac{9}{14} \\approx 0.643, \\quad P(\\text{No}) = \\frac{5}{14} \\approx 0.357', result: 'p_1 = 0.643, \\; p_2 = 0.357', explanation: 'Proportions of positive and negative examples in parent dataset S.' },
+          { stepName: 'Compute Logarithms base 2', calculation: '\\log_2(9/14) \\approx -0.637, \\quad \\log_2(5/14) \\approx -1.485', result: '-0.637, \\; -1.485', explanation: 'Using base 2 since information uncertainty is measured in binary bits.' },
+          { stepName: 'Substitute into Entropy Formula', calculation: 'H(S) = - [0.643 \\cdot (-0.637)] - [0.357 \\cdot (-1.485)]', result: '0.4098 + 0.5303 = 0.9401', explanation: 'Intermediate product terms summed together.' },
+          { stepName: 'Final Shannon Entropy', calculation: 'H(S) = 0.940 \\text{ bits}', result: '0.940 \\text{ bits}', explanation: 'The parent dataset has 0.940 bits of impurity.' },
         ],
         finalMeaning: 'Because 0.940 is close to 1.0, there is high uncertainty. Splitting on Outlook yields Information Gain = 0.247 bits (the highest of all attributes), making Outlook the optimal root node.',
       },
     },
     tryItYourself: {
       instruction: 'Inspect what happens when a node is 100% pure (e.g. Overcast has 4 Yes and 0 No).',
-      prompt: 'What is the entropy of a pure node where P(Yes) = 1.0 and P(No) = 0.0?',
-      solution: 'Entropy = - (1.0 * log2(1.0)) - (0 * log2(0)) = -0 - 0 = 0.0 bits! Pure nodes have ZERO entropy and immediately become leaf nodes.',
+      prompt: 'What is the entropy of a pure node where P(\\text{Yes}) = 1.0 and P(\\text{No}) = 0.0?',
+      solution: 'H(S) = - (1.0 \\cdot \\log_2(1.0)) - (0 \\cdot \\log_2(0)) = 0.0 \\text{ bits}. By convention, \\lim_{p \\to 0} p \\log_2(p) = 0. Pure nodes have zero uncertainty and immediately become leaf nodes.',
     },
     video: {
       title: '3 INPUT Decision Tree Problem (Module 5)',
@@ -339,18 +339,18 @@ export const CURRICULUM: LessonSection[] = [
     },
     mathsSimple: {
       whyNeeded: 'Bayesian formulation explains why simple hypotheses should be prioritized mathematically through prior probabilities.',
-      formulaLatex: 'h^* = \\arg\\max_{h \\in H} P(h \\mid \\mathcal{D}) = \\arg\\max_{h \\in H} P(\\mathcal{D} \\mid h) \\cdot P(h)',
+      formulaLatex: 'h^* = \\arg\\max_{h \\in H} P(h \\mid \\mathcal{D}) = \\arg\\max_{h \\in H} \\left[ P(\\mathcal{D} \\mid h) \\cdot P(h) \\right]',
       symbols: [
         { symbol: 'h^*', meaning: 'The most probable optimal hypothesis given the dataset' },
-        { symbol: 'P(D | h)', meaning: 'Likelihood: how closely hypothesis h fits the observed data' },
+        { symbol: 'P(\\mathcal{D} \\mid h)', meaning: 'Likelihood: how closely hypothesis h fits the observed data' },
         { symbol: 'P(h)', meaning: 'Prior probability: assigns higher prior probability to simpler models and low probability to sharp, wild curves' },
       ],
       numericalExample: {
         problem: 'Compare a straight line (Degree 1) vs a Degree 6 polynomial fitted to 7 training points with 3 unseen test points.',
         steps: [
-          { stepName: 'Train Error (Degree 1)', calculation: 'MSE_{train} = \\frac{1}{7} \\sum (y_i - \\hat{y}_i)^2', result: '0.082', explanation: 'Slight residual error on training data (underfitting is minimal).' },
-          { stepName: 'Train Error (Degree 6)', calculation: 'MSE_{train} = \\frac{1}{7} \\sum 0^2', result: '0.000', explanation: 'Zero training error! Touches every single point exactly.' },
-          { stepName: 'Test Error Comparison', calculation: 'MSE_{test}(deg 1) = 0.095 \\quad \\text{vs} \\quad MSE_{test}(deg 6) = 14.82', result: 'Degree 1 wins by 150x', explanation: 'The Degree 6 curve oscillates wildly between points, causing immense error on new data.' },
+          { stepName: 'Train Error (Degree 1)', calculation: '\\text{MSE}_{\\text{train}} = \\frac{1}{7} \\sum_{i=1}^7 (y_i - \\hat{y}_i)^2', result: '0.082', explanation: 'Slight residual error on training data (underfitting is minimal).' },
+          { stepName: 'Train Error (Degree 6)', calculation: '\\text{MSE}_{\\text{train}} = \\frac{1}{7} \\sum_{i=1}^7 0^2', result: '0.000', explanation: 'Zero training error! Touches every single point exactly.' },
+          { stepName: 'Test Error Comparison', calculation: '\\text{MSE}_{\\text{test}}(\\text{deg 1}) = 0.095 \\quad \\text{vs} \\quad \\text{MSE}_{\\text{test}}(\\text{deg 6}) = 14.82', result: '\\text{Degree 1 wins by 150}\\times', explanation: 'The Degree 6 curve oscillates wildly between points, causing immense error on new data.' },
         ],
         finalMeaning: 'Even though Degree 6 had a "perfect" training score, Degree 1 generalizes vastly better. This proves Ockham’s Razor empirically.',
       },
@@ -442,21 +442,21 @@ export const CURRICULUM: LessonSection[] = [
     },
     mathsSimple: {
       whyNeeded: 'Finding the best fit line requires minimizing the cost function mathematically.',
-      formulaLatex: 'y = a_0 + a_1 x + \\varepsilon \\quad \\text{and} \\quad \\text{MSE} = \\frac{1}{N} \\sum_{i=1}^{N} (y_i - (a_1 x_i + a_0))^2',
+      formulaLatex: '\\begin{aligned} y &= a_0 + a_1 x + \\varepsilon \\\\[6pt] \\text{MSE} &= \\frac{1}{N} \\sum_{i=1}^{N} \\left(y_i - (a_1 x_i + a_0)\\right)^2 \\end{aligned}',
       symbols: [
         { symbol: 'y_i', meaning: 'Actual observed target value for instance i' },
-        { symbol: 'a_1 x_i + a_0', meaning: 'Predicted value (\\hat{y}_i) from the regression line' },
+        { symbol: '\\hat{y}_i = a_1 x_i + a_0', meaning: 'Predicted value from the regression line' },
         { symbol: '\\varepsilon', meaning: 'Random noise / error term' },
         { symbol: 'N', meaning: 'Total number of sample observations' },
-        { symbol: 'R^2', meaning: '1 - (SSE / SST), goodness of fit on a 0-100% scale' },
+        { symbol: 'R^2', meaning: '1 - (\\text{SSE} / \\text{SST}), coefficient of determination (0-100% goodness of fit)' },
       ],
       numericalExample: {
         problem: 'Given data points (1, 2), (2, 4), (3, 5). Evaluate line y = 1.5x + 0.8.',
         steps: [
-          { stepName: 'Compute Predictions ŷ', calculation: 'ŷ_1 = 1.5(1)+0.8=2.3, \\; ŷ_2 = 1.5(2)+0.8=3.8, \\; ŷ_3 = 1.5(3)+0.8=5.3', result: '2.3, 3.8, 5.3', explanation: 'Substitute each x into linear equation.' },
-          { stepName: 'Calculate Residual Errors (y - ŷ)', calculation: 'e_1 = 2 - 2.3 = -0.3, \\; e_2 = 4 - 3.8 = +0.2, \\; e_3 = 5 - 5.3 = -0.3', result: '-0.3, +0.2, -0.3', explanation: 'Vertical distances from points to the line.' },
-          { stepName: 'Square the Residuals', calculation: '(-0.3)^2 = 0.09, \\; (0.2)^2 = 0.04, \\; (-0.3)^2 = 0.09', result: '0.09, 0.04, 0.09', explanation: 'Squaring penalizes larger errors and eliminates sign cancellation.' },
-          { stepName: 'Compute Mean Squared Error (MSE)', calculation: 'MSE = (0.09 + 0.04 + 0.09) / 3 = 0.22 / 3', result: '0.0733', explanation: 'Average squared deviation.' },
+          { stepName: 'Compute Predictions ŷ', calculation: '\\hat{y}_1 = 1.5(1)+0.8=2.3, \\; \\hat{y}_2 = 1.5(2)+0.8=3.8, \\; \\hat{y}_3 = 1.5(3)+0.8=5.3', result: '2.3, \\; 3.8, \\; 5.3', explanation: 'Substitute each x coordinate into the linear equation.' },
+          { stepName: 'Calculate Residual Errors (y - ŷ)', calculation: 'e_1 = 2 - 2.3 = -0.3, \\; e_2 = 4 - 3.8 = +0.2, \\; e_3 = 5 - 5.3 = -0.3', result: '-0.3, \\; +0.2, \\; -0.3', explanation: 'Vertical distances from empirical points to the fitted line.' },
+          { stepName: 'Square the Residuals', calculation: '(-0.3)^2 = 0.09, \\; (0.2)^2 = 0.04, \\; (-0.3)^2 = 0.09', result: '0.09, \\; 0.04, \\; 0.09', explanation: 'Squaring penalizes larger outliers and eliminates sign cancellation.' },
+          { stepName: 'Compute Mean Squared Error (MSE)', calculation: '\\text{MSE} = \\frac{0.09 + 0.04 + 0.09}{3} = \\frac{0.22}{3}', result: '0.0733', explanation: 'Average squared deviation across all 3 training samples.' },
         ],
         finalMeaning: 'The MSE of 0.0733 indicates a tight fit. Gradient descent or analytical OLS seeks the unique (a₀, a₁) that minimizes this MSE value to its global minimum.',
       },

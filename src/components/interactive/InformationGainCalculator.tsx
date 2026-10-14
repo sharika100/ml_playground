@@ -3,6 +3,7 @@ import { PLAY_TENNIS_DATASET, GYM_DATASET, RESTAURANT_DATASET, DatasetDef } from
 import { calculateEntropy, calculateInformationGain } from '../../math/entropy';
 import { Sparkles, Trophy, Layers, ChevronRight, HelpCircle, CheckCircle2 } from 'lucide-react';
 import { triggerCelebration } from '../common/Celebration';
+import { InlineMath, MathFormula, MathText } from '../common/MathFormula';
 
 export const InformationGainCalculator: React.FC = () => {
   const [selectedDatasetId, setSelectedDatasetId] = useState<string>('play-tennis');
@@ -191,12 +192,12 @@ export const InformationGainCalculator: React.FC = () => {
         {/* STEP 1: PARENT ENTROPY */}
         {activeStep >= 1 && (
           <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
                 Step 1: Calculate Parent Dataset Entropy H(S)
               </span>
-              <span className="font-mono text-xs font-bold text-brand-600 dark:text-brand-400">
-                H(S) = {parentEntropy.toFixed(4)} bits
+              <span className="text-xs font-bold text-brand-600 dark:text-brand-400">
+                <InlineMath math={`H(S) = ${parentEntropy.toFixed(4)} \\text{ bits}`} />
               </span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -236,11 +237,11 @@ export const InformationGainCalculator: React.FC = () => {
                         </span>
                       )}
                     </div>
-                    <div className="font-mono text-xs text-slate-500 mb-2">
-                      |S_v| = {childTotal} samples ({child.counts.map((c, i) => `${c} "${targetLabels[i]}"`).join(', ')})
+                    <div className="text-xs text-slate-500 mb-2">
+                      <InlineMath math={`|S_v| = ${childTotal}`} /> ({child.counts.map((c, i) => `${c} "${targetLabels[i]}"`).join(', ')})
                     </div>
-                    <div className="font-mono text-xs font-bold text-slate-800 dark:text-slate-200">
-                      H(S_v) = {childRes.entropy.toFixed(4)} bits
+                    <div className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                      <InlineMath math={`H(S_v) = ${childRes.entropy.toFixed(4)} \\text{ bits}`} />
                     </div>
                   </div>
                 );
@@ -252,44 +253,45 @@ export const InformationGainCalculator: React.FC = () => {
         {/* STEP 3: WEIGHTED SUM OF CHILD ENTROPIES */}
         {activeStep >= 3 && (
           <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
                 Step 3: Compute Expected / Weighted Child Entropy
               </span>
-              <span className="font-mono text-xs font-bold text-amber-600 dark:text-amber-400">
-                E_weighted = {currentGainDetail.weightedChildEntropy.toFixed(4)} bits
+              <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
+                <InlineMath math={`E_{\\text{weighted}} = ${currentGainDetail.weightedChildEntropy.toFixed(4)} \\text{ bits}`} />
               </span>
             </div>
-            <div className="text-xs font-mono text-slate-600 dark:text-slate-300 overflow-x-auto py-1">
-              ∑ (|S_v| / |S|) * H(S_v) ={' '}
-              {currentGainDetail.children
-                .map((c) => {
-                  const ct = c.counts.reduce((a, b) => a + b, 0);
-                  const ent = calculateEntropy(c.counts).entropy;
-                  return `(${ct}/${dataset.data.length} * ${ent.toFixed(3)})`;
-                })
-                .join(' + ')}{' '}
-              = <strong className="text-amber-600">{currentGainDetail.weightedChildEntropy.toFixed(4)} bits</strong>
+            <div className="text-xs text-slate-600 dark:text-slate-300 overflow-x-auto py-1">
+              <InlineMath
+                math={`\\sum_{v} \\frac{|S_v|}{|S|} H(S_v) = ${currentGainDetail.children
+                  .map((c) => {
+                    const ct = c.counts.reduce((a, b) => a + b, 0);
+                    const ent = calculateEntropy(c.counts).entropy;
+                    return `\\frac{${ct}}{${dataset.data.length}}(${ent.toFixed(3)})`;
+                  })
+                  .join(' + ')} = ${currentGainDetail.weightedChildEntropy.toFixed(4)} \\text{ bits}`}
+              />
             </div>
           </div>
         )}
 
         {/* STEP 4: FINAL INFORMATION GAIN */}
         {activeStep >= 4 && (
-          <div className="p-5 rounded-2xl bg-gradient-to-r from-brand-900 to-navy-950 text-white shadow-lg space-y-2">
-            <div className="flex items-center justify-between">
+          <div className="p-5 rounded-2xl bg-gradient-to-r from-brand-900 to-navy-950 text-white shadow-lg space-y-2.5">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-300">
                 Step 4: Final Information Gain
               </span>
-              <span className="text-lg font-black font-mono text-white">
-                Gain(S, {activeAttribute}) = {currentGainDetail.informationGain.toFixed(4)} bits
+              <span className="text-base sm:text-lg font-black text-white">
+                <InlineMath math={`\\text{Gain}(S, \\text{${activeAttribute}}) = ${currentGainDetail.informationGain.toFixed(4)} \\text{ bits}`} />
               </span>
             </div>
-            <div className="text-xs font-mono text-brand-100">
-              Gain = H(S) − E_weighted = {parentEntropy.toFixed(4)} − {currentGainDetail.weightedChildEntropy.toFixed(4)} ={' '}
-              <span className="font-bold text-amber-300">{currentGainDetail.informationGain.toFixed(4)} bits</span>
+            <div className="text-xs text-brand-100 overflow-x-auto py-0.5">
+              <InlineMath
+                math={`\\text{Gain} = H(S) - E_{\\text{weighted}} = ${parentEntropy.toFixed(4)} - ${currentGainDetail.weightedChildEntropy.toFixed(4)} = ${currentGainDetail.informationGain.toFixed(4)} \\text{ bits}`}
+              />
             </div>
-            <p className="text-xs text-brand-200 pt-1 border-t border-brand-800/80">
+            <p className="text-xs text-brand-200 pt-1.5 border-t border-brand-800/80 leading-relaxed">
               {activeAttribute === bestAttribute.attribute ? (
                 <span>
                   🏆 <strong>Optimal Choice!</strong> This attribute removes the highest amount of uncertainty ({currentGainDetail.informationGain.toFixed(4)} bits). ID3 selects this feature as the test node.

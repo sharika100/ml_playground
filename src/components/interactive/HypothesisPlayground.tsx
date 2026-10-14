@@ -3,6 +3,7 @@ import { Point2D } from '../../math/linearRegression';
 import { fitPolynomial, evalPoly, polyMSE } from '../../math/hypothesis';
 import { AlertTriangle, CheckCircle, Info, Sparkles, TrendingUp, Layers } from 'lucide-react';
 import { triggerCelebration } from '../common/Celebration';
+import { InlineMath, MathText } from '../common/MathFormula';
 
 const TRAIN_POINTS: Point2D[] = [
   { x: 1, y: 1.8, id: 'tr1' },
@@ -93,8 +94,10 @@ export const HypothesisPlayground: React.FC = () => {
         {/* SVG Plot */}
         <div className="lg:col-span-7 bg-slate-50 dark:bg-slate-800/50 p-5 rounded-3xl border border-slate-200 dark:border-slate-700/60">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
-              Hypothesis Curve h(x) vs Training & Unseen Data
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 flex items-center gap-1">
+              <span>Hypothesis Curve</span>
+              <InlineMath math="h(x)" />
+              <span>vs Data</span>
             </span>
             <div className="flex items-center gap-3 text-xs">
               <span className="flex items-center gap-1 text-slate-700 dark:text-slate-300 font-semibold">
@@ -169,9 +172,11 @@ export const HypothesisPlayground: React.FC = () => {
             </svg>
           </div>
 
-          <div className="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-200 dark:border-slate-700/60">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-200 dark:border-slate-700/60 gap-2 overflow-x-auto">
             <span>Model Degree: <strong className="font-mono text-brand-600 dark:text-brand-400">d = {degree}</strong></span>
-            <span>Polynomial: h(x) = {coeffs.map((c, i) => `${c.toFixed(2)}${i > 0 ? `x^${i}` : ''}`).join(' + ')}</span>
+            <span className="truncate max-w-full">
+              <InlineMath math={`h(x) = ${coeffs.map((c, i) => `${c >= 0 && i > 0 ? '+' : ''}${c.toFixed(2)}${i > 0 ? (i === 1 ? 'x' : `x^${i}`) : ''}`).join(' ')}`} />
+            </span>
           </div>
         </div>
 
@@ -200,7 +205,7 @@ export const HypothesisPlayground: React.FC = () => {
             </div>
 
             <div className="text-[11px] text-slate-400 pt-1">
-              Higher degrees allow wilder curves ($m = {degree + 1}$ parameters), increasing risk of memorizing noise.
+              <MathText text={`Higher degrees allow wilder curves ($m = ${degree + 1}$ parameters), increasing risk of memorizing noise.`} />
             </div>
           </div>
 

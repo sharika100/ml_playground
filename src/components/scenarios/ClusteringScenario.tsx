@@ -223,9 +223,9 @@ export const ClusteringScenario: React.FC = () => {
       userPrediction={userPrediction}
       onSelectPrediction={setUserPrediction}
       currentStepDescription={currentActionDesc}
-      scientificExplanation="K-Means (MacQueen, 1967) alternates between two steps: 1) Assignment step: argmin_k ||x_i - μ_k||^2; 2) Update step: μ_k = (1/|S_k|) ∑_{x_i ∈ S_k} x_i. This iteratively minimizes the within-cluster sum of squares (WCSS). Notice that clusters depend on initialization and chosen k!"
-      formalConcept="Module 5 Form of Learning #2: Unsupervised Learning. The learner discovers patterns and clusters in the input without explicit target output values y provided in the training examples."
-      followUpChallenge="Switch k between 2, 3, and 4 clusters using the buttons below to see how geometric partition boundaries reorganize!"
+      scientificExplanation="K-Means (MacQueen, 1967) alternates between two steps: 1) Assignment step: $\\operatorname{arg\\,min}_k \\|\\mathbf{x}_i - \\boldsymbol{\\mu}_k\\|^2$; 2) Update step: $\\boldsymbol{\\mu}_k = \\frac{1}{|S_k|} \\sum_{\\mathbf{x}_i \\in S_k} \\mathbf{x}_i$. This iteratively minimizes the within-cluster sum of squares (WCSS). Notice that clusters depend on initialization and chosen $k$!"
+      formalConcept="Module 5 Form of Learning #2: Unsupervised Learning. The learner discovers patterns and clusters in the input without explicit target output values $y$ provided in the training examples."
+      followUpChallenge="Switch $k$ between 2, 3, and 4 clusters using the buttons below to see how geometric partition boundaries reorganize!"
       telemetry={
         <>
           <div className="flex flex-col items-center">

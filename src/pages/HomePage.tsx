@@ -23,6 +23,7 @@ import { CURRICULUM } from '../data/curriculum';
 import { VIDEO_RESOURCES } from '../data/videos';
 import { calculateEntropy } from '../math/entropy';
 import { TeachTheMachineHero } from '../components/home/TeachTheMachineHero';
+import { InlineMath, MathText } from '../components/common/MathFormula';
 
 interface HomePageProps {
   onStartLearning: () => void;
@@ -143,7 +144,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="flex items-center justify-between mb-3">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-brand-50 text-brand-700 dark:bg-brand-950/70 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
                   <Gauge className="w-3 h-3" />
-                  <span>Shannon Entropy H(S)</span>
+                  <span>Shannon Entropy</span>
+                  <InlineMath math="H(S)" />
                 </span>
                 <span className="text-[11px] font-mono text-slate-400">10 Samples</span>
               </div>
@@ -151,7 +153,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 Measure Disorder in Real Time
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
-                Click tokens or drag the slider to observe how class balance shifts entropy from 0 (pure) to 1.0 (pure chaos).
+                <MathText text="Click tokens or drag the slider to observe how class balance shifts entropy from $0$ (pure) to $1.0$ (pure chaos)." />
               </p>
 
               {/* Mini Token Matrix */}
@@ -230,23 +232,25 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="flex gap-2 mb-3">
                 <button
                   onClick={() => setSelectedSplit('outlook')}
-                  className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+                  className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all border flex items-center justify-center gap-1 ${
                     selectedSplit === 'outlook'
                       ? 'bg-emerald-500 text-white border-emerald-600'
                       : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
                   }`}
                 >
-                  Split: Outlook (Gain=0.247)
+                  <span>Outlook</span>
+                  <InlineMath math="(\text{Gain} = 0.247)" />
                 </button>
                 <button
                   onClick={() => setSelectedSplit('humidity')}
-                  className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+                  className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all border flex items-center justify-center gap-1 ${
                     selectedSplit === 'humidity'
                       ? 'bg-emerald-500 text-white border-emerald-600'
                       : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
                   }`}
                 >
-                  Split: Humidity (Gain=0.151)
+                  <span>Humidity</span>
+                  <InlineMath math="(\text{Gain} = 0.151)" />
                 </button>
               </div>
 
@@ -297,12 +301,15 @@ export const HomePage: React.FC<HomePageProps> = ({
                 Minimize Residual Error
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 mb-3">
-                Adjust the model slope m to minimize Mean Squared Error (MSE) across sample points:
+                <MathText text="Adjust the model slope $m$ to minimize Mean Squared Error ($\text{MSE}$) across sample points:" />
               </p>
 
               <div className="space-y-2 mb-3">
                 <div className="flex justify-between text-xs font-mono">
-                  <span className="text-slate-500">Slope m: {regressionSlope.toFixed(2)}</span>
+                  <span className="text-slate-500 flex items-center gap-1">
+                    <span>Slope</span>
+                    <InlineMath math="m" />: {regressionSlope.toFixed(2)}
+                  </span>
                   <span className="font-bold text-brand-600 dark:text-brand-400">
                     Live MSE: {regressionMSE}
                   </span>
@@ -324,8 +331,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <span className="text-[9px] font-mono uppercase tracking-widest text-indigo-300 block">
                     Fitted Hypothesis
                   </span>
-                  <span className="text-sm font-mono font-bold text-indigo-200">
-                    ŷ = {regressionSlope.toFixed(2)}x + 0.50
+                  <span className="text-sm font-semibold text-indigo-200">
+                    <InlineMath math={`\\hat{y} = ${regressionSlope.toFixed(2)}x + 0.50`} />
                   </span>
                 </div>
                 <span className="text-xs px-2 py-1 rounded-lg bg-indigo-950 border border-indigo-800 text-indigo-300 font-mono">
