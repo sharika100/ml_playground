@@ -8,19 +8,21 @@ import {
   Calculator,
   Play,
   CheckCircle2,
-  Award,
   School,
   ExternalLink,
-  Compass,
   Gauge,
   TrendingUp,
   GitBranch,
   Film,
+  Layers,
+  ChevronRight,
+  Target
 } from 'lucide-react';
 import { YoutubeIcon } from '../components/common/YoutubeIcon';
 import { CURRICULUM } from '../data/curriculum';
 import { VIDEO_RESOURCES } from '../data/videos';
 import { calculateEntropy } from '../math/entropy';
+import { TeachTheMachineHero } from '../components/home/TeachTheMachineHero';
 
 interface HomePageProps {
   onStartLearning: () => void;
@@ -35,7 +37,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   const featuredVideo = VIDEO_RESOURCES[0];
 
-  // HERO LIVE INTERACTIVE TEASER STATE
+  // MINI SANDBOX 1: Shannon Entropy Live State
   const [heroYes, setHeroYes] = useState<number>(5);
   const heroTotal = 10;
   const heroNo = heroTotal - heroYes;
@@ -43,141 +45,35 @@ export const HomePage: React.FC<HomePageProps> = ({
     return calculateEntropy([heroYes, heroNo]).entropy;
   }, [heroYes, heroNo]);
 
+  // MINI SANDBOX 2: Decision Tree Splitter Demo State
+  const [selectedSplit, setSelectedSplit] = useState<'outlook' | 'humidity'>('outlook');
+
+  // MINI SANDBOX 3: Regression Slope State
+  const [regressionSlope, setRegressionSlope] = useState<number>(1.2);
+  // Sample 4 points: (1, 2), (2, 3), (3, 5), (4, 4)
+  const regressionPoints = [
+    { x: 1, y: 2 },
+    { x: 2, y: 3 },
+    { x: 3, y: 5 },
+    { x: 4, y: 4 },
+  ];
+  const regressionMSE = useMemo(() => {
+    const sumSq = regressionPoints.reduce((acc, pt) => {
+      const predY = regressionSlope * pt.x + 0.5;
+      return acc + Math.pow(pt.y - predY, 2);
+    }, 0);
+    return (sumSq / regressionPoints.length).toFixed(2);
+  }, [regressionSlope]);
+
   return (
     <div className="space-y-16 pb-16">
-      {/* HERO SECTION WITH LIVE INTERACTIVE TEASER */}
-      <section className="relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-b from-brand-50/70 via-white to-transparent dark:from-navy-950 dark:via-navy-900 dark:to-transparent">
+      {/* HERO SECTION: TEACH THE MACHINE INTERACTIVE EXPERIENCE */}
+      <section className="relative overflow-hidden pt-8 pb-12 sm:pt-14 sm:pb-16 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-b from-brand-50/70 via-white to-transparent dark:from-navy-950 dark:via-navy-900 dark:to-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-4xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-100 dark:bg-brand-950/80 border border-brand-200 dark:border-brand-800 text-brand-800 dark:text-brand-300 text-xs font-bold mb-6 animate-pulse">
-              <Sparkles className="w-3.5 h-3.5 text-brand-600" />
-              <span>Interactive Educational Platform • Free & Open Access</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-6">
-              Machine Learning made simple.{' '}
-              <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-600 to-violet-600 dark:from-brand-400 dark:via-indigo-400 dark:to-violet-400">
-                Understanding made interactive.
-              </span>
-            </h1>
-
-            <p className="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
-              Explore concepts. Play with models. Understand the maths. Discover how machines learn from observations—with live simulations, step-by-step derivations, and zero fluff.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-xl mx-auto">
-              <button
-                onClick={onStartLearning}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-sm shadow-xl shadow-brand-500/25 transition-all hover:scale-105 active:scale-95"
-              >
-                <Sparkles className="w-4 h-4" />
-                <span>Start Learning Journey</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </button>
-
-              <button
-                onClick={() => onNavigateTab('scenarios')}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white font-extrabold text-sm shadow-lg shadow-amber-500/25 transition-all hover:scale-105 active:scale-95"
-              >
-                <Film className="w-4 h-4" />
-                <span>Watch Animated Scenarios</span>
-              </button>
-
-              <button
-                onClick={() => onNavigateTab('lab')}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm border border-slate-200 dark:border-slate-700 shadow-sm transition-all hover:scale-105 active:scale-95"
-              >
-                <Cpu className="w-4 h-4 text-brand-600 dark:text-brand-400" />
-                <span>Labs</span>
-              </button>
-            </div>
-          </div>
-
-          {/* LIVE HERO INTERACTIVE TEASER CARD */}
-          <div className="max-w-3xl mx-auto p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border-2 border-brand-200 dark:border-brand-900/60 shadow-2xl space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 gap-2">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
-                <Gauge className="w-4 h-4 text-brand-600" />
-                <span>Live Hero Sandbox: Feel Shannon Entropy in Real Time</span>
-              </div>
-              <span className="text-[11px] text-slate-400 font-mono">10 Sample Elements</span>
-            </div>
-
-            {/* Visual Token Row */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs font-semibold text-slate-600 dark:text-slate-300">
-                <span>Click presets or drag the slider:</span>
-                <span className="font-mono text-brand-600 dark:text-brand-400">
-                  {heroYes} Yes (+) vs {heroNo} No (−)
-                </span>
-              </div>
-
-              <div className="flex justify-center gap-2 py-2 flex-wrap">
-                {Array.from({ length: heroTotal }).map((_, i) => {
-                  const isYes = i < heroYes;
-                  return (
-                    <button
-                      key={i}
-                      onClick={() => setHeroYes(isYes ? heroYes - 1 : heroYes + 1)}
-                      className={`w-9 h-9 rounded-xl font-mono text-sm font-black flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-sm border ${
-                        isYes
-                          ? 'bg-emerald-500 text-white border-emerald-400'
-                          : 'bg-amber-500 text-white border-amber-400'
-                      }`}
-                      title={`Click to toggle token`}
-                    >
-                      {isYes ? '+' : '−'}
-                    </button>
-                  );
-                })}
-              </div>
-
-              <input
-                type="range"
-                min="0"
-                max={heroTotal}
-                value={heroYes}
-                onChange={(e) => setHeroYes(parseInt(e.target.value) || 0)}
-                className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-600 mt-2"
-              />
-            </div>
-
-            {/* Real-Time Entropy Gauge */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-navy-900 to-slate-900 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 border border-slate-800">
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-brand-300 block">
-                  Shannon Entropy H(S)
-                </span>
-                <div className="text-3xl font-black font-mono tracking-tight text-white mt-0.5">
-                  {heroEntropy.toFixed(3)} <span className="text-sm font-normal text-slate-400">bits</span>
-                </div>
-              </div>
-
-              <div className="flex-1 max-w-xs space-y-1">
-                <div className="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden border border-slate-700">
-                  <div
-                    className="h-full bg-gradient-to-r from-emerald-500 via-amber-500 to-rose-500 transition-all duration-300 rounded-full"
-                    style={{ width: `${heroEntropy * 100}%` }}
-                  />
-                </div>
-                <div className="text-[11px] text-slate-300 font-medium">
-                  {heroEntropy === 0
-                    ? '✨ 100% Certainty (Pure distribution)'
-                    : heroEntropy >= 0.99
-                    ? '⚠️ Maximum Chaos (50/50 Coin Flip)'
-                    : 'Partial Uncertainty'}
-                </div>
-              </div>
-
-              <button
-                onClick={() => onNavigateToTopic('topic-3')}
-                className="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md transition-all whitespace-nowrap self-start sm:self-center"
-              >
-                Deep-Dive Topic 3 →
-              </button>
-            </div>
-          </div>
+          <TeachTheMachineHero
+            onStartLearning={onStartLearning}
+            onNavigateTab={onNavigateTab}
+          />
         </div>
       </section>
 
@@ -222,6 +118,256 @@ export const HomePage: React.FC<HomePageProps> = ({
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Verified video lectures by Sharika T R, misconception busters, and downloadable study summaries.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* COMPACT INTERACTIVE LAB PREVIEWS (BELOW THE FOLD) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div>
+          <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+            Interactive Laboratories Preview
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-1">
+            Play with the Math & Watch Models Learn
+          </h2>
+          <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
+            Test key algorithms with real-time feedback before diving into complete curriculum lessons.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* PREVIEW CARD 1: Shannon Entropy Gauge */}
+          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-brand-50 text-brand-700 dark:bg-brand-950/70 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+                  <Gauge className="w-3 h-3" />
+                  <span>Shannon Entropy H(S)</span>
+                </span>
+                <span className="text-[11px] font-mono text-slate-400">10 Samples</span>
+              </div>
+              <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">
+                Measure Disorder in Real Time
+              </h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
+                Click tokens or drag the slider to observe how class balance shifts entropy from 0 (pure) to 1.0 (pure chaos).
+              </p>
+
+              {/* Mini Token Matrix */}
+              <div className="flex justify-center gap-1.5 py-2 flex-wrap">
+                {Array.from({ length: heroTotal }).map((_, i) => {
+                  const isYes = i < heroYes;
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => setHeroYes(isYes ? heroYes - 1 : heroYes + 1)}
+                      className={`w-7 h-7 rounded-lg font-mono text-xs font-black flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-sm border ${
+                        isYes
+                          ? 'bg-emerald-500 text-white border-emerald-400'
+                          : 'bg-amber-500 text-white border-amber-400'
+                      }`}
+                      title="Click to toggle token"
+                    >
+                      {isYes ? '+' : '−'}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <input
+                type="range"
+                min="0"
+                max={heroTotal}
+                value={heroYes}
+                onChange={(e) => setHeroYes(parseInt(e.target.value) || 0)}
+                className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-600 mt-2"
+              />
+
+              <div className="mt-3 p-3 rounded-2xl bg-slate-900 text-white flex items-center justify-between">
+                <div>
+                  <span className="text-[9px] font-mono uppercase tracking-widest text-brand-300 block">
+                    Calculated Entropy
+                  </span>
+                  <span className="text-xl font-black font-mono text-emerald-400">
+                    {heroEntropy.toFixed(3)}{' '}
+                    <span className="text-xs font-normal text-slate-400">bits</span>
+                  </span>
+                </div>
+                <div className="text-right text-[11px] text-slate-300 font-medium">
+                  {heroEntropy === 0 ? '✨ Pure (0.0)' : heroEntropy >= 0.99 ? '⚠️ Max (1.0)' : 'Mixed'}
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => onNavigateToTopic('topic-3')}
+              className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
+            >
+              <span>Explore Entropy & Gain in Topic 03</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          {/* PREVIEW CARD 2: Decision Tree Splitting */}
+          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                  <GitBranch className="w-3 h-3" />
+                  <span>ID3 Decision Trees</span>
+                </span>
+                <span className="text-[11px] font-mono text-slate-400">Play Tennis</span>
+              </div>
+              <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">
+                Visual Feature Splitting
+              </h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-3">
+                Switch the root candidate attribute to see how the branch purities change:
+              </p>
+
+              {/* Split selection */}
+              <div className="flex gap-2 mb-3">
+                <button
+                  onClick={() => setSelectedSplit('outlook')}
+                  className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+                    selectedSplit === 'outlook'
+                      ? 'bg-emerald-500 text-white border-emerald-600'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  Split: Outlook (Gain=0.247)
+                </button>
+                <button
+                  onClick={() => setSelectedSplit('humidity')}
+                  className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+                    selectedSplit === 'humidity'
+                      ? 'bg-emerald-500 text-white border-emerald-600'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  Split: Humidity (Gain=0.151)
+                </button>
+              </div>
+
+              {/* Mini Tree Branch Diagram */}
+              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-center space-y-2">
+                <div className="inline-block px-3 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-mono text-xs font-bold">
+                  Root: {selectedSplit === 'outlook' ? 'Outlook' : 'Humidity'}
+                </div>
+                <div className="grid grid-cols-2 gap-2 text-[11px] pt-1">
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                    <span className="font-bold text-slate-800 dark:text-slate-200">
+                      {selectedSplit === 'outlook' ? 'Sunny (2+, 3−)' : 'High (3+, 4−)'}
+                    </span>
+                    <div className="text-[10px] text-slate-400 mt-0.5">Need sub-split</div>
+                  </div>
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                    <span className="font-bold text-slate-800 dark:text-slate-200">
+                      {selectedSplit === 'outlook' ? 'Overcast (4+, 0−)' : 'Normal (6+, 1−)'}
+                    </span>
+                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">
+                      {selectedSplit === 'outlook' ? '✨ Pure Leaf: Yes' : 'High Purity'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => onNavigateTab('lab')}
+              className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
+            >
+              <span>Build Full Trees in Interactive Lab</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          {/* PREVIEW CARD 3: Regression & Residuals */}
+          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-indigo-50 text-indigo-700 dark:bg-indigo-950/70 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                  <TrendingUp className="w-3 h-3" />
+                  <span>Linear Regression</span>
+                </span>
+                <span className="text-[11px] font-mono text-slate-400">Ordinary Least Squares</span>
+              </div>
+              <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">
+                Minimize Residual Error
+              </h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-3">
+                Adjust the model slope m to minimize Mean Squared Error (MSE) across sample points:
+              </p>
+
+              <div className="space-y-2 mb-3">
+                <div className="flex justify-between text-xs font-mono">
+                  <span className="text-slate-500">Slope m: {regressionSlope.toFixed(2)}</span>
+                  <span className="font-bold text-brand-600 dark:text-brand-400">
+                    Live MSE: {regressionMSE}
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="0.5"
+                  max="2.0"
+                  step="0.05"
+                  value={regressionSlope}
+                  onChange={(e) => setRegressionSlope(parseFloat(e.target.value))}
+                  className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                />
+              </div>
+
+              {/* Mini residual visualizer */}
+              <div className="p-3 rounded-2xl bg-slate-900 text-white flex items-center justify-between">
+                <div>
+                  <span className="text-[9px] font-mono uppercase tracking-widest text-indigo-300 block">
+                    Fitted Hypothesis
+                  </span>
+                  <span className="text-sm font-mono font-bold text-indigo-200">
+                    ŷ = {regressionSlope.toFixed(2)}x + 0.50
+                  </span>
+                </div>
+                <span className="text-xs px-2 py-1 rounded-lg bg-indigo-950 border border-indigo-800 text-indigo-300 font-mono">
+                  {parseFloat(regressionMSE) < 0.6 ? '🎯 Near Optimal' : 'Tuning Needed'}
+                </span>
+              </div>
+            </div>
+
+            <button
+              onClick={() => onNavigateToTopic('topic-4')}
+              className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
+            >
+              <span>Explore Regression in Topic 04</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ANIMATED SCENARIOS CALLOUT BANNER */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 text-white shadow-2xl relative overflow-hidden">
+          <div className="relative z-10 max-w-2xl space-y-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-white/20 backdrop-blur-md text-white border border-white/30">
+              <Film className="w-3.5 h-3.5" />
+              <span>Scenario-Driven Learning Suite</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black leading-tight">
+              Watch Real Machine Learning Concepts in Motion
+            </h2>
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed">
+              Step beyond static text. Explore our 5 rich animated simulations with controllable scenarios: Robot Grid Q-Learning, Spam Classifier Stream, Decision Tree Forest, 2D K-Means Clustering, and Aspect Sentiment Analysis.
+            </p>
+            <div className="pt-2">
+              <button
+                onClick={() => onNavigateTab('scenarios')}
+                className="px-6 py-3.5 rounded-2xl bg-white text-slate-900 font-extrabold text-sm shadow-xl hover:bg-slate-100 transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+              >
+                <span>Launch All 5 Scenarios</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
