@@ -53,14 +53,14 @@ export const LabPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Lab Header */}
       <div className="text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-950/80 text-brand-700 dark:text-brand-300 text-xs font-bold mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF0FD] text-[#315CEB] text-xs font-black mb-3 border border-[#315CEB]/20">
           <FlaskConical className="w-3.5 h-3.5" />
           <span>Interactive Machine Learning Experiments</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+        <h1 className="text-3xl sm:text-4xl font-black text-[#26324B] tracking-tight mb-2">
           Interactive ML Lab
         </h1>
-        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="text-sm text-[#667085] leading-relaxed">
           Manipulate inputs, adjust model parameters, inspect intermediate mathematical terms, and watch algorithms learn in real time.
         </p>
       </div>
@@ -73,19 +73,19 @@ export const LabPage: React.FC = () => {
             <button
               key={lab.id}
               onClick={() => setActiveLab(lab.id)}
-              className={`p-3 rounded-xl border text-left transition-all ${
+              className={`p-3.5 rounded-2xl border text-left transition-all ${
                 isActive
-                  ? 'border-brand-500 bg-brand-50/70 dark:bg-brand-950/40 ring-2 ring-brand-500/20 text-brand-900 dark:text-brand-100'
-                  : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300 text-slate-700 dark:text-slate-300'
+                  ? 'border-[#315CEB] bg-[#EBF0FD] ring-2 ring-[#315CEB]/20 text-[#315CEB] shadow-playful-sm font-bold'
+                  : 'border-[#E8E5DE] bg-white hover:border-[#315CEB] text-[#26324B] shadow-sm'
               }`}
             >
               <div className="flex items-center gap-1.5 font-bold text-xs mb-1">
-                <span className={isActive ? 'text-brand-600 dark:text-brand-400' : 'text-slate-400'}>
+                <span className={isActive ? 'text-[#315CEB]' : 'text-[#667085]'}>
                   {lab.icon}
                 </span>
                 <span className="truncate">{lab.title}</span>
               </div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight">
+              <div className="text-[10px] text-[#667085] line-clamp-2 leading-tight">
                 {lab.desc}
               </div>
             </button>

@@ -65,14 +65,14 @@ export const ScenariosGalleryPage: React.FC<ScenariosGalleryPageProps> = ({ onNa
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-100 dark:bg-brand-950/80 text-brand-700 dark:text-brand-300 text-xs font-bold shadow-sm">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EBF0FD] text-[#315CEB] border border-[#315CEB]/20 text-xs font-black shadow-sm">
           <Film className="w-4 h-4" />
           <span>Real Animated Learning Scenarios • Interactive Simulation Theater</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+        <h1 className="text-3xl sm:text-5xl font-black text-[#26324B] tracking-tight">
           Animated Scenarios
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
           Watch machine learning algorithms come alive. Control the scenes, test what happens when conditions change, make predictions, and see the consequences in motion.
         </p>
       </div>
@@ -85,22 +85,22 @@ export const ScenariosGalleryPage: React.FC<ScenariosGalleryPageProps> = ({ onNa
             <button
               key={sc.id}
               onClick={() => setActiveScenario(sc.id)}
-              className={`p-4 rounded-2xl border text-left transition-all ${
+              className={`p-4 rounded-3xl border text-left transition-all ${
                 isActive
-                  ? 'border-brand-500 bg-brand-50/80 dark:bg-brand-950/50 ring-2 ring-brand-500/30 text-brand-900 dark:text-brand-100 shadow-md scale-102'
-                  : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300 text-slate-700 dark:text-slate-300'
+                  ? 'border-[#315CEB] bg-[#EBF0FD] ring-2 ring-[#315CEB]/30 text-[#315CEB] shadow-playful-sm scale-102 font-bold'
+                  : 'border-[#E8E5DE] bg-white hover:border-[#315CEB] text-[#26324B] shadow-sm'
               }`}
             >
               <div className="flex items-center gap-1.5 font-bold text-xs mb-1">
-                <span className={isActive ? 'text-brand-600 dark:text-brand-400' : 'text-slate-400'}>
+                <span className={isActive ? 'text-[#315CEB]' : 'text-[#667085]'}>
                   {sc.icon}
                 </span>
                 <span className="truncate">{sc.title}</span>
               </div>
-              <div className="text-[10px] font-semibold text-brand-600 dark:text-brand-400 mb-1">
+              <div className="text-[10px] font-black text-[#315CEB] mb-1">
                 {sc.paradigm}
               </div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight">
+              <div className="text-[10px] text-[#667085] line-clamp-2 leading-tight">
                 {sc.desc}
               </div>
             </button>

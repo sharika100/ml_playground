@@ -60,39 +60,39 @@ export const EntropyExplorer: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm transition-all">
+    <div className="bg-white border border-[#E8E5DE] rounded-3xl p-6 sm:p-8 shadow-playful transition-all">
       {/* Header & Metric Switcher */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-6 border-b border-[#E8E5DE] gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/70 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-bold mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF0FD] border border-[#315CEB]/20 text-[#315CEB] text-xs font-black mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Interactive Simulator</span>
           </div>
-          <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+          <h3 className="text-xl sm:text-2xl font-black text-[#26324B]">
             Shannon Entropy & Impurity Explorer
           </h3>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-xs sm:text-sm text-[#667085] mt-0.5">
             Measure the exact uncertainty of a probability distribution in bits.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl self-start sm:self-auto border border-slate-200/60 dark:border-slate-700/60">
+        <div className="flex items-center gap-2 bg-[#FFF9F0] p-1.5 rounded-2xl self-start sm:self-auto border border-[#E8E5DE] shadow-sm">
           <button
             onClick={() => setMetric('entropy')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
               metric === 'entropy'
-                ? 'bg-brand-600 text-white shadow-md'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                ? 'bg-[#315CEB] text-white shadow-playful-sm'
+                : 'text-[#667085] hover:text-[#26324B]'
             }`}
           >
             Shannon Entropy (log₂)
           </button>
           <button
             onClick={() => setMetric('gini')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
               metric === 'gini'
-                ? 'bg-brand-600 text-white shadow-md'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                ? 'bg-[#315CEB] text-white shadow-playful-sm'
+                : 'text-[#667085] hover:text-[#26324B]'
             }`}
           >
             Gini Impurity (CART)
@@ -104,12 +104,12 @@ export const EntropyExplorer: React.FC = () => {
         {/* Left Column: Interactive Controls & Tokens */}
         <div className="lg:col-span-5 space-y-6">
           {/* Interactive Tokens (Visual Sample Cards) */}
-          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60">
+          <div className="p-5 rounded-3xl bg-[#FFF9F0] border border-[#E8E5DE] shadow-inner">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+              <span className="text-xs font-black uppercase tracking-wider text-[#26324B]">
                 Sample Set Tokens ({total} items)
               </span>
-              <span className="text-[11px] text-slate-400 font-medium">Click any token to flip</span>
+              <span className="text-[11px] text-[#667085] font-medium">Click any token to flip</span>
             </div>
 
             <div className="flex flex-wrap gap-2 py-1">
@@ -119,10 +119,10 @@ export const EntropyExplorer: React.FC = () => {
                   <button
                     key={i}
                     onClick={() => handleToggleToken(i)}
-                    className={`w-8 h-8 rounded-xl font-mono text-xs font-bold flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-sm border ${
+                    className={`w-8 h-8 rounded-xl font-mono text-xs font-black flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-sm border ${
                       isYes
-                        ? 'bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-400'
-                        : 'bg-amber-500 hover:bg-amber-600 text-white border-amber-400'
+                        ? 'bg-[#247D5C] hover:bg-[#1C5F46] text-white border-[#A8E6CF]'
+                        : 'bg-[#FF8066] hover:bg-[#E0664F] text-white border-[#FF8066]'
                     }`}
                     title={`Click to flip this item to ${isYes ? 'No' : 'Yes'}`}
                   >
@@ -132,24 +132,24 @@ export const EntropyExplorer: React.FC = () => {
               })}
             </div>
 
-            <div className="mt-3 flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-200 dark:border-slate-700/60">
-              <span className="flex items-center gap-1.5 font-semibold text-emerald-600 dark:text-emerald-400">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
+            <div className="mt-3 flex items-center justify-between text-xs pt-2 border-t border-[#E8E5DE]">
+              <span className="flex items-center gap-1.5 font-bold text-[#247D5C]">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#247D5C] inline-block"></span>
                 Yes: {yesCount} ({total > 0 ? (pYes * 100).toFixed(1) : 0}%)
               </span>
-              <span className="flex items-center gap-1.5 font-semibold text-amber-600 dark:text-amber-400">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span>
+              <span className="flex items-center gap-1.5 font-bold text-[#C4462D]">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FF8066] inline-block"></span>
                 No: {noCount} ({total > 0 ? (pNo * 100).toFixed(1) : 0}%)
               </span>
             </div>
           </div>
 
           {/* Sliders */}
-          <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div className="p-5 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful-sm space-y-4">
             <div>
-              <div className="flex justify-between text-xs font-bold text-slate-800 dark:text-slate-200 mb-1.5">
+              <div className="flex justify-between text-xs font-bold text-[#26324B] mb-1.5">
                 <span>Positive Class ("Yes"): {yesCount}</span>
-                <span className="font-mono text-emerald-600 dark:text-emerald-400">P = {pYes.toFixed(3)}</span>
+                <span className="font-mono text-[#247D5C]">P = {pYes.toFixed(3)}</span>
               </div>
               <input
                 type="range"
@@ -157,14 +157,14 @@ export const EntropyExplorer: React.FC = () => {
                 max="20"
                 value={yesCount}
                 onChange={(e) => setYesCount(parseInt(e.target.value) || 0)}
-                className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+                className="w-full h-2.5 bg-[#E8E5DE] rounded-lg appearance-none cursor-pointer accent-[#247D5C]"
               />
             </div>
 
             <div>
-              <div className="flex justify-between text-xs font-bold text-slate-800 dark:text-slate-200 mb-1.5">
+              <div className="flex justify-between text-xs font-bold text-[#26324B] mb-1.5">
                 <span>Negative Class ("No"): {noCount}</span>
-                <span className="font-mono text-amber-600 dark:text-amber-400">P = {pNo.toFixed(3)}</span>
+                <span className="font-mono text-[#C4462D]">P = {pNo.toFixed(3)}</span>
               </div>
               <input
                 type="range"
@@ -172,37 +172,37 @@ export const EntropyExplorer: React.FC = () => {
                 max="20"
                 value={noCount}
                 onChange={(e) => setNoCount(parseInt(e.target.value) || 0)}
-                className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                className="w-full h-2.5 bg-[#E8E5DE] rounded-lg appearance-none cursor-pointer accent-[#FF8066]"
               />
             </div>
 
             {/* Presets */}
-            <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">
+            <div className="pt-3 border-t border-[#E8E5DE]">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#667085] block mb-2">
                 Curriculum Presets:
               </span>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => { setYesCount(9); setNoCount(5); }}
-                  className="px-2.5 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold transition-all text-left"
+                  className="px-2.5 py-2 text-xs rounded-xl bg-[#FFF9F0] hover:bg-[#EBF0FD] hover:text-[#315CEB] border border-[#E8E5DE] text-[#26324B] font-semibold transition-all text-left shadow-sm"
                 >
                   🎾 Play Tennis (9+, 5−)
                 </button>
                 <button
                   onClick={() => { setYesCount(7); setNoCount(7); }}
-                  className="px-2.5 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold transition-all text-left"
+                  className="px-2.5 py-2 text-xs rounded-xl bg-[#FFF9F0] hover:bg-[#EBF0FD] hover:text-[#315CEB] border border-[#E8E5DE] text-[#26324B] font-semibold transition-all text-left shadow-sm"
                 >
                   ⚖️ Maximum Chaos (7+, 7−)
                 </button>
                 <button
                   onClick={() => { setYesCount(14); setNoCount(0); }}
-                  className="px-2.5 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold transition-all text-left"
+                  className="px-2.5 py-2 text-xs rounded-xl bg-[#FFF9F0] hover:bg-[#EBF0FD] hover:text-[#315CEB] border border-[#E8E5DE] text-[#26324B] font-semibold transition-all text-left shadow-sm"
                 >
                   ✨ Pure Node (14+, 0−)
                 </button>
                 <button
                   onClick={() => { setYesCount(13); setNoCount(1); }}
-                  className="px-2.5 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold transition-all text-left"
+                  className="px-2.5 py-2 text-xs rounded-xl bg-[#FFF9F0] hover:bg-[#EBF0FD] hover:text-[#315CEB] border border-[#E8E5DE] text-[#26324B] font-semibold transition-all text-left shadow-sm"
                 >
                   🎯 Highly Skewed (13+, 1−)
                 </button>
@@ -211,13 +211,13 @@ export const EntropyExplorer: React.FC = () => {
           </div>
 
           {/* Uncertainty Meter KPI */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-navy-900 to-slate-900 text-white shadow-xl border border-slate-800">
+          <div className="p-6 rounded-3xl bg-[#26324B] text-white shadow-playful-lg border border-[#344465]">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-300 flex items-center gap-1.5">
-                <Gauge className="w-4 h-4" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#315CEB] flex items-center gap-1.5">
+                <Gauge className="w-4 h-4 text-[#315CEB]" />
                 {metric === 'entropy' ? 'Shannon Entropy' : 'Gini Impurity'}
               </span>
-              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">
+              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#315CEB]/20 text-[#315CEB] border border-[#315CEB]/30 font-mono">
                 {metric === 'entropy' ? 'H(S)' : 'Gini(S)'}
               </span>
             </div>
@@ -226,20 +226,20 @@ export const EntropyExplorer: React.FC = () => {
               <span className="text-5xl font-black font-mono tracking-tight text-white">
                 {metric === 'entropy' ? entropyResult.entropy.toFixed(4) : giniResult.gini.toFixed(4)}
               </span>
-              <span className="text-sm font-medium text-slate-300">
+              <span className="text-sm font-medium text-[#E8E5DE]/80">
                 {metric === 'entropy' ? 'bits of uncertainty' : 'index (0 to 0.5)'}
               </span>
             </div>
 
             {/* Visual Gauge Bar */}
-            <div className="w-full bg-slate-800 h-3 rounded-full overflow-hidden p-0.5 mb-3 border border-slate-700">
+            <div className="w-full bg-[#1A2333] h-3 rounded-full overflow-hidden p-0.5 mb-3 border border-[#344465]">
               <div
                 className={`h-full rounded-full transition-all duration-300 ${
                   entropyResult.entropy > 0.8
-                    ? 'bg-gradient-to-r from-amber-500 to-rose-500'
+                    ? 'bg-gradient-to-r from-[#F5C94B] to-[#FF8066]'
                     : entropyResult.entropy > 0.4
-                    ? 'bg-gradient-to-r from-emerald-500 to-amber-500'
-                    : 'bg-emerald-500'
+                    ? 'bg-gradient-to-r from-[#A8E6CF] to-[#F5C94B]'
+                    : 'bg-[#A8E6CF]'
                 }`}
                 style={{
                   width: `${Math.min(100, (metric === 'entropy' ? entropyResult.entropy : giniResult.gini * 2) * 100)}%`,
@@ -247,7 +247,7 @@ export const EntropyExplorer: React.FC = () => {
               />
             </div>
 
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-xs text-[#E8E5DE]/90 leading-relaxed">
               {entropyResult.entropy === 0 ? (
                 <span className="text-emerald-300 font-medium">
                   🌟 Pure Certainty (0.0 bits): Every single sample has the exact same class label. A classifier knows the outcome with 100% certainty.
@@ -268,12 +268,12 @@ export const EntropyExplorer: React.FC = () => {
         {/* Right Column: Dynamic SVG Curve & Step-by-Step Numerical Derivation */}
         <div className="lg:col-span-7 space-y-6">
           {/* Animated SVG Curve */}
-          <div className="p-5 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60">
+          <div className="p-5 rounded-3xl bg-white border border-[#E8E5DE] shadow-sm">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+              <span className="text-xs font-black uppercase tracking-wider text-[#26324B]">
                 Binary Shannon Entropy Curve H(p)
               </span>
-              <span className="text-xs font-mono font-bold text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/60 px-2 py-0.5 rounded-md border border-brand-200 dark:border-brand-800">
+              <span className="text-xs font-mono font-bold text-[#315CEB] bg-[#EBF0FD] px-2 py-0.5 rounded-md border border-[#315CEB]/20">
                 p = {pYes.toFixed(2)}, H = {entropyResult.entropy.toFixed(3)} bits
               </span>
             </div>
@@ -281,23 +281,23 @@ export const EntropyExplorer: React.FC = () => {
             <div className="w-full flex justify-center py-2">
               <svg viewBox="0 0 300 165" className="w-full max-w-lg h-auto select-none">
                 {/* Grid & Axes */}
-                <line x1="35" y1="140" x2="265" y2="140" stroke="#cbd5e1" strokeWidth="1.5" />
-                <line x1="35" y1="25" x2="35" y2="140" stroke="#cbd5e1" strokeWidth="1.5" />
+                <line x1="35" y1="140" x2="265" y2="140" stroke="#E8E5DE" strokeWidth="1.5" />
+                <line x1="35" y1="25" x2="35" y2="140" stroke="#E8E5DE" strokeWidth="1.5" />
 
                 {/* Y-axis Ticks */}
-                <text x="26" y="29" fontSize="9" fill="#94a3b8" textAnchor="end" fontFamily="monospace">1.0</text>
-                <text x="26" y="85" fontSize="9" fill="#94a3b8" textAnchor="end" fontFamily="monospace">0.5</text>
-                <text x="26" y="143" fontSize="9" fill="#94a3b8" textAnchor="end" fontFamily="monospace">0.0</text>
-                <line x1="32" y1="25" x2="265" y2="25" stroke="#f1f5f9" strokeDasharray="3,3" />
-                <line x1="32" y1="82" x2="265" y2="82" stroke="#f1f5f9" strokeDasharray="3,3" />
+                <text x="26" y="29" fontSize="9" fill="#667085" textAnchor="end" fontFamily="monospace">1.0</text>
+                <text x="26" y="85" fontSize="9" fill="#667085" textAnchor="end" fontFamily="monospace">0.5</text>
+                <text x="26" y="143" fontSize="9" fill="#667085" textAnchor="end" fontFamily="monospace">0.0</text>
+                <line x1="32" y1="25" x2="265" y2="25" stroke="#FFF9F0" strokeDasharray="3,3" />
+                <line x1="32" y1="82" x2="265" y2="82" stroke="#FFF9F0" strokeDasharray="3,3" />
 
                 {/* X-axis Ticks */}
-                <text x="35" y="154" fontSize="9" fill="#94a3b8" textAnchor="middle" fontFamily="monospace">0.0</text>
-                <text x="150" y="154" fontSize="9" fill="#94a3b8" textAnchor="middle" fontFamily="monospace">p = 0.5</text>
-                <text x="265" y="154" fontSize="9" fill="#94a3b8" textAnchor="middle" fontFamily="monospace">1.0</text>
+                <text x="35" y="154" fontSize="9" fill="#667085" textAnchor="middle" fontFamily="monospace">0.0</text>
+                <text x="150" y="154" fontSize="9" fill="#667085" textAnchor="middle" fontFamily="monospace">p = 0.5</text>
+                <text x="265" y="154" fontSize="9" fill="#667085" textAnchor="middle" fontFamily="monospace">1.0</text>
 
                 {/* Smooth Curve */}
-                <path d={svgPath} fill="none" stroke="#0c8de4" strokeWidth="3" strokeLinecap="round" />
+                <path d={svgPath} fill="none" stroke="#315CEB" strokeWidth="3.5" strokeLinecap="round" />
 
                 {/* Drop-line to X-axis */}
                 <line
@@ -305,7 +305,7 @@ export const EntropyExplorer: React.FC = () => {
                   y1={currentMarkerY}
                   x2={currentMarkerX}
                   y2="140"
-                  stroke="#f59e0b"
+                  stroke="#FF8066"
                   strokeDasharray="2,2"
                   strokeWidth="1.5"
                 />
@@ -316,7 +316,7 @@ export const EntropyExplorer: React.FC = () => {
                   cy={currentMarkerY}
                   r="10"
                   fill="none"
-                  stroke="#f59e0b"
+                  stroke="#FF8066"
                   strokeWidth="1.5"
                   className="animate-pulse"
                 />
@@ -326,60 +326,60 @@ export const EntropyExplorer: React.FC = () => {
                   cx={currentMarkerX}
                   cy={currentMarkerY}
                   r="6"
-                  fill="#f59e0b"
+                  fill="#FF8066"
                   stroke="#ffffff"
                   strokeWidth="2.5"
                 />
               </svg>
             </div>
 
-            <div className="text-center text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Notice the perfect bell symmetry: <strong className="text-slate-700 dark:text-slate-200">H(p) = H(1 - p)</strong>. The peak uncertainty always occurs at <strong className="text-brand-600 dark:text-brand-400">p = 0.5</strong>.
+            <div className="text-center text-xs text-[#667085] mt-1">
+              Notice the perfect bell symmetry: <strong className="text-[#26324B]">H(p) = H(1 - p)</strong>. The peak uncertainty always occurs at <strong className="text-[#315CEB]">p = 0.5</strong>.
             </div>
           </div>
 
           {/* Stepped Numerical Derivation */}
-          <div className="p-5 rounded-3xl bg-slate-900 text-slate-100 text-xs border border-slate-800 shadow-md space-y-3">
-            <div className="text-brand-400 font-bold uppercase tracking-wider text-[11px] flex items-center justify-between">
+          <div className="p-5 sm:p-6 rounded-3xl bg-[#26324B] text-white text-xs border border-[#344465] shadow-playful-lg space-y-3">
+            <div className="text-[#F5C94B] font-bold uppercase tracking-wider text-[11px] flex items-center justify-between">
               <span>Step-by-Step Numerical Substitution:</span>
-              <span className="text-slate-400 font-normal">N = {total} samples</span>
+              <span className="text-[#E8E5DE] font-normal">N = {total} samples</span>
             </div>
 
-            <div className="space-y-2 text-slate-300">
-              <div className="text-slate-300 overflow-x-auto py-0.5">
+            <div className="space-y-2 text-[#E8E5DE]">
+              <div className="text-[#E8E5DE] overflow-x-auto py-0.5">
                 1. Probabilities:{' '}
                 <InlineMath math={`P(+) = \\frac{${yesCount}}{${total}} = ${pYes.toFixed(4)}, \\quad P(-) = \\frac{${noCount}}{${total}} = ${pNo.toFixed(4)}`} />
               </div>
 
               {metric === 'entropy' ? (
                 <>
-                  <div className="text-slate-400 overflow-x-auto py-0.5">
+                  <div className="text-[#E8E5DE]/80 overflow-x-auto py-0.5">
                     2. Shannon Formula:{' '}
                     <InlineMath math="H(S) = - P(+) \\log_2(P(+)) - P(-) \\log_2(P(-))" />
                   </div>
-                  <div className="text-amber-300 overflow-x-auto py-0.5">
+                  <div className="text-[#F5C94B] overflow-x-auto py-0.5 font-bold">
                     3. Substitution:{' '}
                     <InlineMath
                       math={`H(S) = ${yesCount > 0 ? `- (${pYes.toFixed(4)} \\cdot (${Math.log2(pYes).toFixed(4)}))` : '- 0'} ${noCount > 0 ? `- (${pNo.toFixed(4)} \\cdot (${Math.log2(pNo).toFixed(4)}))` : '- 0'}`}
                     />
                   </div>
-                  <div className="text-emerald-400 font-bold text-sm pt-1.5 border-t border-slate-800">
+                  <div className="text-[#A8E6CF] font-bold text-sm pt-1.5 border-t border-[#344465]">
                     4. Final Entropy: <InlineMath math={`H(S) = ${entropyResult.entropy.toFixed(4)} \\text{ bits}`} />
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="text-slate-400 overflow-x-auto py-0.5">
+                  <div className="text-[#E8E5DE]/80 overflow-x-auto py-0.5">
                     2. Gini Formula:{' '}
                     <InlineMath math="\\text{Gini}(S) = 1 - \\left(P(+)^2 + P(-)^2\\right)" />
                   </div>
-                  <div className="text-amber-300 overflow-x-auto py-0.5">
+                  <div className="text-[#F5C94B] overflow-x-auto py-0.5 font-bold">
                     3. Substitution:{' '}
                     <InlineMath
                       math={`1 - \\left[(${pYes.toFixed(4)})^2 + (${pNo.toFixed(4)})^2\\right] = 1 - [${(pYes * pYes).toFixed(4)} + ${(pNo * pNo).toFixed(4)}]`}
                     />
                   </div>
-                  <div className="text-emerald-400 font-bold text-sm pt-1.5 border-t border-slate-800">
+                  <div className="text-[#A8E6CF] font-bold text-sm pt-1.5 border-t border-[#344465]">
                     4. Final Gini Impurity: <InlineMath math={`\\text{Gini}(S) = ${giniResult.gini.toFixed(4)}`} />
                   </div>
                 </>
@@ -389,14 +389,14 @@ export const EntropyExplorer: React.FC = () => {
 
           {/* Intuitive Explanation Callout */}
           {showExplanation && (
-            <div className="p-4 rounded-2xl bg-brand-50/70 dark:bg-brand-950/40 border border-brand-200 dark:border-brand-800/60 text-xs text-brand-900 dark:text-brand-200 space-y-1.5">
+            <div className="p-4 rounded-3xl bg-[#FEF9EB] border border-[#F5C94B]/50 text-xs text-[#8C6B0F] space-y-1.5 shadow-sm">
               <div className="flex items-center justify-between font-bold">
-                <span className="flex items-center gap-1.5 text-brand-700 dark:text-brand-300">
+                <span className="flex items-center gap-1.5 text-[#8C6B0F]">
                   <HelpCircle className="w-4 h-4" /> Why is Balanced Split Maximum Entropy?
                 </span>
                 <button
                   onClick={() => setShowExplanation(false)}
-                  className="text-brand-500 hover:text-brand-700 text-[11px]"
+                  className="text-[#8C6B0F] hover:text-[#26324B] text-[11px] underline"
                 >
                   Dismiss
                 </button>

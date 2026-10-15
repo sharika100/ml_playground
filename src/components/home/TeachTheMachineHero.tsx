@@ -323,84 +323,84 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
     currentIndex < dataset.items.length ? dataset.items[currentIndex] : null;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       {/* HERO BANNER & MISSION HEADLINE */}
       <div className="text-center max-w-4xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-100 dark:bg-brand-950/80 border border-brand-200 dark:border-brand-800 text-brand-800 dark:text-brand-300 text-xs font-bold shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-brand-600 animate-spin" />
-          <span>Live Interactive Machine Learning Simulator • Free & Open Access</span>
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FEF9EB] border border-[#F5C94B]/70 text-[#8C6B0F] text-xs font-extrabold shadow-playful-sm">
+          <Sparkles className="w-3.5 h-3.5 text-[#D9A927]" />
+          <span>Interactive Machine Learning Laboratory • Free & Open Access</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        <h1 className="text-4xl sm:text-6xl font-black text-[#26324B] tracking-tight leading-tight">
           Machine Learning made simple.{' '}
           <br className="hidden sm:inline" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-600 to-violet-600 dark:from-brand-400 dark:via-indigo-400 dark:to-violet-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#315CEB] via-[#FF8066] to-[#315CEB]">
             Understanding made interactive.
           </span>
         </h1>
 
-        <p className="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          Step into our interactive laboratory. Train models with visible feedback, inspect decision boundaries, and watch how machines actually make choices.
+        <p className="text-base sm:text-lg text-[#667085] max-w-2xl mx-auto leading-relaxed">
+          Explore concepts. Play with models. Understand the maths. Discover how machines learn. Train decision boundaries with live interactive feedback.
         </p>
 
         {/* TOP CTA BUTTONS */}
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
           <button
             onClick={onStartLearning}
-            className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-sm shadow-xl shadow-brand-500/25 transition-all hover:scale-105 active:scale-95"
+            className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#315CEB] hover:bg-[#2649C2] text-white font-extrabold text-sm shadow-playful-cobalt transition-all hover:scale-102 active:scale-98"
           >
             <Sparkles className="w-4 h-4" />
-            <span>Start Learning Journey</span>
+            <span>Start Exploring</span>
             <ArrowRight className="w-4 h-4 ml-0.5" />
           </button>
 
           <button
             onClick={() => onNavigateTab('scenarios')}
-            className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white font-extrabold text-sm shadow-lg shadow-amber-500/25 transition-all hover:scale-105 active:scale-95"
+            className="flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-[#FFF0ED] hover:bg-[#FFE0D9] text-[#C4462D] border border-[#FF8066]/40 font-extrabold text-sm shadow-sm transition-all hover:scale-102 active:scale-98"
           >
-            <Film className="w-4 h-4" />
+            <Film className="w-4 h-4 text-[#FF8066]" />
             <span>5 Animated Scenarios</span>
           </button>
 
           <button
-            onClick={() => onNavigateTab('lab')}
-            className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm border border-slate-200 dark:border-slate-700 shadow-sm transition-all hover:scale-105 active:scale-95"
+            onClick={() => onNavigateTab('journey')}
+            className="flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white hover:bg-[#FFF9F0] text-[#26324B] font-extrabold text-sm border-2 border-[#E8E5DE] shadow-playful-sm transition-all hover:scale-102 active:scale-98"
           >
-            <Cpu className="w-4 h-4 text-brand-600 dark:text-brand-400" />
-            <span>Explore Labs</span>
+            <Cpu className="w-4 h-4 text-[#315CEB]" />
+            <span>Browse Lessons</span>
           </button>
         </div>
       </div>
 
       {/* TEACH THE MACHINE SCENARIO BOX */}
-      <div className="rounded-3xl bg-white dark:bg-slate-900 border-2 border-brand-200 dark:border-brand-900/70 shadow-2xl overflow-hidden transition-all">
+      <div className="rounded-3xl bg-white border border-[#E8E5DE] shadow-playful-lg overflow-hidden transition-all">
         {/* SCENARIO HEADER & DATASET PICKER */}
-        <div className="p-4 sm:p-6 bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="p-5 sm:p-6 bg-[#FFF9F0] border-b border-[#E8E5DE] flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#315CEB] animate-ping" />
+              <span className="text-xs font-extrabold uppercase tracking-wider text-[#315CEB]">
                 Interactive Hero Scenario • Supervised Learning
               </span>
             </div>
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1">
+            <h2 className="text-xl sm:text-2xl font-black text-[#26324B] mt-1">
               Teach the Machine: Sorter Bot 3000
             </h2>
-            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+            <p className="text-xs text-[#667085] mt-0.5">
               Adjust the decision rule threshold θ. Guide the robot in sorting items into the correct categories!
             </p>
           </div>
 
           {/* Dataset Switcher Tabs */}
-          <div className="flex items-center p-1 rounded-2xl bg-slate-200 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 self-start md:self-auto">
+          <div className="flex items-center p-1 rounded-2xl bg-white border border-[#E8E5DE] shadow-sm self-start md:self-auto">
             {DATASETS.map((d) => (
               <button
                 key={d.id}
                 onClick={() => setSelectedDatasetId(d.id)}
                 className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all ${
                   selectedDatasetId === d.id
-                    ? 'bg-white dark:bg-brand-600 text-slate-900 dark:text-white shadow-sm'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-[#315CEB] text-white shadow-playful-sm'
+                    : 'text-[#667085] hover:text-[#26324B] hover:bg-[#FFF9F0]'
                 }`}
               >
                 <span>{d.icon}</span>
@@ -411,20 +411,20 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
         </div>
 
         {/* MAIN SIMULATION STAGE */}
-        <div className="p-4 sm:p-8 space-y-6">
+        <div className="p-5 sm:p-8 space-y-6">
           {/* TOP CONTROLS & RULE SLIDER */}
-          <div className="p-5 rounded-2xl bg-brand-50/50 dark:bg-navy-950/70 border border-brand-200 dark:border-brand-900/60 space-y-4">
+          <div className="p-5 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE] space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <Sliders className="w-4 h-4 text-brand-600 dark:text-brand-400" />
-                <span className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white">
+                <Sliders className="w-4 h-4 text-[#315CEB]" />
+                <span className="text-xs font-black uppercase tracking-wider text-[#26324B]">
                   Decision Boundary Rule
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-brand-200 dark:bg-brand-900 text-brand-800 dark:text-brand-300 font-mono font-bold">
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#EBF0FD] text-[#315CEB] border border-[#ADC4F9] font-mono font-bold">
                   θ = {threshold}
                 </span>
               </div>
-              <div className="text-xs text-slate-600 dark:text-slate-300 font-medium">
+              <div className="text-xs text-[#667085] font-semibold">
                 {dataset.ruleDescription(threshold)}
               </div>
             </div>
@@ -585,11 +585,11 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
             </div>
 
             {/* CENTER / ANIMATED ROBOT & SCANNER CHAMBER (COL 4) */}
-            <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-3xl bg-gradient-to-b from-slate-100 via-slate-50 to-white dark:from-navy-950 dark:via-slate-900 dark:to-slate-900 border border-slate-200 dark:border-slate-800 text-center relative overflow-hidden shadow-inner min-h-[320px]">
+            <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-3xl bg-gradient-to-b from-[#FFF9F0] via-white to-white border border-[#E8E5DE] text-center relative overflow-hidden shadow-inner min-h-[320px]">
               {/* Background scanner lasers */}
               <div className="absolute inset-0 pointer-events-none opacity-20">
-                <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-brand-500 to-transparent animate-pulse absolute top-1/3" />
-                <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse absolute top-2/3" />
+                <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-[#315CEB] to-transparent animate-pulse absolute top-1/3" />
+                <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-[#F5C94B] to-transparent animate-pulse absolute top-2/3" />
               </div>
 
               {/* ROBOT SVG CHARACTER */}
@@ -600,57 +600,57 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
                   viewBox="0 0 100 100"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="drop-shadow-lg"
+                  className="drop-shadow-md"
                 >
                   {/* Antenna */}
-                  <line x1="50" y1="18" x2="50" y2="4" stroke="#4F46E5" strokeWidth="3" strokeLinecap="round" />
+                  <line x1="50" y1="18" x2="50" y2="4" stroke="#315CEB" strokeWidth="3" strokeLinecap="round" />
                   <circle
                     cx="50"
                     cy="4"
                     r={robotMood === 'happy' ? 5 : 3.5}
                     fill={
                       robotMood === 'happy'
-                        ? '#10B981'
+                        ? '#247D5C'
                         : robotMood === 'confused'
-                        ? '#EF4444'
-                        : '#6366F1'
+                        ? '#FF8066'
+                        : '#315CEB'
                     }
                     className={robotMood === 'happy' ? 'animate-ping' : ''}
                   />
 
                   {/* Robot Head */}
-                  <rect x="22" y="18" width="56" height="42" rx="12" fill="#1E293B" stroke="#475569" strokeWidth="2.5" />
+                  <rect x="22" y="18" width="56" height="42" rx="12" fill="#26324B" stroke="#344465" strokeWidth="2.5" />
 
                   {/* Ears / Sensors */}
-                  <rect x="16" y="32" width="6" height="14" rx="2" fill="#64748B" />
-                  <rect x="78" y="32" width="6" height="14" rx="2" fill="#64748B" />
+                  <rect x="16" y="32" width="6" height="14" rx="2" fill="#667085" />
+                  <rect x="78" y="32" width="6" height="14" rx="2" fill="#667085" />
 
                   {/* Screen Face */}
-                  <rect x="28" y="24" width="44" height="28" rx="8" fill="#0F172A" />
+                  <rect x="28" y="24" width="44" height="28" rx="8" fill="#1A2333" />
 
                   {/* Eyes depending on mood */}
                   {robotMood === 'happy' ? (
                     <>
                       {/* Happy curved eyes */}
-                      <path d="M 36 38 Q 41 33 46 38" stroke="#10B981" strokeWidth="3" strokeLinecap="round" />
-                      <path d="M 54 38 Q 59 33 64 38" stroke="#10B981" strokeWidth="3" strokeLinecap="round" />
+                      <path d="M 36 38 Q 41 33 46 38" stroke="#A8E6CF" strokeWidth="3" strokeLinecap="round" />
+                      <path d="M 54 38 Q 59 33 64 38" stroke="#A8E6CF" strokeWidth="3" strokeLinecap="round" />
                       {/* Smile */}
-                      <path d="M 43 45 Q 50 49 57 45" stroke="#10B981" strokeWidth="2" strokeLinecap="round" />
+                      <path d="M 43 45 Q 50 49 57 45" stroke="#A8E6CF" strokeWidth="2" strokeLinecap="round" />
                     </>
                   ) : robotMood === 'confused' ? (
                     <>
                       {/* Confused / error eyes */}
-                      <circle cx="41" cy="37" r="3.5" fill="#EF4444" />
-                      <line x1="55" y1="34" x2="63" y2="42" stroke="#EF4444" strokeWidth="2.5" strokeLinecap="round" />
-                      <line x1="63" y1="34" x2="55" y2="42" stroke="#EF4444" strokeWidth="2.5" strokeLinecap="round" />
+                      <circle cx="41" cy="37" r="3.5" fill="#FF8066" />
+                      <line x1="55" y1="34" x2="63" y2="42" stroke="#FF8066" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="63" y1="34" x2="55" y2="42" stroke="#FF8066" strokeWidth="2.5" strokeLinecap="round" />
                       {/* Wavy mouth */}
-                      <path d="M 43 46 Q 47 43 51 46 T 57 46" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" />
+                      <path d="M 43 46 Q 47 43 51 46 T 57 46" stroke="#F5C94B" strokeWidth="2" strokeLinecap="round" />
                     </>
                   ) : (
                     <>
                       {/* Neutral / scanning eyes */}
-                      <circle cx="41" cy="37" r="3" fill="#38BDF8" className="animate-pulse" />
-                      <circle cx="59" cy="37" r="3" fill="#38BDF8" className="animate-pulse" />
+                      <circle cx="41" cy="37" r="3" fill="#60A5FA" className="animate-pulse" />
+                      <circle cx="59" cy="37" r="3" fill="#60A5FA" className="animate-pulse" />
                       {/* Line mouth */}
                       <line x1="44" y1="46" x2="56" y2="46" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
                     </>
@@ -660,16 +660,16 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
                   <rect x="44" y="60" width="12" height="6" fill="#475569" />
 
                   {/* Robot Body */}
-                  <rect x="26" y="66" width="48" height="28" rx="8" fill="#1E293B" stroke="#475569" strokeWidth="2" />
+                  <rect x="26" y="66" width="48" height="28" rx="8" fill="#26324B" stroke="#344465" strokeWidth="2" />
 
                   {/* Meter on body */}
-                  <rect x="34" y="74" width="32" height="12" rx="4" fill="#0F172A" />
+                  <rect x="34" y="74" width="32" height="12" rx="4" fill="#1A2333" />
                   <line
                     x1="38"
                     y1="80"
                     x2={38 + (threshold / 100) * 24}
                     y2="80"
-                    stroke="#4F46E5"
+                    stroke="#F5C94B"
                     strokeWidth="3"
                     strokeLinecap="round"
                   />
@@ -677,18 +677,18 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
               </div>
 
               {/* Speech bubble / status */}
-              <div className="w-full bg-white dark:bg-slate-800 p-3 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm text-center relative z-10">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400 block mb-0.5">
+              <div className="w-full bg-white p-3 rounded-2xl border border-[#E8E5DE] shadow-playful-sm text-center relative z-10">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#315CEB] block mb-0.5">
                   Classifier Bot Diagnostics
                 </span>
-                <p className="text-xs text-slate-700 dark:text-slate-300 font-medium leading-tight">
+                <p className="text-xs text-[#26324B] font-medium leading-tight">
                   {robotMessage}
                 </p>
               </div>
 
               {/* Item currently in scanner */}
               {currentItemBeingScanned && (
-                <div className="mt-4 p-2.5 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center gap-2 text-xs font-semibold text-brand-700 dark:text-brand-300 animate-pulse">
+                <div className="mt-4 p-2.5 rounded-xl bg-[#EBF0FD] border border-[#315CEB]/30 flex items-center gap-2 text-xs font-semibold text-[#315CEB] animate-pulse">
                   <span className="text-base">{currentItemBeingScanned.icon}</span>
                   <span>Scanning: {currentItemBeingScanned.name} ({currentItemBeingScanned.featureValue}{currentItemBeingScanned.featureUnit})</span>
                 </div>
@@ -697,26 +697,26 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
 
             {/* RIGHT / OUTPUT SORTING BINS (COL 4) */}
             <div className="lg:col-span-4 space-y-4">
-              <div className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center justify-between">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#667085] flex items-center justify-between">
                 <span>Classification Bins</span>
-                <span className="text-[10px] text-slate-400">Predicted classes</span>
+                <span className="text-[10px] text-[#667085]">Predicted classes</span>
               </div>
 
               {/* BIN A (Sweet / Positive) */}
-              <div className="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border-2 border-emerald-300 dark:border-emerald-800/80 space-y-2">
+              <div className="p-4 rounded-2xl bg-[#F0FAF6] border-2 border-[#A8E6CF] space-y-2 shadow-playful-sm">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-lg">{dataset.classAIcon}</span>
-                    <span className="font-bold text-xs text-emerald-900 dark:text-emerald-200">
+                    <span className="font-bold text-xs text-[#1F6B4F]">
                       {dataset.classAName} (≥ {threshold})
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-200/60 dark:bg-emerald-900/60 px-2 py-0.5 rounded-full">
+                  <span className="text-[11px] font-mono font-bold text-[#1F6B4F] bg-[#A8E6CF]/50 px-2 py-0.5 rounded-full">
                     {Object.values(classifiedResults).filter((r) => r.predicted === 'A').length} items
                   </span>
                 </div>
 
-                <div className="flex flex-wrap gap-1.5 min-h-[42px] items-center p-2 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-emerald-200 dark:border-emerald-900/40">
+                <div className="flex flex-wrap gap-1.5 min-h-[42px] items-center p-2 rounded-xl bg-white border border-[#A8E6CF]/60">
                   {Object.entries(classifiedResults)
                     .filter(([_, r]) => r.predicted === 'A')
                     .map(([id, r]) => {
@@ -727,8 +727,8 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
                           key={id}
                           className={`text-xs px-2 py-1 rounded-lg border font-medium flex items-center gap-1 shadow-sm ${
                             r.isCorrect
-                              ? 'bg-emerald-100 text-emerald-800 border-emerald-300 dark:bg-emerald-900/80 dark:text-emerald-200 dark:border-emerald-700'
-                              : 'bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-900/80 dark:text-rose-200 dark:border-rose-700'
+                              ? 'bg-[#E6F8F0] text-[#1F6B4F] border-[#A8E6CF]'
+                              : 'bg-[#FFF0ED] text-[#C4462D] border-[#FF8066]'
                           }`}
                           title={r.isCorrect ? 'Correct Classification' : 'False Positive (Error)'}
                         >
@@ -739,26 +739,26 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
                       );
                     })}
                   {Object.values(classifiedResults).filter((r) => r.predicted === 'A').length === 0 && (
-                    <span className="text-[11px] text-slate-400 italic">Bin empty...</span>
+                    <span className="text-[11px] text-[#667085] italic">Bin empty...</span>
                   )}
                 </div>
               </div>
 
               {/* BIN B (Sour / Negative) */}
-              <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-800/80 space-y-2">
+              <div className="p-4 rounded-2xl bg-[#FFF0ED] border-2 border-[#FF8066]/50 space-y-2 shadow-playful-sm">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-lg">{dataset.classBIcon}</span>
-                    <span className="font-bold text-xs text-amber-900 dark:text-amber-200">
+                    <span className="font-bold text-xs text-[#C4462D]">
                       {dataset.classBName} (&lt; {threshold})
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono font-bold text-amber-700 dark:text-amber-300 bg-amber-200/60 dark:bg-amber-900/60 px-2 py-0.5 rounded-full">
+                  <span className="text-[11px] font-mono font-bold text-[#C4462D] bg-[#FF8066]/20 px-2 py-0.5 rounded-full">
                     {Object.values(classifiedResults).filter((r) => r.predicted === 'B').length} items
                   </span>
                 </div>
 
-                <div className="flex flex-wrap gap-1.5 min-h-[42px] items-center p-2 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-amber-200 dark:border-amber-900/40">
+                <div className="flex flex-wrap gap-1.5 min-h-[42px] items-center p-2 rounded-xl bg-white border border-[#FF8066]/30">
                   {Object.entries(classifiedResults)
                     .filter(([_, r]) => r.predicted === 'B')
                     .map(([id, r]) => {
@@ -769,8 +769,8 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
                           key={id}
                           className={`text-xs px-2 py-1 rounded-lg border font-medium flex items-center gap-1 shadow-sm ${
                             r.isCorrect
-                              ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-900/80 dark:text-amber-200 dark:border-amber-700'
-                              : 'bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-900/80 dark:text-rose-200 dark:border-rose-700'
+                              ? 'bg-[#FEF9EB] text-[#8C6B0F] border-[#F5C94B]'
+                              : 'bg-[#FFF0ED] text-[#C4462D] border-[#FF8066]'
                           }`}
                           title={r.isCorrect ? 'Correct Classification' : 'False Negative (Error)'}
                         >
@@ -781,7 +781,7 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
                       );
                     })}
                   {Object.values(classifiedResults).filter((r) => r.predicted === 'B').length === 0 && (
-                    <span className="text-[11px] text-slate-400 italic">Bin empty...</span>
+                    <span className="text-[11px] text-[#667085] italic">Bin empty...</span>
                   )}
                 </div>
               </div>
@@ -789,14 +789,14 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
           </div>
 
           {/* CHALLENGE: PREDICT BEFORE EXPERIMENT */}
-          <div className="p-5 rounded-2xl bg-violet-50/70 dark:bg-violet-950/40 border border-violet-200 dark:border-violet-900/60 space-y-3">
+          <div className="p-5 rounded-3xl bg-[#FEF9EB] border border-[#F5C94B]/40 space-y-3 shadow-playful-sm">
             <div className="flex items-center gap-2">
-              <Brain className="w-4 h-4 text-violet-600 dark:text-violet-400" />
-              <span className="text-xs font-black uppercase tracking-wider text-violet-900 dark:text-violet-200">
+              <Brain className="w-4 h-4 text-[#8C6B0F]" />
+              <span className="text-xs font-black uppercase tracking-wider text-[#8C6B0F]">
                 Predictive Challenge: Think Like an ML Engineer
               </span>
             </div>
-            <p className="text-xs font-bold text-slate-800 dark:text-slate-100">
+            <p className="text-xs font-bold text-[#26324B]">
               {dataset.challenge.question}
             </p>
 
@@ -812,16 +812,16 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
                         triggerCelebration();
                       }
                     }}
-                    className={`p-3 rounded-xl text-left text-xs transition-all border ${
+                    className={`p-3 rounded-2xl text-left text-xs transition-all border ${
                       isSelected
                         ? opt.isCorrect
-                          ? 'bg-emerald-100 border-emerald-500 text-emerald-950 dark:bg-emerald-950/80 dark:text-emerald-100 dark:border-emerald-600 font-semibold'
-                          : 'bg-rose-100 border-rose-500 text-rose-950 dark:bg-rose-950/80 dark:text-rose-100 dark:border-rose-600'
-                        : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-violet-400 text-slate-700 dark:text-slate-300'
+                          ? 'bg-[#E6F8F0] border-[#A8E6CF] text-[#1F6B4F] font-semibold shadow-playful-sm'
+                          : 'bg-[#FFF0ED] border-[#FF8066] text-[#C4462D]'
+                        : 'bg-white border-[#E8E5DE] hover:border-[#315CEB] text-[#26324B] shadow-sm'
                     }`}
                   >
                     <div className="flex items-start gap-1.5">
-                      <span className="font-mono font-bold text-[10px] text-slate-400">[{String.fromCharCode(65 + i)}]</span>
+                      <span className="font-mono font-bold text-[10px] text-[#667085]">[{String.fromCharCode(65 + i)}]</span>
                       <span>{opt.text}</span>
                     </div>
                   </button>
@@ -831,10 +831,10 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
 
             {selectedChallengeIdx !== null && (
               <div
-                className={`p-3 rounded-xl text-xs leading-relaxed border ${
+                className={`p-3.5 rounded-2xl text-xs leading-relaxed border ${
                   dataset.challenge.options[selectedChallengeIdx].isCorrect
-                    ? 'bg-emerald-50 text-emerald-900 border-emerald-300 dark:bg-emerald-950/50 dark:text-emerald-200 dark:border-emerald-800'
-                    : 'bg-amber-50 text-amber-900 border-amber-300 dark:bg-amber-950/50 dark:text-amber-200 dark:border-amber-800'
+                    ? 'bg-[#E6F8F0] text-[#1F6B4F] border-[#A8E6CF]'
+                    : 'bg-[#FFF0ED] text-[#C4462D] border-[#FF8066]'
                 }`}
               >
                 {dataset.challenge.options[selectedChallengeIdx].explanation}
@@ -843,51 +843,53 @@ export const TeachTheMachineHero: React.FC<TeachTheMachineHeroProps> = ({
           </div>
 
           {/* SUPERVISED LEARNING MATHEMATICAL LINK */}
-          <div className="p-5 rounded-2xl bg-slate-900 text-white border border-slate-800 space-y-3">
+          <div className="p-6 rounded-3xl bg-white text-[#26324B] border border-[#E8E5DE] shadow-playful space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-brand-300">
+              <span className="text-[11px] font-black uppercase tracking-widest text-[#315CEB]">
                 Formal Theory • What You Just Learned
               </span>
-              <span className="text-[10px] font-mono text-slate-400">Supervised Classification</span>
+              <span className="text-[11px] font-mono font-bold text-[#667085] bg-[#FFF9F0] px-2.5 py-1 rounded-full border border-[#E8E5DE]">
+                Supervised Classification
+              </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
-              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                <span className="text-[10px] uppercase font-bold text-brand-400 flex items-center gap-1">
+              <div className="p-3.5 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE] space-y-1">
+                <span className="text-[10px] uppercase font-bold text-[#315CEB] flex items-center gap-1">
                   <span>Feature Vector</span>
                   <InlineMath math="\mathbf{x}" />
                 </span>
-                <p className="text-slate-300 text-[11px]">
+                <p className="text-[#667085] text-[11px] leading-relaxed">
                   Observable quantitative attribute (e.g. sugar sweetness in °Bx or spam keywords).
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                <span className="text-[10px] uppercase font-bold text-emerald-400 flex items-center gap-1">
+              <div className="p-3.5 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE] space-y-1">
+                <span className="text-[10px] uppercase font-bold text-[#247D5C] flex items-center gap-1">
                   <span>Ground Truth</span>
                   <InlineMath math="y" />
                 </span>
-                <p className="text-slate-300 text-[11px]">
+                <p className="text-[#667085] text-[11px] leading-relaxed">
                   The verified target label from training data (Apple vs Lemon, or Spam vs Work).
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                <span className="text-[10px] uppercase font-bold text-cyan-400 flex items-center gap-1">
+              <div className="p-3.5 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE] space-y-1">
+                <span className="text-[10px] uppercase font-bold text-[#315CEB] flex items-center gap-1">
                   <span>Hypothesis</span>
                   <InlineMath math="\hat{y} = f(\mathbf{x}; \theta)" />
                 </span>
-                <p className="text-slate-300 text-[11px]">
+                <p className="text-[#667085] text-[11px] leading-relaxed">
                   <MathText text="The classifier decision rule parameterized by threshold $\theta$: $\hat{y} = 1$ if $x \ge \theta$, else $0$." />
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
-                <span className="text-[10px] uppercase font-bold text-rose-400 flex items-center gap-1">
+              <div className="p-3.5 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE] space-y-1">
+                <span className="text-[10px] uppercase font-bold text-[#C4462D] flex items-center gap-1">
                   <span>Loss Function</span>
                   <InlineMath math="L(y, \hat{y})" />
                 </span>
-                <p className="text-slate-300 text-[11px]">
+                <p className="text-[#667085] text-[11px] leading-relaxed">
                   <MathText text="Zero-one loss penalizes mismatches: $L = 1$ if $y \ne \hat{y}$, else $0$. Minimizing loss finds optimal $\theta^*$." />
                 </p>
               </div>

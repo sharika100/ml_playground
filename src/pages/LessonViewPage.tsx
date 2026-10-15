@@ -77,10 +77,10 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Top Breadcrumb & Controls */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#E8E5DE] gap-3">
         <button
           onClick={onBackToJourney}
-          className="flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors self-start"
+          className="flex items-center gap-1.5 text-xs font-bold text-[#667085] hover:text-[#26324B] transition-colors self-start"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Learning Journey</span>
@@ -88,30 +88,30 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
 
         <div className="flex items-center gap-2 self-start sm:self-auto">
           {/* Mode toggle */}
-          <div className="inline-flex rounded-xl bg-slate-100 dark:bg-slate-800 p-1 border border-slate-200 dark:border-slate-700 text-xs font-bold">
+          <div className="inline-flex rounded-2xl bg-[#FFF9F0] p-1 border border-[#E8E5DE] text-xs font-bold">
             <button
               onClick={() => setViewMode('stepped')}
-              className={`px-3 py-1 rounded-lg transition-all ${
+              className={`px-3 py-1 rounded-xl transition-all ${
                 viewMode === 'stepped'
-                  ? 'bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm'
-                  : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                  ? 'bg-white text-[#315CEB] shadow-playful-sm'
+                  : 'text-[#667085] hover:text-[#26324B]'
               }`}
             >
               Focus Stepper
             </button>
             <button
               onClick={() => setViewMode('full')}
-              className={`px-3 py-1 rounded-lg transition-all ${
+              className={`px-3 py-1 rounded-xl transition-all ${
                 viewMode === 'full'
-                  ? 'bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm'
-                  : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                  ? 'bg-white text-[#315CEB] shadow-playful-sm'
+                  : 'text-[#667085] hover:text-[#26324B]'
               }`}
             >
               Full Document
             </button>
           </div>
 
-          <div className="text-xs font-mono font-bold text-slate-400 px-2">
+          <div className="text-xs font-mono font-bold text-[#667085] px-2">
             Topic {lesson.topicNumber} of {CURRICULUM.length}
           </div>
         </div>
@@ -120,23 +120,23 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
       {/* Lesson Header */}
       <div className="space-y-3">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-black px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-950/80 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+          <span className="text-xs font-black px-3 py-1 rounded-full bg-[#EBF0FD] text-[#315CEB] border border-[#315CEB]/20">
             Topic {lesson.topicNumber}
           </span>
-          <span className="text-xs text-slate-400 flex items-center gap-1 font-medium">
+          <span className="text-xs text-[#667085] flex items-center gap-1 font-medium">
             <Clock className="w-3.5 h-3.5" /> ~{lesson.estimatedMinutes} mins
           </span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-black text-[#26324B] tracking-tight">
           {lesson.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+        <p className="text-sm sm:text-base text-[#667085] leading-relaxed max-w-3xl">
           {lesson.subtitle}
         </p>
       </div>
 
       {/* PROGRESSIVE DISCLOSURE STEPPER BAR (Always visible or in Stepped mode) */}
-      <div className="p-3 rounded-2xl bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 overflow-x-auto">
+      <div className="p-3 rounded-2xl bg-white border border-[#E8E5DE] shadow-playful-sm overflow-x-auto">
         <div className="flex items-center justify-between min-w-[700px] gap-2">
           {STAGES.map((st) => {
             const Icon = st.icon;
@@ -148,10 +148,10 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
                 onClick={() => setActiveStage(st.id)}
                 className={`flex-1 py-2 px-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all text-center ${
                   isActive
-                    ? 'bg-brand-600 text-white shadow-md scale-105'
+                    ? 'bg-[#315CEB] text-white shadow-playful-sm scale-105'
                     : isCompleted
-                    ? 'bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 border border-emerald-300/40'
-                    : 'bg-white/60 dark:bg-slate-900/40 text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-900'
+                    ? 'bg-[#F0FAF6] text-[#247D5C] border border-[#A8E6CF]'
+                    : 'bg-[#FFF9F0] text-[#667085] hover:bg-white border border-transparent'
                 }`}
               >
                 <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : st.color}`} />
@@ -166,15 +166,15 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
       <div className="space-y-10">
         {/* STAGE 1: THE HOOK & SCENARIO */}
         {(viewMode === 'full' || activeStage === 1) && (
-          <section className="p-6 sm:p-8 rounded-3xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50 space-y-4 shadow-sm">
-            <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300 text-xs font-black uppercase tracking-wider">
-              <Lightbulb className="w-4 h-4 text-amber-600" />
+          <section className="p-6 sm:p-8 rounded-3xl bg-[#FEF9EB] border border-[#F5C94B]/50 space-y-4 shadow-playful-sm">
+            <div className="flex items-center gap-2 text-[#8C6B0F] text-xs font-black uppercase tracking-wider">
+              <Lightbulb className="w-4 h-4 text-[#8C6B0F]" />
               <span>Stage 1: The Dilemma & Real-World Hook</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+            <h3 className="text-xl sm:text-2xl font-black text-[#26324B]">
               {lesson.hook.question}
             </h3>
-            <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            <p className="text-sm text-[#26324B] leading-relaxed">
               {lesson.hook.scenario}
             </p>
           </section>
@@ -183,14 +183,14 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
         {/* STAGE 2: THE INTUITION */}
         {(viewMode === 'full' || activeStage === 2) && (
           <section className="space-y-4">
-            <div className="flex items-center gap-2 text-brand-600 dark:text-brand-400 text-xs font-black uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-[#315CEB] text-xs font-black uppercase tracking-wider">
               <Brain className="w-4 h-4" />
               <span>Stage 2: Core Intuition in Plain English</span>
             </div>
-            <div className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div className="text-sm text-[#26324B] leading-relaxed bg-white p-6 sm:p-8 rounded-3xl border border-[#E8E5DE] shadow-playful space-y-4">
               <p>{lesson.intuition.story}</p>
-              <div className="p-4 rounded-2xl bg-brand-50 dark:bg-brand-950/40 border border-brand-200 dark:border-brand-800 text-brand-900 dark:text-brand-200 text-xs font-bold flex items-start gap-2">
-                <Sparkles className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
+              <div className="p-4 rounded-2xl bg-[#EBF0FD] border border-[#315CEB]/20 text-[#315CEB] text-xs font-bold flex items-start gap-2">
+                <Sparkles className="w-4 h-4 text-[#315CEB] shrink-0 mt-0.5" />
                 <span>Core Takeaway: {lesson.intuition.keyTakeaway}</span>
               </div>
             </div>
@@ -200,17 +200,17 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
         {/* STAGE 3: THE FORMAL SCIENTIFIC DEFINITION */}
         {(viewMode === 'full' || activeStage === 3) && (
           <section className="space-y-4">
-            <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-[#315CEB] text-xs font-black uppercase tracking-wider">
               <BookOpen className="w-4 h-4" />
               <span>Stage 3: Scientific Definition & Technical Terminology</span>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
-              <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1.5">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-5">
+              <div className="p-5 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE]">
+                <span className="text-[10px] font-black uppercase tracking-wider text-[#667085] block mb-1.5">
                   Authoritative Source Definition (Mitchell & Russell-Norvig)
                 </span>
-                <p className="text-sm font-semibold text-slate-900 dark:text-white leading-relaxed italic">
+                <p className="text-sm font-semibold text-[#26324B] leading-relaxed italic">
                   "{lesson.formal.definition}"
                 </p>
               </div>
@@ -219,12 +219,12 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
                 {lesson.formal.terminology.map((t, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 text-xs"
+                    className="p-4 rounded-2xl border border-[#E8E5DE] bg-[#FFF9F0] text-xs"
                   >
-                    <div className="font-bold text-slate-900 dark:text-white mb-1">
+                    <div className="font-bold text-[#26324B] mb-1">
                       <MathText text={t.term} />
                     </div>
-                    <div className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <div className="text-[#667085] leading-relaxed">
                       <MathText text={t.definition} />
                     </div>
                   </div>
@@ -283,13 +283,13 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
         {/* STAGE 5: MATHEMATICS & NUMERICAL DERIVATIONS */}
         {(viewMode === 'full' || activeStage === 5) && lesson.mathsSimple && (
           <section className="space-y-4">
-            <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-xs font-black uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-[#315CEB] text-xs font-black uppercase tracking-wider">
               <Calculator className="w-4 h-4" />
               <span>Stage 5: Maths Made Simple (Step-by-Step Rigor)</span>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-6">
+              <p className="text-xs sm:text-sm text-[#667085] leading-relaxed">
                 {lesson.mathsSimple.whyNeeded}
               </p>
 
@@ -297,19 +297,19 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
 
               {/* Symbol Definitions Table */}
               <div className="pt-2">
-                <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2">
+                <span className="text-xs font-bold text-[#26324B] block mb-2">
                   Symbol Breakdown:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                   {lesson.mathsSimple.symbols.map((s, idx) => (
                     <div
                       key={idx}
-                      className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-baseline gap-2"
+                      className="p-3 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE] flex items-baseline gap-2"
                     >
-                      <span className="font-bold text-brand-600 dark:text-brand-400 shrink-0">
+                      <span className="font-bold text-[#315CEB] shrink-0">
                         <InlineMath math={s.symbol} />:
                       </span>
-                      <span className="text-slate-600 dark:text-slate-300">
+                      <span className="text-[#26324B]">
                         <MathText text={s.meaning} />
                       </span>
                     </div>
@@ -318,26 +318,26 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
               </div>
 
               {/* Numerical Walkthrough */}
-              <div className="p-6 rounded-3xl bg-slate-900 text-slate-100 font-mono text-xs space-y-4 border border-slate-800 shadow-xl overflow-hidden">
-                <div className="text-brand-400 font-bold uppercase tracking-wider text-[11px]">
+              <div className="p-6 rounded-3xl bg-[#26324B] text-white font-mono text-xs space-y-4 border border-[#344465] shadow-playful-lg overflow-hidden">
+                <div className="text-[#F5C94B] font-bold uppercase tracking-wider text-[11px]">
                   Worked Numerical Example: {lesson.mathsSimple.numericalExample.problem}
                 </div>
                 <div className="space-y-3">
                   {lesson.mathsSimple.numericalExample.steps.map((st, idx) => (
-                    <div key={idx} className="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/60 overflow-hidden">
-                      <div className="text-slate-400 text-[10px] font-sans font-bold mb-1.5">{st.stepName}</div>
-                      <div className="text-amber-300 font-bold flex flex-wrap items-center gap-2 overflow-x-auto py-1 text-xs sm:text-sm">
+                    <div key={idx} className="p-3.5 rounded-2xl bg-[#1A2333] border border-[#344465] overflow-hidden">
+                      <div className="text-[#E8E5DE] text-[10px] font-sans font-bold mb-1.5">{st.stepName}</div>
+                      <div className="text-[#F5C94B] font-bold flex flex-wrap items-center gap-2 overflow-x-auto py-1 text-xs sm:text-sm">
                         <InlineMath math={st.calculation} />
-                        <span className="text-slate-400 text-xs">➔</span>
+                        <span className="text-[#667085] text-xs">➔</span>
                         <InlineMath math={st.result} />
                       </div>
-                      <div className="text-slate-300 text-[11px] font-sans italic mt-1.5 leading-relaxed">
+                      <div className="text-[#E8E5DE]/80 text-[11px] font-sans italic mt-1.5 leading-relaxed">
                         <MathText text={st.explanation} />
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="pt-3 border-t border-slate-800 text-emerald-400 text-xs font-sans leading-relaxed">
+                <div className="pt-3 border-t border-[#344465] text-[#A8E6CF] text-xs font-sans leading-relaxed">
                   <strong>Result Meaning:</strong> <MathText text={lesson.mathsSimple.numericalExample.finalMeaning} />
                 </div>
               </div>
@@ -347,27 +347,27 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
 
         {/* STAGE 6: TRY IT YOURSELF CHALLENGE */}
         {(viewMode === 'full' || activeStage === 6) && (
-          <section className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-            <div className="flex items-center gap-2 text-violet-600 dark:text-violet-400 text-xs font-black uppercase tracking-wider">
+          <section className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-4">
+            <div className="flex items-center gap-2 text-[#315CEB] text-xs font-black uppercase tracking-wider">
               <HelpCircle className="w-4 h-4" />
               <span>Stage 6: Prediction Challenge & Self-Check</span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">{lesson.tryItYourself.instruction}</p>
-            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
+            <p className="text-xs sm:text-sm text-[#667085]">{lesson.tryItYourself.instruction}</p>
+            <div className="p-5 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE] text-xs sm:text-sm font-semibold text-[#26324B]">
               ❓ <MathText text={lesson.tryItYourself.prompt} />
             </div>
 
             <div>
               <button
                 onClick={() => setShowPredictionSolution(!showPredictionSolution)}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-50 hover:bg-brand-100 text-brand-700 dark:bg-brand-950/60 dark:text-brand-300 font-bold text-xs transition-all"
+                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#EBF0FD] hover:bg-[#315CEB] text-[#315CEB] hover:text-white font-bold text-xs transition-all shadow-sm"
               >
                 <Eye className="w-3.5 h-3.5" />
                 <span>{showPredictionSolution ? 'Hide Solution' : 'Reveal Solution & Scientific Rationale'}</span>
               </button>
 
               {showPredictionSolution && (
-                <div className="mt-3 p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 text-emerald-950 dark:text-emerald-200 text-xs leading-relaxed animate-fade-in">
+                <div className="mt-3 p-5 rounded-2xl bg-[#F0FAF6] border border-[#A8E6CF] text-[#1F6B4F] text-xs leading-relaxed animate-fade-in shadow-sm">
                   <strong>Scientific Solution:</strong> <MathText text={lesson.tryItYourself.solution} />
                 </div>
               )}
@@ -377,19 +377,19 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
 
         {/* STAGE 7: WATCH VIDEO LECTURE */}
         {(viewMode === 'full' || activeStage === 7) && lesson.video && (
-          <section className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-navy-950 text-white border border-slate-800 shadow-xl space-y-4">
-            <div className="flex items-center gap-2 text-rose-400 text-xs font-black uppercase tracking-wider">
+          <section className="p-6 sm:p-8 rounded-3xl bg-[#26324B] text-white border border-[#344465] shadow-playful-lg space-y-4">
+            <div className="flex items-center gap-2 text-[#FF8066] text-xs font-black uppercase tracking-wider">
               <YoutubeIcon className="w-4 h-4" />
               <span>Stage 7: Watch Sharika T R Video Lecture</span>
             </div>
             <div>
               <h4 className="text-xl font-bold text-white mb-2">{lesson.video.title}</h4>
-              <p className="text-xs text-slate-300 leading-relaxed mb-4">{lesson.video.summary}</p>
+              <p className="text-xs text-[#E8E5DE] leading-relaxed mb-4">{lesson.video.summary}</p>
               <a
                 href={lesson.video.youtubeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs transition-colors shadow-lg shadow-rose-600/30"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#315CEB] hover:bg-[#2548BA] text-white font-bold text-xs transition-colors shadow-playful-sm"
               >
                 <Play className="w-3.5 h-3.5 fill-current" />
                 <span>Watch Problem Walkthrough on YouTube</span>
@@ -402,7 +402,7 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
         {/* STAGE 8: MASTERY QUIZ */}
         {(viewMode === 'full' || activeStage === 8) && (
           <section className="space-y-4">
-            <div className="flex items-center gap-2 text-brand-600 dark:text-brand-400 text-xs font-black uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-[#315CEB] text-xs font-black uppercase tracking-wider">
               <CheckCircle2 className="w-4 h-4" />
               <span>Stage 8: Topic Knowledge Mastery Check</span>
             </div>
@@ -412,28 +412,28 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
 
         {/* STAGE 9: CHECKLIST & SUMMARY */}
         {(viewMode === 'full' || activeStage === 9) && (
-          <section className="p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 space-y-5">
-            <div className="text-xs font-black uppercase tracking-wider text-slate-500">
+          <section className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-5">
+            <div className="text-xs font-black uppercase tracking-wider text-[#315CEB]">
               Stage 9: Key Takeaways & Exam Checklist
             </div>
-            <ul className="space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
+            <ul className="space-y-2.5 text-xs text-[#26324B]">
               {lesson.summary.keyPoints.map((pt, i) => (
                 <li key={i} className="flex items-start gap-2.5">
-                  <span className="text-brand-600 dark:text-brand-400 font-bold">•</span>
+                  <span className="text-[#315CEB] font-bold">•</span>
                   <span>{pt}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
-              <span className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2.5">
+            <div className="pt-4 border-t border-[#E8E5DE]">
+              <span className="text-xs font-bold text-[#26324B] block mb-2.5">
                 Self-Assessment Checklist:
               </span>
-              <div className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+              <div className="space-y-2 text-xs text-[#667085]">
                 {lesson.summary.revisionChecklist.map((c, i) => (
                   <div key={i} className="flex items-center gap-2.5">
-                    <input type="checkbox" className="rounded text-brand-600 accent-brand-600" />
-                    <span>{c}</span>
+                    <input type="checkbox" className="rounded text-[#315CEB] accent-[#315CEB]" />
+                    <span className="text-[#26324B]">{c}</span>
                   </div>
                 ))}
               </div>
@@ -444,20 +444,20 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
 
       {/* Stepped Navigation Controls (Previous Stage / Next Stage) */}
       {viewMode === 'stepped' && (
-        <div className="flex items-center justify-between pt-6 border-t border-slate-200 dark:border-slate-800">
+        <div className="flex items-center justify-between pt-6 border-t border-[#E8E5DE]">
           <button
             disabled={activeStage === 1}
             onClick={() => {
               setActiveStage((s) => Math.max(1, s - 1));
               window.scrollTo({ top: 200, behavior: 'smooth' });
             }}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-40 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold border border-[#E8E5DE] text-[#26324B] disabled:opacity-40 bg-white hover:bg-[#FFF9F0] transition-colors shadow-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Previous Stage</span>
           </button>
 
-          <span className="text-xs font-mono font-bold text-slate-400">
+          <span className="text-xs font-mono font-bold text-[#667085]">
             Stage {activeStage} of {STAGES.length}
           </span>
 
@@ -472,7 +472,7 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
                 onBackToJourney();
               }
             }}
-            className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md transition-all hover:scale-105 active:scale-95"
+            className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#315CEB] hover:bg-[#2548BA] text-white font-bold text-xs shadow-playful-sm transition-all hover:scale-105 active:scale-95"
           >
             <span>{activeStage < STAGES.length ? 'Next Stage' : 'Complete Topic →'}</span>
             <ArrowRight className="w-4 h-4" />
@@ -481,11 +481,11 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
       )}
 
       {/* Bottom Nav Between Topics */}
-      <div className="flex items-center justify-between pt-6 border-t border-slate-200 dark:border-slate-800">
+      <div className="flex items-center justify-between pt-6 border-t border-[#E8E5DE]">
         {prevLesson ? (
           <button
             onClick={() => onSelectTopic(prevLesson.id)}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold border border-[#E8E5DE] bg-white hover:bg-[#FFF9F0] text-[#26324B] transition-colors shadow-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Topic {prevLesson.topicNumber}: {prevLesson.title}</span>
@@ -497,7 +497,7 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
         {nextLesson ? (
           <button
             onClick={() => onSelectTopic(nextLesson.id)}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-colors shadow-md hover:scale-105 active:scale-95"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#315CEB] hover:bg-[#2548BA] text-white text-xs font-bold transition-colors shadow-playful-sm hover:scale-105 active:scale-95"
           >
             <span>Topic {nextLesson.topicNumber}: {nextLesson.title}</span>
             <ArrowRight className="w-4 h-4" />
@@ -505,7 +505,7 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
         ) : (
           <button
             onClick={onBackToJourney}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors shadow-md hover:scale-105 active:scale-95"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#247D5C] hover:bg-[#1C5F46] text-white text-xs font-bold transition-colors shadow-playful-sm hover:scale-105 active:scale-95"
           >
             <span>Finish to Revision Studio</span>
             <CheckCircle2 className="w-4 h-4" />

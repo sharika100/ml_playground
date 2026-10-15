@@ -93,20 +93,22 @@ export const MathFormula: React.FC<MathFormulaProps> = ({
 
   return (
     <div
-      className={`my-3 p-4 sm:p-5 bg-slate-900 text-slate-100 rounded-2xl shadow-lg border border-slate-800/90 max-w-full overflow-hidden ${className}`}
+      className={`my-4 p-5 sm:p-6 bg-white text-[#26324B] rounded-3xl shadow-playful border border-[#E8E5DE] max-w-full overflow-hidden transition-all ${className}`}
     >
       {title && (
-        <div className="text-[11px] uppercase tracking-wider text-brand-400 font-bold mb-2 pb-1 border-b border-slate-800/60">
-          {title}
+        <div className="text-xs uppercase tracking-wider text-[#315CEB] font-extrabold mb-3 pb-2 border-b border-[#E8E5DE] flex items-center justify-between">
+          <span>{title}</span>
+          <span className="text-[10px] font-mono font-bold text-[#315CEB] bg-[#EBF0FD] px-2 py-0.5 rounded-full">Formula</span>
         </div>
       )}
       <div
-        className="math-display-scroll overflow-x-auto overflow-y-hidden max-w-full text-center py-1.5 scrollbar-thin"
+        className="math-display-scroll overflow-x-auto overflow-y-hidden max-w-full text-center py-2.5 text-[#26324B]"
         dangerouslySetInnerHTML={{ __html: renderedHtml }}
       />
       {explanation && (
-        <div className="mt-2.5 pt-2 border-t border-slate-800 text-xs text-slate-300 italic leading-relaxed">
-          💡 {explanation}
+        <div className="mt-3 pt-2.5 border-t border-[#E8E5DE] text-xs text-[#667085] leading-relaxed flex items-start gap-2 bg-[#FEF9EB]/80 p-3 rounded-2xl border border-[#F5C94B]/40">
+          <span className="text-sm shrink-0">💡</span>
+          <span className="text-[#26324B]">{explanation}</span>
         </div>
       )}
     </div>

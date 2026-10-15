@@ -92,29 +92,29 @@ export const DecisionTreeBuilder: React.FC = () => {
   const isPathActive = (id: string) => activePath.includes(id);
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm transition-all">
+    <div className="playful-card p-6 sm:p-8">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-6 border-b border-playful-softBorder gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/70 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-bold mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-playful-cobalt/10 border border-playful-cobalt/25 text-playful-cobalt text-xs font-bold mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Interactive Tree Induction</span>
           </div>
-          <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+          <h3 className="text-xl sm:text-2xl font-black text-playful-ink">
             Decision Tree Builder & Classifier (ID3)
           </h3>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-xs sm:text-sm text-playful-muted mt-0.5">
             Induce decision branches based on Information Gain and trace predictions path-by-path.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
           {isOptimalTree ? (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-              <CheckCircle2 className="w-4 h-4" /> Optimal ID3 Tree (100% Purity)
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-playful-mint/30 text-emerald-950 border border-playful-mint/80 shadow-sm">
+              <CheckCircle2 className="w-4 h-4 text-emerald-700" /> Optimal ID3 Tree (100% Purity)
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-playful-sunny/30 text-amber-950 border border-playful-sunny/80 shadow-sm">
               Custom / Exploratory Split
             </span>
           )}
@@ -122,14 +122,14 @@ export const DecisionTreeBuilder: React.FC = () => {
       </div>
 
       {/* Control Bar: Stepped Pace and Split Attributes */}
-      <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div className="p-4 rounded-2xl bg-playful-cream/50 border border-playful-softBorder mb-6 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Tree Depth:</span>
-          <div className="inline-flex rounded-xl bg-slate-200 dark:bg-slate-700 p-1">
+          <span className="text-xs font-bold uppercase tracking-wider text-playful-muted">Tree Depth:</span>
+          <div className="inline-flex rounded-xl bg-playful-cream border border-playful-softBorder p-1">
             <button
               onClick={() => setStepMode(1)}
               className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                stepMode === 1 ? 'bg-white dark:bg-slate-900 text-brand-600 shadow-sm' : 'text-slate-600 dark:text-slate-300'
+                stepMode === 1 ? 'bg-playful-cobalt text-white shadow-playful-sm' : 'text-playful-muted hover:text-playful-ink'
               }`}
             >
               Step 1: Root Split
@@ -137,7 +137,7 @@ export const DecisionTreeBuilder: React.FC = () => {
             <button
               onClick={() => setStepMode(2)}
               className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                stepMode === 2 ? 'bg-white dark:bg-slate-900 text-brand-600 shadow-sm' : 'text-slate-600 dark:text-slate-300'
+                stepMode === 2 ? 'bg-playful-cobalt text-white shadow-playful-sm' : 'text-playful-muted hover:text-playful-ink'
               }`}
             >
               Step 2: Sub-branches
@@ -145,7 +145,7 @@ export const DecisionTreeBuilder: React.FC = () => {
             <button
               onClick={() => setStepMode(3)}
               className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                stepMode === 3 ? 'bg-white dark:bg-slate-900 text-brand-600 shadow-sm' : 'text-slate-600 dark:text-slate-300'
+                stepMode === 3 ? 'bg-playful-cobalt text-white shadow-playful-sm' : 'text-playful-muted hover:text-playful-ink'
               }`}
             >
               Step 3: Full Leaves
@@ -155,11 +155,11 @@ export const DecisionTreeBuilder: React.FC = () => {
 
         <div className="flex flex-wrap items-center gap-3 text-xs">
           <div className="flex items-center gap-1.5">
-            <span className="font-semibold text-slate-600 dark:text-slate-300">Root Attribute:</span>
+            <span className="font-semibold text-playful-ink">Root Attribute:</span>
             <select
               value={rootAttr}
               onChange={(e) => setRootAttr(e.target.value)}
-              className="px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-brand-600 dark:text-brand-400"
+              className="px-2.5 py-1.5 rounded-xl bg-white border border-playful-softBorder font-bold text-playful-cobalt shadow-sm focus:border-playful-cobalt focus:ring-2 focus:ring-playful-cobalt/20 cursor-pointer"
             >
               <option value="Outlook">Outlook (Gain: 0.247 — Winner!)</option>
               <option value="Humidity">Humidity (Gain: 0.151)</option>
@@ -171,11 +171,11 @@ export const DecisionTreeBuilder: React.FC = () => {
           {rootAttr === 'Outlook' && (
             <>
               <div className="flex items-center gap-1.5">
-                <span className="font-semibold text-slate-600 dark:text-slate-300">Sunny Branch:</span>
+                <span className="font-semibold text-playful-ink">Sunny Branch:</span>
                 <select
                   value={sunnySplitAttr}
                   onChange={(e) => setSunnySplitAttr(e.target.value)}
-                  className="px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-brand-600 dark:text-brand-400"
+                  className="px-2.5 py-1.5 rounded-xl bg-white border border-playful-softBorder font-bold text-playful-cobalt shadow-sm focus:border-playful-cobalt focus:ring-2 focus:ring-playful-cobalt/20 cursor-pointer"
                 >
                   <option value="Humidity">Humidity (Gain: 0.971 — Pure!)</option>
                   <option value="Wind">Wind (Gain: 0.020)</option>
@@ -184,11 +184,11 @@ export const DecisionTreeBuilder: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-1.5">
-                <span className="font-semibold text-slate-600 dark:text-slate-300">Rain Branch:</span>
+                <span className="font-semibold text-playful-ink">Rain Branch:</span>
                 <select
                   value={rainSplitAttr}
                   onChange={(e) => setRainSplitAttr(e.target.value)}
-                  className="px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-brand-600 dark:text-brand-400"
+                  className="px-2.5 py-1.5 rounded-xl bg-white border border-playful-softBorder font-bold text-playful-cobalt shadow-sm focus:border-playful-cobalt focus:ring-2 focus:ring-playful-cobalt/20 cursor-pointer"
                 >
                   <option value="Wind">Wind (Gain: 0.971 — Pure!)</option>
                   <option value="Humidity">Humidity (Gain: 0.020)</option>
@@ -201,7 +201,7 @@ export const DecisionTreeBuilder: React.FC = () => {
       </div>
 
       {/* Responsive Visual SVG Decision Tree Canvas */}
-      <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800 text-white shadow-2xl mb-8 overflow-x-auto">
+      <div className="p-6 rounded-3xl bg-playful-ink border border-playful-ink text-white shadow-playful-lg mb-8 overflow-x-auto">
         <div className="min-w-[720px] flex flex-col items-center py-2 select-none">
           {/* LEVEL 0: ROOT NODE */}
           <div
@@ -420,19 +420,19 @@ export const DecisionTreeBuilder: React.FC = () => {
       </div>
 
       {/* Interactive Inference / Classify a New Instance */}
-      <div className="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-700/60 gap-2">
+      <div className="p-6 rounded-3xl bg-playful-cream/40 border border-playful-softBorder">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-playful-softBorder gap-2">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-playful-cobalt flex items-center gap-1.5">
               <Compass className="w-4 h-4" /> Live Tree Inference
             </span>
-            <h4 className="text-base font-bold text-slate-900 dark:text-white">
+            <h4 className="text-base font-bold text-playful-ink">
               Classify an Unseen Day Through the Tree
             </h4>
           </div>
           <button
             onClick={handleClassify}
-            className="flex items-center justify-center gap-2 px-5 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md transition-all self-start sm:self-auto hover:scale-105 active:scale-95"
+            className="playful-btn-primary flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs shadow-playful-sm transition-all self-start sm:self-auto hover:scale-105 active:scale-95"
           >
             <Play className="w-3.5 h-3.5 fill-current" />
             <span>Trace Prediction Path</span>
@@ -442,13 +442,13 @@ export const DecisionTreeBuilder: React.FC = () => {
         {/* Input Parameters for Unseen Day */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
           <div>
-            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-playful-ink mb-1">
               Outlook Feature:
             </label>
             <select
               value={testOutlook}
               onChange={(e) => setTestOutlook(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-xl bg-white border border-playful-softBorder text-xs font-semibold text-playful-ink focus:border-playful-cobalt focus:ring-2 focus:ring-playful-cobalt/20 cursor-pointer shadow-sm"
             >
               <option value="Sunny">Sunny</option>
               <option value="Overcast">Overcast</option>
@@ -457,13 +457,13 @@ export const DecisionTreeBuilder: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-playful-ink mb-1">
               Humidity Feature:
             </label>
             <select
               value={testHumidity}
               onChange={(e) => setTestHumidity(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-xl bg-white border border-playful-softBorder text-xs font-semibold text-playful-ink focus:border-playful-cobalt focus:ring-2 focus:ring-playful-cobalt/20 cursor-pointer shadow-sm"
             >
               <option value="Normal">Normal</option>
               <option value="High">High</option>
@@ -471,13 +471,13 @@ export const DecisionTreeBuilder: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-playful-ink mb-1">
               Wind Feature:
             </label>
             <select
               value={testWind}
               onChange={(e) => setTestWind(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-xl bg-white border border-playful-softBorder text-xs font-semibold text-playful-ink focus:border-playful-cobalt focus:ring-2 focus:ring-playful-cobalt/20 cursor-pointer shadow-sm"
             >
               <option value="Weak">Weak</option>
               <option value="Strong">Strong</option>
@@ -487,22 +487,22 @@ export const DecisionTreeBuilder: React.FC = () => {
 
         {/* Prediction Result Display */}
         {testPrediction && (
-          <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-brand-200 dark:border-brand-800 shadow-sm animate-fade-in space-y-1.5">
+          <div className="p-4 rounded-2xl bg-white border border-playful-softBorder shadow-playful-sm animate-fade-in space-y-1.5">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              <span className="text-xs font-bold uppercase tracking-wider text-playful-muted">
                 Classification Result:
               </span>
               <span
-                className={`px-3 py-0.5 rounded-full text-xs font-black ${
+                className={`px-3 py-0.5 rounded-full text-xs font-black shadow-sm ${
                   testPrediction.label.startsWith('Yes')
-                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
-                    : 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300'
+                    ? 'bg-playful-mint text-emerald-950'
+                    : 'bg-playful-coral/20 text-rose-950 border border-playful-coral/40'
                 }`}
               >
                 {testPrediction.label}
               </span>
             </div>
-            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p className="text-xs text-playful-muted leading-relaxed">
               {testPrediction.explanation}
             </p>
           </div>

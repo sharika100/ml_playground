@@ -141,22 +141,22 @@ export const LearningSorter: React.FC = () => {
 
   if (completed) {
     return (
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 text-center space-y-6 shadow-sm">
-        <div className="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center">
+      <div className="bg-white border border-[#E8E5DE] rounded-3xl p-8 text-center space-y-6 shadow-playful">
+        <div className="w-16 h-16 rounded-3xl bg-[#FEF9EB] text-[#8C6B0F] mx-auto flex items-center justify-center shadow-playful-sm">
           <Trophy className="w-8 h-8" />
         </div>
         <div className="space-y-2">
-          <h3 className="text-2xl font-black text-slate-900 dark:text-white">
+          <h3 className="text-2xl font-black text-[#26324B]">
             Paradigm Challenge Completed!
           </h3>
-          <p className="text-slate-600 dark:text-slate-300 text-sm">
-            You scored <strong className="text-brand-600 dark:text-brand-400 font-mono text-base">{score}</strong> out of{' '}
-            <strong className="font-mono text-base">{SCENARIOS.length}</strong> scenarios correct.
+          <p className="text-[#667085] text-sm">
+            You scored <strong className="text-[#315CEB] font-mono text-base">{score}</strong> out of{' '}
+            <strong className="font-mono text-base text-[#26324B]">{SCENARIOS.length}</strong> scenarios correct.
           </p>
         </div>
         <button
           onClick={handleRestart}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md transition-all hover:scale-105 active:scale-95"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#315CEB] hover:bg-[#2548BA] text-white font-bold text-xs shadow-playful-sm transition-all hover:scale-105 active:scale-95"
         >
           <RefreshCw className="w-4 h-4" />
           <span>Play Challenge Again</span>
@@ -166,38 +166,38 @@ export const LearningSorter: React.FC = () => {
   }
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm transition-all space-y-6">
+    <div className="bg-white border border-[#E8E5DE] rounded-3xl p-6 sm:p-8 shadow-playful transition-all space-y-6">
       {/* Header & Score */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-200 dark:border-slate-800 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-[#E8E5DE] gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/70 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-bold mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF0FD] border border-[#315CEB]/20 text-[#315CEB] text-xs font-black mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Interactive Paradigm Sorter</span>
           </div>
-          <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+          <h3 className="text-xl sm:text-2xl font-black text-[#26324B]">
             Classify the Machine Learning Problem
           </h3>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-xs sm:text-sm text-[#667085] mt-0.5">
             Can you identify which learning framework fits the scenario?
           </p>
         </div>
 
-        <div className="flex items-center gap-2 self-start sm:self-auto font-mono text-xs font-bold px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+        <div className="flex items-center gap-2 self-start sm:self-auto font-mono text-xs font-bold px-3.5 py-1.5 rounded-xl bg-[#FFF9F0] border border-[#E8E5DE] shadow-sm text-[#26324B]">
           <span>Scenario {currentIndex + 1} of {SCENARIOS.length}</span>
-          <span className="text-slate-400">|</span>
-          <span className="text-brand-600 dark:text-brand-400">Score: {score}</span>
+          <span className="text-[#E8E5DE]">|</span>
+          <span className="text-[#315CEB]">Score: {score}</span>
         </div>
       </div>
 
       {/* Scenario Card */}
-      <div className="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 space-y-3">
-        <span className="text-xs font-extrabold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+      <div className="p-6 rounded-3xl bg-[#FFF9F0] border border-[#E8E5DE] space-y-3 shadow-inner">
+        <span className="text-xs font-black uppercase tracking-wider text-[#315CEB]">
           Real-World Case Study
         </span>
-        <h4 className="text-lg font-black text-slate-900 dark:text-white">
+        <h4 className="text-lg font-black text-[#26324B]">
           {scenario.title}
         </h4>
-        <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+        <p className="text-sm text-[#26324B] leading-relaxed">
           {scenario.description}
         </p>
       </div>
@@ -208,14 +208,14 @@ export const LearningSorter: React.FC = () => {
           const isSelected = selectedCategory === cat.id;
           const isTargetCorrect = cat.id === scenario.correctCategory;
 
-          let btnStyle = 'border-slate-200 dark:border-slate-700 hover:border-brand-500 bg-white dark:bg-slate-900';
+          let btnStyle = 'border-[#E8E5DE] hover:border-[#315CEB] bg-white text-[#26324B] shadow-sm';
           if (isAnswered) {
             if (isTargetCorrect) {
-              btnStyle = 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 ring-2 ring-emerald-400/40';
+              btnStyle = 'border-[#A8E6CF] bg-[#F0FAF6] text-[#1F6B4F] ring-2 ring-[#A8E6CF]/50 shadow-playful-sm font-bold';
             } else if (isSelected && !isCorrect) {
-              btnStyle = 'border-rose-500 bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-200';
+              btnStyle = 'border-[#FF8066] bg-[#FFF0ED] text-[#C4462D]';
             } else {
-              btnStyle = 'opacity-40 border-slate-200 dark:border-slate-800';
+              btnStyle = 'opacity-40 border-[#E8E5DE]';
             }
           }
 
@@ -229,17 +229,17 @@ export const LearningSorter: React.FC = () => {
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="font-extrabold text-sm text-slate-900 dark:text-white">
+                <span className="font-extrabold text-sm text-[#26324B]">
                   {cat.label}
                 </span>
                 {isAnswered && isTargetCorrect && (
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                  <CheckCircle2 className="w-5 h-5 text-[#247D5C]" />
                 )}
                 {isAnswered && isSelected && !isCorrect && (
-                  <XCircle className="w-5 h-5 text-rose-600 dark:text-rose-400" />
+                  <XCircle className="w-5 h-5 text-[#C4462D]" />
                 )}
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-[#667085]">
                 {cat.desc}
               </p>
             </button>
@@ -250,16 +250,16 @@ export const LearningSorter: React.FC = () => {
       {/* Answer Explanation & Feedback */}
       {isAnswered && (
         <div
-          className={`p-5 rounded-2xl border transition-all space-y-3 ${
+          className={`p-5 rounded-2xl border transition-all space-y-3 shadow-sm ${
             isCorrect
-              ? 'bg-emerald-50/70 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800'
-              : 'bg-rose-50/70 dark:bg-rose-950/30 border-rose-300 dark:border-rose-800'
+              ? 'bg-[#F0FAF6] border-[#A8E6CF] text-[#1F6B4F]'
+              : 'bg-[#FFF0ED] border-[#FF8066] text-[#C4462D]'
           }`}
         >
           <div className="flex items-center justify-between">
             <span
               className={`text-xs font-black uppercase tracking-wider flex items-center gap-1.5 ${
-                isCorrect ? 'text-emerald-700 dark:text-emerald-300' : 'text-rose-700 dark:text-rose-300'
+                isCorrect ? 'text-[#1F6B4F]' : 'text-[#C4462D]'
               }`}
             >
               {isCorrect ? <CheckCircle2 className="w-4 h-4" /> : <XCircle className="w-4 h-4" />}
@@ -267,18 +267,18 @@ export const LearningSorter: React.FC = () => {
             </span>
             <button
               onClick={handleNext}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs shadow-sm hover:scale-105 active:scale-95 transition-all"
+              className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#315CEB] hover:bg-[#2548BA] text-white font-bold text-xs shadow-playful-sm hover:scale-105 active:scale-95 transition-all"
             >
               <span>{currentIndex + 1 < SCENARIOS.length ? 'Next Scenario' : 'View Results'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          <p className="text-xs text-slate-800 dark:text-slate-200 leading-relaxed">
+          <p className="text-xs text-[#26324B] leading-relaxed">
             {scenario.explanation}
           </p>
 
-          <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-600 dark:text-slate-300">
+          <div className="pt-2 border-t border-black/10 text-[11px] text-[#667085]">
             <strong>Why others don't apply:</strong> {scenario.whyOthersFail[selectedCategory!]}
           </div>
         </div>

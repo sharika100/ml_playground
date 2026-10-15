@@ -70,57 +70,57 @@ export const RevisionStudioPage: React.FC = () => {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 text-xs font-bold mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FEF9EB] text-[#8C6B0F] border border-[#F5C94B]/50 text-xs font-black mb-3">
           <BookMarked className="w-3.5 h-3.5" />
           <span>Complete Study Companion & Formula Studio</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+        <h1 className="text-3xl sm:text-4xl font-black text-[#26324B] tracking-tight mb-2">
           Revision Studio
         </h1>
-        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="text-sm text-[#667085] leading-relaxed">
           Quick-reference formula cheat sheets, step-by-step worked examination solutions, common misconception busters, and the Final Mixed Mastery Challenge.
         </p>
       </div>
 
       {/* Tabs */}
       <div className="flex justify-center">
-        <div className="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+        <div className="inline-flex p-1 rounded-2xl bg-white border border-[#E8E5DE] shadow-sm">
           <button
             onClick={() => setActiveTab('formulas')}
-            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
               activeTab === 'formulas'
-                ? 'bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                ? 'bg-[#315CEB] text-white shadow-playful-sm'
+                : 'text-[#667085] hover:text-[#26324B]'
             }`}
           >
             Formula Reference
           </button>
           <button
             onClick={() => setActiveTab('worked')}
-            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
               activeTab === 'worked'
-                ? 'bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                ? 'bg-[#315CEB] text-white shadow-playful-sm'
+                : 'text-[#667085] hover:text-[#26324B]'
             }`}
           >
             Worked Solutions
           </button>
           <button
             onClick={() => setActiveTab('misconceptions')}
-            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
               activeTab === 'misconceptions'
-                ? 'bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                ? 'bg-[#315CEB] text-white shadow-playful-sm'
+                : 'text-[#667085] hover:text-[#26324B]'
             }`}
           >
             Misconception Buster
           </button>
           <button
             onClick={() => setActiveTab('exam')}
-            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
               activeTab === 'exam'
-                ? 'bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                ? 'bg-[#315CEB] text-white shadow-playful-sm'
+                : 'text-[#667085] hover:text-[#26324B]'
             }`}
           >
             Final Mastery Challenge
@@ -131,46 +131,46 @@ export const RevisionStudioPage: React.FC = () => {
       {/* TAB 1: FORMULAS */}
       {activeTab === 'formulas' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-3">
+            <span className="text-xs font-black uppercase tracking-wider text-[#315CEB]">
               Entropy & Information Theory
             </span>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Shannon Entropy</h3>
+            <h3 className="text-lg font-bold text-[#26324B]">Shannon Entropy</h3>
             <MathFormula formula="H(S) = - \sum_{i=1}^{c} p_i \log_2(p_i)" block />
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-[#667085] leading-relaxed">
               <MathText text="Measures class label disorder. When a subset is pure (all positive or all negative), $H(S) = 0$. When classes are split 50/50, $H(S) = 1.0\text{ bit}$. Convention: $0 \log_2(0) = 0$." />
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-3">
+            <span className="text-xs font-black uppercase tracking-wider text-[#315CEB]">
               Decision Tree Splitting
             </span>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Information Gain</h3>
+            <h3 className="text-lg font-bold text-[#26324B]">Information Gain</h3>
             <MathFormula formula="\text{Gain}(S, A) = H(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} H(S_v)" block />
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-[#667085] leading-relaxed">
               <MathText text="Measures reduction in entropy after splitting on attribute $A$. The attribute with maximum information gain is selected as the decision node." />
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-3">
+            <span className="text-xs font-black uppercase tracking-wider text-[#315CEB]">
               CART Impurity Measure
             </span>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Gini Index</h3>
+            <h3 className="text-lg font-bold text-[#26324B]">Gini Index</h3>
             <MathFormula formula="\text{Gini}(S) = 1 - \sum_{j} p_j^2" block />
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-[#667085] leading-relaxed">
               <MathText text="Alternative impurity metric used in the CART algorithm for binary splits. A pure node has $\text{Gini} = 0$. Algorithms prefer attributes with lower Gini values." />
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-3">
+            <span className="text-xs font-black uppercase tracking-wider text-[#315CEB]">
               Linear Models Optimization
             </span>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Mean Squared Error (MSE)</h3>
+            <h3 className="text-lg font-bold text-[#26324B]">Mean Squared Error (MSE)</h3>
             <MathFormula formula="\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} \left(y_i - (a_1 x_i + a_0)\right)^2" block />
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-[#667085] leading-relaxed">
               <MathText text="Cost function measuring model fit. Gradient descent iteratively updates $a_0$ and $a_1$ to minimize MSE to its global minimum." />
             </p>
           </div>
@@ -180,14 +180,14 @@ export const RevisionStudioPage: React.FC = () => {
       {/* TAB 2: WORKED SOLUTIONS */}
       {activeTab === 'worked' && (
         <div className="space-y-6">
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-4">
+            <span className="text-xs font-black uppercase tracking-wider text-[#315CEB]">
               Classic Exam Problem Walkthrough
             </span>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+            <h3 className="text-xl font-bold text-[#26324B]">
               Computing Outlook Information Gain on Play Tennis Dataset
             </h3>
-            <div className="text-xs text-slate-700 dark:text-slate-300 space-y-3 leading-relaxed">
+            <div className="text-xs text-[#26324B] space-y-3 leading-relaxed">
               <p>
                 <strong>Given:</strong> Total samples <InlineMath math="|S| = 14" /> (9 Yes, 5 No).
               </p>
@@ -197,7 +197,7 @@ export const RevisionStudioPage: React.FC = () => {
               </div>
               <div className="space-y-1.5">
                 <strong>Step 2 (Partition by Outlook):</strong>
-                <div className="pl-2 space-y-1">
+                <div className="pl-2 space-y-1 text-[#667085]">
                   <div>• <strong>Sunny:</strong> 5 samples (2 Yes, 3 No) ➔ <InlineMath math="H(S_{\text{Sunny}}) = 0.971 \text{ bits}" /></div>
                   <div>• <strong>Overcast:</strong> 4 samples (4 Yes, 0 No) ➔ <InlineMath math="H(S_{\text{Overcast}}) = 0.0 \text{ bits (Pure!)}" /></div>
                   <div>• <strong>Rain:</strong> 5 samples (3 Yes, 2 No) ➔ <InlineMath math="H(S_{\text{Rain}}) = 0.971 \text{ bits}" /></div>
@@ -207,7 +207,7 @@ export const RevisionStudioPage: React.FC = () => {
                 <strong>Step 3 (Weighted Average Child Entropy):</strong>
                 <MathFormula formula="\sum_{v} \frac{|S_v|}{|S|} H(S_v) = \frac{5}{14}(0.971) + \frac{4}{14}(0) + \frac{5}{14}(0.971) = 0.693 \text{ bits}" block />
               </div>
-              <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-semibold space-y-2">
+              <div className="p-5 rounded-2xl bg-[#F0FAF6] border border-[#A8E6CF] text-[#1F6B4F] font-semibold space-y-2 shadow-sm">
                 <div><strong>Step 4 (Final Information Gain):</strong></div>
                 <MathFormula formula="\text{Gain}(S, \text{Outlook}) = H(S) - 0.693 = 0.940 - 0.693 = 0.247 \text{ bits}" block />
                 <div className="text-xs font-normal">
@@ -243,13 +243,13 @@ export const RevisionStudioPage: React.FC = () => {
       {/* TAB 4: FINAL MASTERY CHALLENGE */}
       {activeTab === 'exam' && (
         <div className="space-y-6">
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-brand-900 to-navy-950 text-white shadow-xl space-y-2">
-            <div className="flex items-center gap-2 text-brand-300 text-xs font-bold uppercase tracking-wider">
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#26324B] border border-[#344465] text-white shadow-playful-lg space-y-2">
+            <div className="flex items-center gap-2 text-[#F5C94B] text-xs font-black uppercase tracking-wider">
               <Trophy className="w-4 h-4" />
               <span>Final Cumulative Exam Challenge</span>
             </div>
             <h3 className="text-2xl font-bold">Comprehensive ML Mastery Check</h3>
-            <p className="text-xs text-slate-300 max-w-xl leading-relaxed">
+            <p className="text-xs text-[#E8E5DE]/80 max-w-xl leading-relaxed">
               Test your comprehensive understanding across all 5 core modules: Learning from Examples, Forms of Learning, Decision Trees, Hypothesis Selection, and Linear Models.
             </p>
           </div>

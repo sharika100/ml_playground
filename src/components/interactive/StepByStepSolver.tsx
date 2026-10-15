@@ -169,25 +169,25 @@ export const StepByStepSolver: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm transition-all space-y-6">
+    <div className="playful-card p-6 sm:p-8 space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-200 dark:border-slate-800 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-playful-softBorder gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/70 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-bold mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-playful-cobalt/10 border border-playful-cobalt/25 text-playful-cobalt text-xs font-bold mb-2">
             <Calculator className="w-3.5 h-3.5" />
             <span>Interactive Derivation Solver</span>
           </div>
-          <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+          <h3 className="text-xl sm:text-2xl font-black text-playful-ink">
             Step-by-Step Numerical Practice Lab
           </h3>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-xs sm:text-sm text-playful-muted mt-0.5">
             Work through exam calculations one stepped substitution at a time.
           </p>
         </div>
 
         <button
           onClick={() => setShowFullSolution(!showFullSolution)}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 self-start sm:self-auto transition-all"
+          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl border border-playful-softBorder bg-white text-xs font-bold text-playful-ink hover:bg-playful-cream/60 self-start sm:self-auto transition-all shadow-sm"
         >
           <Eye className="w-3.5 h-3.5" />
           <span>{showFullSolution ? 'Hide Solution' : 'Show Full Solution'}</span>
@@ -202,8 +202,8 @@ export const StepByStepSolver: React.FC = () => {
             onClick={() => handleSwitchProblem(i)}
             className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all ${
               selectedProbIndex === i
-                ? 'bg-brand-600 text-white shadow-md'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                ? 'bg-playful-cobalt text-white shadow-playful-sm'
+                : 'bg-white border border-playful-softBorder text-playful-ink hover:bg-playful-cream/60 shadow-sm'
             }`}
           >
             {prob.title}
@@ -212,11 +212,11 @@ export const StepByStepSolver: React.FC = () => {
       </div>
 
       {/* Scenario Box */}
-      <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 space-y-2">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+      <div className="p-5 rounded-2xl bg-playful-cream/40 border border-playful-softBorder space-y-2">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-playful-cobalt">
           Problem Context • {problem.badge}
         </span>
-        <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+        <p className="text-xs sm:text-sm text-playful-ink leading-relaxed">
           {problem.scenario}
         </p>
       </div>
@@ -226,12 +226,12 @@ export const StepByStepSolver: React.FC = () => {
         {problem.steps.map((_, i) => (
           <div
             key={i}
-            className={`flex-1 h-2 rounded-full transition-all ${
+            className={`flex-1 h-2.5 rounded-full transition-all ${
               i < currentStepIndex
-                ? 'bg-emerald-500'
+                ? 'bg-[#10b981]'
                 : i === currentStepIndex
-                ? 'bg-brand-600'
-                : 'bg-slate-200 dark:bg-slate-700'
+                ? 'bg-playful-cobalt'
+                : 'bg-playful-softBorder/60'
             }`}
           />
         ))}
@@ -239,31 +239,31 @@ export const StepByStepSolver: React.FC = () => {
 
       {/* Current Step Input Card */}
       {!showFullSolution ? (
-        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+        <div className="p-6 rounded-3xl bg-white border border-playful-softBorder shadow-playful-sm space-y-4">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-black uppercase tracking-wider text-slate-400">
+            <span className="text-xs font-black uppercase tracking-wider text-playful-muted">
               Step {currentStepIndex + 1} of {problem.steps.length}
             </span>
             <button
               onClick={() => setShowHint(!showHint)}
-              className="flex items-center gap-1 text-xs text-amber-600 dark:text-amber-400 font-bold hover:underline"
+              className="flex items-center gap-1 text-xs text-amber-700 font-bold hover:underline"
             >
               <Lightbulb className="w-3.5 h-3.5" />
               <span>{showHint ? 'Hide Hint' : 'Need a Hint?'}</span>
             </button>
           </div>
 
-          <h4 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
+          <h4 className="text-sm sm:text-base font-extrabold text-playful-ink">
             {step.instruction}
           </h4>
 
-          <div className="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/80 text-xs text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 flex flex-wrap items-center gap-2">
-            <span className="font-bold text-slate-500 uppercase text-[10px] tracking-wider">Formula:</span>
-            <InlineMath math={step.formula} className="text-brand-600 dark:text-brand-400 font-bold" />
+          <div className="p-3.5 rounded-2xl bg-playful-cream/60 text-xs text-playful-ink border border-playful-softBorder flex flex-wrap items-center gap-2">
+            <span className="font-bold text-playful-muted uppercase text-[10px] tracking-wider">Formula:</span>
+            <InlineMath math={step.formula} className="text-playful-cobalt font-bold" />
           </div>
 
           {showHint && (
-            <div className="p-3.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-xs text-amber-900 dark:text-amber-200">
+            <div className="p-3.5 rounded-xl bg-playful-sunny/20 border border-playful-sunny/50 text-xs text-amber-950">
               💡 <strong>Hint:</strong> <MathText text={step.hint} />
             </div>
           )}
@@ -284,10 +284,10 @@ export const StepByStepSolver: React.FC = () => {
                     return next;
                   });
                 }}
-                className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-mono font-bold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500"
+                className="w-full px-4 py-2.5 rounded-xl bg-playful-cream/30 border border-playful-softBorder text-xs font-mono font-bold text-playful-ink focus:outline-none focus:ring-2 focus:ring-playful-cobalt/20 focus:border-playful-cobalt"
               />
               {step.unit && (
-                <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">
+                <span className="absolute right-3 top-2.5 text-xs text-playful-muted font-mono font-semibold">
                   {step.unit}
                 </span>
               )}
@@ -295,7 +295,7 @@ export const StepByStepSolver: React.FC = () => {
 
             <button
               onClick={handleVerify}
-              className="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-md transition-all hover:scale-105 active:scale-95"
+              className="playful-btn-primary px-6 py-2.5 rounded-xl font-bold text-xs shadow-playful-sm transition-all hover:scale-105 active:scale-95"
             >
               Verify Answer
             </button>
@@ -306,13 +306,13 @@ export const StepByStepSolver: React.FC = () => {
             <div
               className={`p-4 rounded-2xl border transition-all space-y-2 ${
                 feedback.isCorrect
-                  ? 'bg-emerald-50/70 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200'
-                  : 'bg-rose-50/70 dark:bg-rose-950/40 border-rose-300 dark:border-rose-800 text-rose-900 dark:text-rose-200'
+                  ? 'bg-playful-mint/20 border-playful-mint/80 text-emerald-950'
+                  : 'bg-playful-coral/20 border-playful-coral/40 text-rose-950'
               }`}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs font-black flex items-center gap-1.5">
-                  {feedback.isCorrect ? <CheckCircle2 className="w-4 h-4" /> : <XCircle className="w-4 h-4" />}
+                  {feedback.isCorrect ? <CheckCircle2 className="w-4 h-4 text-emerald-700" /> : <XCircle className="w-4 h-4 text-rose-700" />}
                   {feedback.isCorrect ? 'Correct!' : 'Check Your Calculation'}
                 </span>
 
@@ -332,22 +332,22 @@ export const StepByStepSolver: React.FC = () => {
         </div>
       ) : (
         /* Full Worked Derivation View */
-        <div className="p-6 rounded-3xl bg-slate-900 text-white text-xs border border-slate-800 space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-            <span className="text-brand-400 font-bold uppercase tracking-wider text-[11px]">
+        <div className="p-6 rounded-3xl bg-playful-ink text-white text-xs border border-playful-ink shadow-playful-md space-y-4">
+          <div className="flex items-center justify-between border-b border-white/20 pb-3">
+            <span className="text-playful-sunny font-bold uppercase tracking-wider text-[11px]">
               Complete Analytical Solution
             </span>
-            <span className="text-slate-400 text-[11px]">All steps revealed</span>
+            <span className="text-white/60 text-[11px]">All steps revealed</span>
           </div>
 
           {problem.steps.map((st, i) => (
-            <div key={i} className="space-y-1.5 pt-2 border-b border-slate-800/60 pb-3">
+            <div key={i} className="space-y-1.5 pt-2 border-b border-white/10 pb-3">
               <div className="text-white font-bold">{st.instruction}</div>
-              <div className="text-brand-300 flex items-center gap-2">
-                <span className="text-slate-400 text-[10px]">Formula:</span>
+              <div className="text-white/80 flex items-center gap-2">
+                <span className="text-white/50 text-[10px]">Formula:</span>
                 <InlineMath math={st.formula} />
               </div>
-              <div className="text-emerald-400 font-bold">
+              <div className="text-playful-mint font-bold">
                 Answer: {st.expectedAnswer} {st.unit} — <MathText text={st.explanation} />
               </div>
             </div>

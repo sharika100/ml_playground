@@ -7,36 +7,56 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Playful Learning Core Theme Palette
+        playful: {
+          cream: '#FFF9F0',       // Warm cream (Main page background)
+          cobalt: '#315CEB',      // Cobalt blue (Primary actions, links, active states)
+          'cobalt-hover': '#2649C2',
+          'cobalt-light': '#EBF0FD',
+          coral: '#FF8066',       // Coral (Highlights, friendly illustrations, selected accents)
+          'coral-light': '#FFF0ED',
+          'coral-dark': '#E0654C',
+          yellow: '#F5C94B',      // Sunny yellow (Learning highlights, badges, discoveries)
+          'yellow-light': '#FEF9EB',
+          'yellow-dark': '#D9A927',
+          mint: '#A8E6CF',        // Mint (Positive feedback, learning progress, supportive accents)
+          'mint-light': '#F0FAF6',
+          'mint-dark': '#247D5C',
+          white: '#FFFFFF',       // White (Cards, panels, formula surfaces)
+          'dark-ink': '#26324B',  // Dark ink (Primary text)
+          'muted-ink': '#667085', // Muted ink (Secondary text and descriptions)
+          'soft-border': '#E8E5DE', // Soft border (Card outlines and separators)
+          'soft-border-hover': '#D8D4CA',
+        },
+        // Mapped brand aliases for backward-compatible component classes
         brand: {
-          50: '#f0f7ff',
-          100: '#e0effe',
-          200: '#bae0fd',
-          300: '#7cc7fb',
-          400: '#36a8f6',
-          500: '#0c8de4',
-          600: '#0270c3',
-          700: '#03599e',
-          800: '#074b82',
-          900: '#0c3f6c',
-          950: '#072847',
+          50: '#EBF0FD',
+          100: '#D6E2FC',
+          200: '#ADC4F9',
+          300: '#7FA2F5',
+          400: '#537FF0',
+          500: '#315CEB', // Cobalt blue
+          600: '#2649C2',
+          700: '#1D389E',
+          800: '#162A77',
+          900: '#101D53',
+          950: '#0B1336',
         },
         navy: {
-          800: '#0f172a',
-          850: '#0c1324',
-          900: '#090d1a',
-          950: '#05070e',
+          800: '#1E293B',
+          850: '#172033',
+          900: '#0F172A',
+          950: '#26324B', // Dark ink
         },
-        emerald: {
-          500: '#10b981',
-          600: '#059669',
-        },
-        amber: {
-          500: '#f59e0b',
-        },
-        violet: {
-          500: '#8b5cf6',
-          600: '#7c3aed',
-        }
+      },
+      boxShadow: {
+        'playful-sm': '0 2px 8px -1px rgba(38, 50, 75, 0.05), 0 1px 3px -1px rgba(38, 50, 75, 0.03)',
+        'playful': '0 8px 24px -4px rgba(38, 50, 75, 0.06), 0 2px 6px -1px rgba(38, 50, 75, 0.03)',
+        'playful-lg': '0 16px 32px -6px rgba(38, 50, 75, 0.08), 0 4px 12px -2px rgba(38, 50, 75, 0.04)',
+        'playful-cobalt': '0 8px 20px -4px rgba(49, 92, 235, 0.35)',
+        'playful-coral': '0 8px 20px -4px rgba(255, 128, 102, 0.35)',
+        'playful-yellow': '0 8px 20px -4px rgba(245, 201, 75, 0.35)',
+        'playful-mint': '0 8px 20px -4px rgba(168, 230, 207, 0.35)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],

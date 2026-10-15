@@ -13,63 +13,63 @@ export const MathsPlaygroundPage: React.FC = () => {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-950/80 text-brand-700 dark:text-brand-300 text-xs font-bold mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF0FD] text-[#315CEB] text-xs font-black mb-3 border border-[#315CEB]/20">
           <Calculator className="w-3.5 h-3.5" />
           <span>4-Layer Pedagogical System</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+        <h1 className="text-3xl sm:text-4xl font-black text-[#26324B] tracking-tight mb-2">
           Maths Playground
         </h1>
-        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="text-sm text-[#667085] leading-relaxed">
           Master the mathematical equations of Machine Learning with zero unexplained leaps. Move through Intuition, Visualization, Guided Calculation, and Independent Practice.
         </p>
       </div>
 
       {/* 4 Learning Layers Legend */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 rounded-xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/50 flex items-start gap-3">
-          <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-blue-400 shrink-0">
+        <div className="p-4 rounded-2xl bg-[#EBF0FD] border border-[#315CEB]/20 flex items-start gap-3 shadow-playful-sm">
+          <div className="p-2 rounded-xl bg-[#315CEB] text-white shrink-0 shadow-sm">
             <Lightbulb className="w-4 h-4" />
           </div>
           <div>
-            <div className="text-xs font-bold text-blue-900 dark:text-blue-300">Layer 1: Intuition</div>
-            <div className="text-[11px] text-blue-700/80 dark:text-blue-400 leading-tight mt-0.5">
+            <div className="text-xs font-black text-[#315CEB]">Layer 1: Intuition</div>
+            <div className="text-[11px] text-[#667085] leading-tight mt-0.5">
               Plain-language analogy without confusing symbols
             </div>
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/50 flex items-start gap-3">
-          <div className="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 shrink-0">
+        <div className="p-4 rounded-2xl bg-[#F0FAF6] border border-[#A8E6CF] flex items-start gap-3 shadow-playful-sm">
+          <div className="p-2 rounded-xl bg-[#247D5C] text-white shrink-0 shadow-sm">
             <Eye className="w-4 h-4" />
           </div>
           <div>
-            <div className="text-xs font-bold text-emerald-900 dark:text-emerald-300">Layer 2: Visual Proof</div>
-            <div className="text-[11px] text-emerald-700/80 dark:text-emerald-400 leading-tight mt-0.5">
+            <div className="text-xs font-black text-[#247D5C]">Layer 2: Visual Proof</div>
+            <div className="text-[11px] text-[#667085] leading-tight mt-0.5">
               Interactive plots connecting variables in real time
             </div>
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-900/50 flex items-start gap-3">
-          <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/60 text-purple-600 dark:text-purple-400 shrink-0">
+        <div className="p-4 rounded-2xl bg-[#FFF0ED] border border-[#FF8066]/30 flex items-start gap-3 shadow-playful-sm">
+          <div className="p-2 rounded-xl bg-[#FF8066] text-white shrink-0 shadow-sm">
             <Calculator className="w-4 h-4" />
           </div>
           <div>
-            <div className="text-xs font-bold text-purple-900 dark:text-purple-300">Layer 3: Guided Steps</div>
-            <div className="text-[11px] text-purple-700/80 dark:text-purple-400 leading-tight mt-0.5">
+            <div className="text-xs font-black text-[#C4462D]">Layer 3: Guided Steps</div>
+            <div className="text-[11px] text-[#667085] leading-tight mt-0.5">
               Step-by-step arithmetic substitutions & intermediate values
             </div>
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50 flex items-start gap-3">
-          <div className="p-2 rounded-lg bg-amber-100 dark:bg-amber-900/60 text-amber-600 dark:text-amber-400 shrink-0">
+        <div className="p-4 rounded-2xl bg-[#FEF9EB] border border-[#F5C94B]/50 flex items-start gap-3 shadow-playful-sm">
+          <div className="p-2 rounded-xl bg-[#F5C94B] text-[#26324B] shrink-0 shadow-sm">
             <CheckSquare className="w-4 h-4" />
           </div>
           <div>
-            <div className="text-xs font-bold text-amber-900 dark:text-amber-300">Layer 4: Try Solo</div>
-            <div className="text-[11px] text-amber-700/80 dark:text-amber-400 leading-tight mt-0.5">
+            <div className="text-xs font-black text-[#8C6B0F]">Layer 4: Try Solo</div>
+            <div className="text-[11px] text-[#667085] leading-tight mt-0.5">
               Interactive solver with feedback, hints, and score validation
             </div>
           </div>
@@ -78,13 +78,13 @@ export const MathsPlaygroundPage: React.FC = () => {
 
       {/* Maths Topic Switcher */}
       <div className="flex justify-center">
-        <div className="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+        <div className="inline-flex p-1 rounded-2xl bg-white border border-[#E8E5DE] shadow-sm">
           <button
             onClick={() => setActiveMathTopic('entropy')}
-            className={`px-5 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
               activeMathTopic === 'entropy'
-                ? 'bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                ? 'bg-[#315CEB] text-white shadow-playful-sm'
+                : 'text-[#667085] hover:text-[#26324B]'
             }`}
           >
             <Binary className="w-4 h-4" />
@@ -92,10 +92,10 @@ export const MathsPlaygroundPage: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveMathTopic('regression')}
-            className={`px-5 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
               activeMathTopic === 'regression'
-                ? 'bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                ? 'bg-[#315CEB] text-white shadow-playful-sm'
+                : 'text-[#667085] hover:text-[#26324B]'
             }`}
           >
             <TrendingUp className="w-4 h-4" />
@@ -108,15 +108,15 @@ export const MathsPlaygroundPage: React.FC = () => {
       {activeMathTopic === 'entropy' && (
         <div className="space-y-10">
           {/* Layer 1: Intuition */}
-          <section className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
-            <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider">
+          <section className="p-6 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-3">
+            <div className="flex items-center gap-2 text-[#315CEB] text-xs font-black uppercase tracking-wider">
               <Lightbulb className="w-4 h-4" />
               <span>Layer 1: The Intuition of Disorder</span>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+            <h3 className="text-xl font-bold text-[#26324B]">
               Movie Night Dilemma: Lucy vs Titanic
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-[#667085] leading-relaxed">
               Suppose you and your friends are picking between two movies: "Lucy" and "Titanic".
               If Lucy gets 4 votes and Titanic gets 5 votes, you have near-total deadlock (maximum disorder). But if Lucy gets 9 votes and Titanic gets 0 votes, deciding is trivial!
               Shannon Entropy gives this intuition an exact numeric measurement in <strong>bits</strong>.
@@ -125,7 +125,7 @@ export const MathsPlaygroundPage: React.FC = () => {
 
           {/* Layer 2: Visual Representation */}
           <section className="space-y-3">
-            <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-[#247D5C] text-xs font-black uppercase tracking-wider">
               <Eye className="w-4 h-4" />
               <span>Layer 2: Visual Interactive Plot</span>
             </div>
@@ -134,7 +134,7 @@ export const MathsPlaygroundPage: React.FC = () => {
 
           {/* Layer 3: Guided Step-by-Step Calculation */}
           <section className="space-y-3">
-            <div className="flex items-center gap-2 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-[#C4462D] text-xs font-black uppercase tracking-wider">
               <Calculator className="w-4 h-4" />
               <span>Layer 3: Information Gain Across Candidate Splits</span>
             </div>
@@ -143,7 +143,7 @@ export const MathsPlaygroundPage: React.FC = () => {
 
           {/* Layer 4: Independent Numerical Practice */}
           <section className="space-y-3">
-            <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-[#8C6B0F] text-xs font-black uppercase tracking-wider">
               <CheckSquare className="w-4 h-4" />
               <span>Layer 4: Try Independently (Numerical Practice)</span>
             </div>
@@ -156,22 +156,22 @@ export const MathsPlaygroundPage: React.FC = () => {
       {activeMathTopic === 'regression' && (
         <div className="space-y-10">
           {/* Layer 1: Intuition */}
-          <section className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
-            <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider">
+          <section className="p-6 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful space-y-3">
+            <div className="flex items-center gap-2 text-[#315CEB] text-xs font-black uppercase tracking-wider">
               <Lightbulb className="w-4 h-4" />
               <span>Layer 1: The Intuition of Best Fit</span>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+            <h3 className="text-xl font-bold text-[#26324B]">
               Balancing Residual Distances
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-[#667085] leading-relaxed">
               Imagine connecting each data point to a rigid rod with rubber bands. The rubber bands pull the rod from both above and below until it balances at the exact position with minimal total stretch tension. In Machine Learning, that stretch tension is the <strong>Mean Squared Error (MSE)</strong>!
             </p>
           </section>
 
           {/* Layer 2: Visual Representation */}
           <section className="space-y-3">
-            <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-[#247D5C] text-xs font-black uppercase tracking-wider">
               <Eye className="w-4 h-4" />
               <span>Layer 2: Visual Cost Surface & Line Adjuster</span>
             </div>
@@ -180,7 +180,7 @@ export const MathsPlaygroundPage: React.FC = () => {
 
           {/* Layer 3 & 4: Guided Practice */}
           <section className="space-y-3">
-            <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-[#8C6B0F] text-xs font-black uppercase tracking-wider">
               <CheckSquare className="w-4 h-4" />
               <span>Layers 3 & 4: Guided Step-by-Step Solver</span>
             </div>

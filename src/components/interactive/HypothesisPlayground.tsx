@@ -57,33 +57,33 @@ export const HypothesisPlayground: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm transition-all">
+    <div className="playful-card p-6 sm:p-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-6 border-b border-playful-softBorder gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/70 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-bold mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-playful-cobalt/10 border border-playful-cobalt/25 text-playful-cobalt text-xs font-bold mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Hypothesis Selection & Ockham's Razor</span>
           </div>
-          <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+          <h3 className="text-xl sm:text-2xl font-black text-playful-ink">
             Polynomial Degree vs Overfitting Explorer
           </h3>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-xs sm:text-sm text-playful-muted mt-0.5">
             Compare training error vs unseen generalization test error across degrees 1 to 7.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
           {isOverfitting ? (
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-300 dark:border-rose-800">
-              <AlertTriangle className="w-4 h-4" /> Overfitting (High Variance)
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-playful-coral/20 text-rose-950 border border-playful-coral/40 shadow-sm">
+              <AlertTriangle className="w-4 h-4 text-rose-600" /> Overfitting (High Variance)
             </span>
           ) : isGoodFit ? (
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-              <CheckCircle className="w-4 h-4" /> Ockham's Razor Preferred
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-playful-mint/30 text-emerald-950 border border-playful-mint/80 shadow-sm">
+              <CheckCircle className="w-4 h-4 text-emerald-700" /> Ockham's Razor Preferred
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-playful-sunny/30 text-amber-950 border border-playful-sunny/80 shadow-sm">
               Underfitting (High Bias)
             </span>
           )}
@@ -92,20 +92,20 @@ export const HypothesisPlayground: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* SVG Plot */}
-        <div className="lg:col-span-7 bg-slate-50 dark:bg-slate-800/50 p-5 rounded-3xl border border-slate-200 dark:border-slate-700/60">
+        <div className="lg:col-span-7 bg-playful-cream/40 p-5 rounded-3xl border border-playful-softBorder">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 flex items-center gap-1">
+            <span className="text-xs font-bold uppercase tracking-wider text-playful-ink flex items-center gap-1">
               <span>Hypothesis Curve</span>
               <InlineMath math="h(x)" />
               <span>vs Data</span>
             </span>
             <div className="flex items-center gap-3 text-xs">
-              <span className="flex items-center gap-1 text-slate-700 dark:text-slate-300 font-semibold">
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-900 dark:bg-white inline-block"></span>
+              <span className="flex items-center gap-1 text-playful-ink font-bold">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#26324B] inline-block"></span>
                 Train Data (7)
               </span>
-              <span className="flex items-center gap-1 text-amber-600 dark:text-amber-400 font-semibold">
-                <span className="w-2.5 h-2.5 rotate-45 bg-amber-500 inline-block"></span>
+              <span className="flex items-center gap-1 text-amber-700 font-bold">
+                <span className="w-2.5 h-2.5 rotate-45 bg-[#F5C94B] inline-block"></span>
                 Unseen Test (3)
               </span>
             </div>
@@ -116,14 +116,14 @@ export const HypothesisPlayground: React.FC = () => {
               {/* Axes */}
               <line x1="40" y1="210" x2="350" y2="210" stroke="#cbd5e1" strokeWidth="1.5" />
               <line x1="40" y1="30" x2="40" y2="210" stroke="#cbd5e1" strokeWidth="1.5" />
-              <text x="355" y="214" fontSize="10" fill="#94a3b8">x</text>
-              <text x="35" y="24" fontSize="10" fill="#94a3b8">y</text>
+              <text x="355" y="214" fontSize="10" fill="#667085">x</text>
+              <text x="35" y="24" fontSize="10" fill="#667085">y</text>
 
               {/* Ticks on X */}
               {[2, 4, 6].map((t) => (
                 <g key={t}>
                   <line x1={mapX(t)} y1="207" x2={mapX(t)} y2="213" stroke="#94a3b8" />
-                  <text x={mapX(t)} y="225" fontSize="9" fill="#94a3b8" textAnchor="middle" fontFamily="monospace">
+                  <text x={mapX(t)} y="225" fontSize="9" fill="#667085" textAnchor="middle" fontFamily="monospace">
                     {t}
                   </text>
                 </g>
@@ -133,27 +133,27 @@ export const HypothesisPlayground: React.FC = () => {
               <path
                 d={curvePath}
                 fill="none"
-                stroke={isOverfitting ? '#ef4444' : isGoodFit ? '#10b981' : '#0c8de4'}
+                stroke={isOverfitting ? '#FF8066' : isGoodFit ? '#10b981' : '#315CEB'}
                 strokeWidth="3.5"
                 strokeLinecap="round"
                 className="transition-all duration-300"
               />
 
-              {/* Training Points (Black Circles) */}
+              {/* Training Points (Dark Ink Circles) */}
               {TRAIN_POINTS.map((pt) => (
                 <circle
                   key={pt.id}
                   cx={mapX(pt.x)}
                   cy={mapY(pt.y)}
                   r="5.5"
-                  fill="#0f172a"
+                  fill="#26324B"
                   stroke="#ffffff"
                   strokeWidth="2"
                   className="transition-all hover:scale-125"
                 />
               ))}
 
-              {/* Unseen Test Points (Amber Diamonds) */}
+              {/* Unseen Test Points (Sunny Diamonds) */}
               {TEST_POINTS.map((pt) => (
                 <polygon
                   key={pt.id}
@@ -163,18 +163,18 @@ export const HypothesisPlayground: React.FC = () => {
                     ${mapX(pt.x)},${mapY(pt.y) + 6}
                     ${mapX(pt.x) - 6},${mapY(pt.y)}
                   `}
-                  fill="#f59e0b"
-                  stroke="#ffffff"
-                  strokeWidth="2"
+                  fill="#F5C94B"
+                  stroke="#26324B"
+                  strokeWidth="1.5"
                   className="transition-all hover:scale-125"
                 />
               ))}
             </svg>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-200 dark:border-slate-700/60 gap-2 overflow-x-auto">
-            <span>Model Degree: <strong className="font-mono text-brand-600 dark:text-brand-400">d = {degree}</strong></span>
-            <span className="truncate max-w-full">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-playful-muted pt-2 border-t border-playful-softBorder gap-2 overflow-x-auto">
+            <span>Model Degree: <strong className="font-mono text-playful-cobalt font-black">d = {degree}</strong></span>
+            <span className="truncate max-w-full font-mono text-playful-ink font-semibold">
               <InlineMath math={`h(x) = ${coeffs.map((c, i) => `${c >= 0 && i > 0 ? '+' : ''}${c.toFixed(2)}${i > 0 ? (i === 1 ? 'x' : `x^${i}`) : ''}`).join(' ')}`} />
             </span>
           </div>
@@ -183,8 +183,8 @@ export const HypothesisPlayground: React.FC = () => {
         {/* Right Column: Degree Stepper & Error Breakdown */}
         <div className="lg:col-span-5 space-y-6">
           {/* Degree Stepper Buttons */}
-          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 block">
+          <div className="p-5 rounded-3xl bg-white border border-playful-softBorder shadow-playful-sm space-y-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-playful-ink block">
               Select Polynomial Degree:
             </span>
 
@@ -195,8 +195,8 @@ export const HypothesisPlayground: React.FC = () => {
                   onClick={() => handleSelectDegree(deg)}
                   className={`py-2 rounded-xl font-bold font-mono text-xs transition-all ${
                     degree === deg
-                      ? 'bg-brand-600 text-white shadow-md scale-105'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200'
+                      ? 'bg-playful-cobalt text-white shadow-playful-sm scale-105'
+                      : 'bg-playful-cream/60 border border-playful-softBorder text-playful-ink hover:bg-playful-cream'
                   }`}
                 >
                   d={deg}
@@ -204,7 +204,7 @@ export const HypothesisPlayground: React.FC = () => {
               ))}
             </div>
 
-            <div className="text-[11px] text-slate-400 pt-1">
+            <div className="text-[11px] text-playful-muted pt-1">
               <MathText text={`Higher degrees allow wilder curves ($m = ${degree + 1}$ parameters), increasing risk of memorizing noise.`} />
             </div>
           </div>
@@ -212,54 +212,54 @@ export const HypothesisPlayground: React.FC = () => {
           {/* Train vs Test MSE Comparison */}
           <div className="grid grid-cols-2 gap-3">
             {/* Train MSE */}
-            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+            <div className="p-4 rounded-2xl bg-white border border-playful-softBorder shadow-playful-sm">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-playful-muted">
                 Training Error (MSE)
               </span>
-              <div className="text-2xl font-black font-mono mt-1 text-slate-900 dark:text-white">
+              <div className="text-2xl font-black font-mono mt-1 text-playful-ink">
                 {trainMSE.toFixed(4)}
               </div>
-              <span className="text-[10px] text-slate-400">Fits known samples</span>
+              <span className="text-[10px] text-playful-muted">Fits known samples</span>
             </div>
 
             {/* Test MSE */}
             <div
               className={`p-4 rounded-2xl border transition-all ${
                 testMSE > 1.0
-                  ? 'bg-rose-50 dark:bg-rose-950/40 border-rose-300 dark:border-rose-800'
-                  : 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800'
+                  ? 'bg-playful-coral/15 border-playful-coral/40 shadow-playful-sm'
+                  : 'bg-playful-mint/20 border-playful-mint/80 shadow-playful-sm'
               }`}
             >
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-playful-muted">
                 Unseen Test Error (MSE)
               </span>
               <div
                 className={`text-2xl font-black font-mono mt-1 ${
-                  testMSE > 1.0 ? 'text-rose-600' : 'text-emerald-600 dark:text-emerald-400'
+                  testMSE > 1.0 ? 'text-playful-coral' : 'text-emerald-800'
                 }`}
               >
                 {testMSE.toFixed(4)}
               </div>
-              <span className="text-[10px] text-slate-400">Real-world generalization</span>
+              <span className="text-[10px] text-playful-muted">Real-world generalization</span>
             </div>
           </div>
 
           {/* Explanation Callout */}
-          <div className="p-5 rounded-2xl bg-gradient-to-br from-navy-900 to-slate-900 text-white text-xs space-y-2 border border-slate-800 shadow-md">
-            <div className="flex items-center gap-1.5 font-bold text-brand-300">
+          <div className="p-5 rounded-2xl bg-white border border-playful-softBorder shadow-playful-sm text-xs space-y-2">
+            <div className="flex items-center gap-1.5 font-bold text-playful-cobalt">
               <Layers className="w-4 h-4" />
               <span>Ockham's Razor Diagnostic:</span>
             </div>
             {isOverfitting ? (
-              <p className="text-rose-300 leading-relaxed">
+              <p className="text-rose-950 bg-playful-coral/20 p-3 rounded-xl border border-playful-coral/40 leading-relaxed">
                 ⚠️ <strong>Overfitting Danger:</strong> At degree {degree}, training error is very small ({trainMSE.toFixed(3)}), but test error has spiked to {testMSE.toFixed(3)}! The curve is violently oscillating between points to fit random noise rather than the true trend.
               </p>
             ) : isUnderfitting ? (
-              <p className="text-amber-300 leading-relaxed">
+              <p className="text-amber-950 bg-playful-sunny/20 p-3 rounded-xl border border-playful-sunny/50 leading-relaxed">
                 📉 <strong>Underfitting (High Bias):</strong> Degree 1 fits a straight line. While simple, it has higher training error ({trainMSE.toFixed(3)}) because it fails to capture slight curvature.
               </p>
             ) : (
-              <p className="text-emerald-300 leading-relaxed">
+              <p className="text-emerald-900 bg-playful-mint/20 p-3 rounded-xl border border-playful-mint/60 leading-relaxed">
                 ✨ <strong>Optimal Generalization:</strong> Degree {degree} balances simplicity and fit. Both training error ({trainMSE.toFixed(3)}) and unseen test error ({testMSE.toFixed(3)}) are minimized. Ockham's Razor advises choosing this model!
               </p>
             )}

@@ -69,7 +69,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   return (
     <div className="space-y-16 pb-16">
       {/* HERO SECTION: TEACH THE MACHINE INTERACTIVE EXPERIENCE */}
-      <section className="relative overflow-hidden pt-8 pb-12 sm:pt-14 sm:pb-16 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-b from-brand-50/70 via-white to-transparent dark:from-navy-950 dark:via-navy-900 dark:to-transparent">
+      <section className="relative overflow-hidden pt-8 pb-12 sm:pt-14 sm:pb-16 border-b border-[#E8E5DE] bg-gradient-to-b from-[#FFF9F0] via-white to-[#FFF9F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <TeachTheMachineHero
             onStartLearning={onStartLearning}
@@ -81,42 +81,42 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* 4 CORE VALUE PILLARS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand-500 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
+          <div className="p-6 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful hover:translate-y-[-2px] transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#EBF0FD] text-[#315CEB] flex items-center justify-center mb-4 shadow-sm">
               <Brain className="w-6 h-6" />
             </div>
-            <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1.5">Intuition First</h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <h3 className="text-base font-extrabold text-[#26324B] mb-1.5">Intuition First</h3>
+            <p className="text-xs text-[#667085] leading-relaxed">
               Every abstract formula begins with a relatable real-world dilemma before formal notation is introduced.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-emerald-500 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+          <div className="p-6 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful hover:translate-y-[-2px] transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#F0FAF6] text-[#247D5C] flex items-center justify-center mb-4 shadow-sm">
               <Cpu className="w-6 h-6" />
             </div>
-            <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1.5">Interactive Simulations</h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <h3 className="text-base font-extrabold text-[#26324B] mb-1.5">Interactive Simulations</h3>
+            <p className="text-xs text-[#667085] leading-relaxed">
               Don’t just read about algorithms—split decision trees, drag regression lines, and observe live MSE metrics.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-amber-500 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
+          <div className="p-6 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful hover:translate-y-[-2px] transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#FEF9EB] text-[#8C6B0F] flex items-center justify-center mb-4 shadow-sm">
               <Calculator className="w-6 h-6" />
             </div>
-            <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1.5">Maths Made Rigorous</h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <h3 className="text-base font-extrabold text-[#26324B] mb-1.5">Maths Made Rigorous</h3>
+            <p className="text-xs text-[#667085] leading-relaxed">
               Zero unexplained jumps. Shannon Entropy, Gini Index, and Cost functions solved step-by-step with KaTeX.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-purple-500 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
+          <div className="p-6 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful hover:translate-y-[-2px] transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#FFF0ED] text-[#C4462D] flex items-center justify-center mb-4 shadow-sm">
               <BookOpen className="w-6 h-6" />
             </div>
-            <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1.5">Revision & Video Hub</h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <h3 className="text-base font-extrabold text-[#26324B] mb-1.5">Revision & Video Hub</h3>
+            <p className="text-xs text-[#667085] leading-relaxed">
               Verified video lectures by Sharika T R, misconception busters, and downloadable study summaries.
             </p>
           </div>
@@ -126,33 +126,33 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* COMPACT INTERACTIVE LAB PREVIEWS (BELOW THE FOLD) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <span className="text-xs font-black uppercase tracking-wider text-[#315CEB]">
             Interactive Laboratories Preview
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-1">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#26324B] mt-1">
             Play with the Math & Watch Models Learn
           </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
+          <p className="text-sm text-[#667085] mt-1">
             Test key algorithms with real-time feedback before diving into complete curriculum lessons.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* PREVIEW CARD 1: Shannon Entropy Gauge */}
-          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div className="p-6 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-brand-50 text-brand-700 dark:bg-brand-950/70 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#EBF0FD] text-[#315CEB] border border-[#315CEB]/20">
                   <Gauge className="w-3 h-3" />
                   <span>Shannon Entropy</span>
                   <InlineMath math="H(S)" />
                 </span>
-                <span className="text-[11px] font-mono text-slate-400">10 Samples</span>
+                <span className="text-[11px] font-mono text-[#667085]">10 Samples</span>
               </div>
-              <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">
+              <h3 className="text-base font-extrabold text-[#26324B] mb-1">
                 Measure Disorder in Real Time
               </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
+              <p className="text-xs text-[#667085] mb-4">
                 <MathText text="Click tokens or drag the slider to observe how class balance shifts entropy from $0$ (pure) to $1.0$ (pure chaos)." />
               </p>
 
@@ -166,8 +166,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                       onClick={() => setHeroYes(isYes ? heroYes - 1 : heroYes + 1)}
                       className={`w-7 h-7 rounded-lg font-mono text-xs font-black flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-sm border ${
                         isYes
-                          ? 'bg-emerald-500 text-white border-emerald-400'
-                          : 'bg-amber-500 text-white border-amber-400'
+                          ? 'bg-[#247D5C] text-white border-[#A8E6CF]'
+                          : 'bg-[#FF8066] text-white border-[#FF8066]'
                       }`}
                       title="Click to toggle token"
                     >
@@ -183,20 +183,20 @@ export const HomePage: React.FC<HomePageProps> = ({
                 max={heroTotal}
                 value={heroYes}
                 onChange={(e) => setHeroYes(parseInt(e.target.value) || 0)}
-                className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-600 mt-2"
+                className="w-full h-2 bg-[#E8E5DE] rounded-lg appearance-none cursor-pointer accent-[#315CEB] mt-2"
               />
 
-              <div className="mt-3 p-3 rounded-2xl bg-slate-900 text-white flex items-center justify-between">
+              <div className="mt-3 p-3.5 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE] flex items-center justify-between shadow-sm">
                 <div>
-                  <span className="text-[9px] font-mono uppercase tracking-widest text-brand-300 block">
+                  <span className="text-[9px] font-mono uppercase tracking-widest text-[#315CEB] font-bold block">
                     Calculated Entropy
                   </span>
-                  <span className="text-xl font-black font-mono text-emerald-400">
+                  <span className="text-xl font-black font-mono text-[#247D5C]">
                     {heroEntropy.toFixed(3)}{' '}
-                    <span className="text-xs font-normal text-slate-400">bits</span>
+                    <span className="text-xs font-normal text-[#667085]">bits</span>
                   </span>
                 </div>
-                <div className="text-right text-[11px] text-slate-300 font-medium">
+                <div className="text-right text-[11px] text-[#26324B] font-bold">
                   {heroEntropy === 0 ? '✨ Pure (0.0)' : heroEntropy >= 0.99 ? '⚠️ Max (1.0)' : 'Mixed'}
                 </div>
               </div>
@@ -204,7 +204,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             <button
               onClick={() => onNavigateToTopic('topic-3')}
-              className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
+              className="w-full py-2.5 rounded-xl bg-[#EBF0FD] hover:bg-[#315CEB] text-[#315CEB] hover:text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
             >
               <span>Explore Entropy & Gain in Topic 03</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -212,19 +212,19 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* PREVIEW CARD 2: Decision Tree Splitting */}
-          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div className="p-6 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#F0FAF6] text-[#247D5C] border border-[#A8E6CF]">
                   <GitBranch className="w-3 h-3" />
                   <span>ID3 Decision Trees</span>
                 </span>
-                <span className="text-[11px] font-mono text-slate-400">Play Tennis</span>
+                <span className="text-[11px] font-mono text-[#667085]">Play Tennis</span>
               </div>
-              <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">
+              <h3 className="text-base font-extrabold text-[#26324B] mb-1">
                 Visual Feature Splitting
               </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-400 mb-3">
+              <p className="text-xs text-[#667085] mb-3">
                 Switch the root candidate attribute to see how the branch purities change:
               </p>
 
@@ -234,8 +234,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   onClick={() => setSelectedSplit('outlook')}
                   className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all border flex items-center justify-center gap-1 ${
                     selectedSplit === 'outlook'
-                      ? 'bg-emerald-500 text-white border-emerald-600'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                      ? 'bg-[#315CEB] text-white border-[#315CEB] shadow-playful-sm'
+                      : 'bg-[#FFF9F0] text-[#26324B] border-[#E8E5DE] hover:border-[#315CEB]'
                   }`}
                 >
                   <span>Outlook</span>
@@ -245,8 +245,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   onClick={() => setSelectedSplit('humidity')}
                   className={`flex-1 py-1.5 rounded-xl text-xs font-bold transition-all border flex items-center justify-center gap-1 ${
                     selectedSplit === 'humidity'
-                      ? 'bg-emerald-500 text-white border-emerald-600'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                      ? 'bg-[#315CEB] text-white border-[#315CEB] shadow-playful-sm'
+                      : 'bg-[#FFF9F0] text-[#26324B] border-[#E8E5DE] hover:border-[#315CEB]'
                   }`}
                 >
                   <span>Humidity</span>
@@ -255,22 +255,22 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* Mini Tree Branch Diagram */}
-              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-center space-y-2">
-                <div className="inline-block px-3 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-mono text-xs font-bold">
+              <div className="p-3.5 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE] text-center space-y-2">
+                <div className="inline-block px-3 py-1 rounded-lg bg-[#EBF0FD] text-[#315CEB] font-mono text-xs font-bold border border-[#315CEB]/20">
                   Root: {selectedSplit === 'outlook' ? 'Outlook' : 'Humidity'}
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-[11px] pt-1">
-                  <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
-                    <span className="font-bold text-slate-800 dark:text-slate-200">
+                  <div className="p-2 rounded-xl bg-white border border-[#E8E5DE] shadow-sm">
+                    <span className="font-bold text-[#26324B]">
                       {selectedSplit === 'outlook' ? 'Sunny (2+, 3−)' : 'High (3+, 4−)'}
                     </span>
-                    <div className="text-[10px] text-slate-400 mt-0.5">Need sub-split</div>
+                    <div className="text-[10px] text-[#667085] mt-0.5">Need sub-split</div>
                   </div>
-                  <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
-                    <span className="font-bold text-slate-800 dark:text-slate-200">
+                  <div className="p-2 rounded-xl bg-white border border-[#E8E5DE] shadow-sm">
+                    <span className="font-bold text-[#26324B]">
                       {selectedSplit === 'outlook' ? 'Overcast (4+, 0−)' : 'Normal (6+, 1−)'}
                     </span>
-                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">
+                    <div className="text-[10px] text-[#247D5C] font-bold mt-0.5">
                       {selectedSplit === 'outlook' ? '✨ Pure Leaf: Yes' : 'High Purity'}
                     </div>
                   </div>
@@ -280,7 +280,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             <button
               onClick={() => onNavigateTab('lab')}
-              className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
+              className="w-full py-2.5 rounded-xl bg-[#EBF0FD] hover:bg-[#315CEB] text-[#315CEB] hover:text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
             >
               <span>Build Full Trees in Interactive Lab</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -288,29 +288,29 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* PREVIEW CARD 3: Regression & Residuals */}
-          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div className="p-6 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-indigo-50 text-indigo-700 dark:bg-indigo-950/70 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#FEF9EB] text-[#8C6B0F] border border-[#F5C94B]">
                   <TrendingUp className="w-3 h-3" />
                   <span>Linear Regression</span>
                 </span>
-                <span className="text-[11px] font-mono text-slate-400">Ordinary Least Squares</span>
+                <span className="text-[11px] font-mono text-[#667085]">Ordinary Least Squares</span>
               </div>
-              <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">
+              <h3 className="text-base font-extrabold text-[#26324B] mb-1">
                 Minimize Residual Error
               </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-400 mb-3">
+              <p className="text-xs text-[#667085] mb-3">
                 <MathText text="Adjust the model slope $m$ to minimize Mean Squared Error ($\text{MSE}$) across sample points:" />
               </p>
 
               <div className="space-y-2 mb-3">
                 <div className="flex justify-between text-xs font-mono">
-                  <span className="text-slate-500 flex items-center gap-1">
+                  <span className="text-[#667085] flex items-center gap-1">
                     <span>Slope</span>
                     <InlineMath math="m" />: {regressionSlope.toFixed(2)}
                   </span>
-                  <span className="font-bold text-brand-600 dark:text-brand-400">
+                  <span className="font-bold text-[#315CEB]">
                     Live MSE: {regressionMSE}
                   </span>
                 </div>
@@ -321,21 +321,21 @@ export const HomePage: React.FC<HomePageProps> = ({
                   step="0.05"
                   value={regressionSlope}
                   onChange={(e) => setRegressionSlope(parseFloat(e.target.value))}
-                  className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                  className="w-full h-2 bg-[#E8E5DE] rounded-lg appearance-none cursor-pointer accent-[#315CEB]"
                 />
               </div>
 
               {/* Mini residual visualizer */}
-              <div className="p-3 rounded-2xl bg-slate-900 text-white flex items-center justify-between">
+              <div className="mt-3 p-3.5 rounded-2xl bg-[#FFF9F0] border border-[#E8E5DE] flex items-center justify-between shadow-sm">
                 <div>
-                  <span className="text-[9px] font-mono uppercase tracking-widest text-indigo-300 block">
+                  <span className="text-[9px] font-mono uppercase tracking-widest text-[#315CEB] font-bold block">
                     Fitted Hypothesis
                   </span>
-                  <span className="text-sm font-semibold text-indigo-200">
+                  <span className="text-sm font-bold text-[#26324B]">
                     <InlineMath math={`\\hat{y} = ${regressionSlope.toFixed(2)}x + 0.50`} />
                   </span>
                 </div>
-                <span className="text-xs px-2 py-1 rounded-lg bg-indigo-950 border border-indigo-800 text-indigo-300 font-mono">
+                <span className="text-xs px-2.5 py-1 rounded-xl bg-white border border-[#E8E5DE] text-[#247D5C] font-mono font-bold shadow-sm">
                   {parseFloat(regressionMSE) < 0.6 ? '🎯 Near Optimal' : 'Tuning Needed'}
                 </span>
               </div>
@@ -343,7 +343,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             <button
               onClick={() => onNavigateToTopic('topic-4')}
-              className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
+              className="w-full py-2.5 rounded-xl bg-[#EBF0FD] hover:bg-[#315CEB] text-[#315CEB] hover:text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
             >
               <span>Explore Regression in Topic 04</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -354,25 +354,25 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       {/* ANIMATED SCENARIOS CALLOUT BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 text-white shadow-2xl relative overflow-hidden">
+        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#315CEB] via-[#FF8066] to-[#F5C94B] text-white shadow-playful-lg relative overflow-hidden">
           <div className="relative z-10 max-w-2xl space-y-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-white/20 backdrop-blur-md text-white border border-white/30">
               <Film className="w-3.5 h-3.5" />
               <span>Scenario-Driven Learning Suite</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-black leading-tight text-white">
               Watch Real Machine Learning Concepts in Motion
             </h2>
-            <p className="text-sm sm:text-base text-white/90 leading-relaxed">
+            <p className="text-sm sm:text-base text-white/95 leading-relaxed">
               Step beyond static text. Explore our 5 rich animated simulations with controllable scenarios: Robot Grid Q-Learning, Spam Classifier Stream, Decision Tree Forest, 2D K-Means Clustering, and Aspect Sentiment Analysis.
             </p>
             <div className="pt-2">
               <button
                 onClick={() => onNavigateTab('scenarios')}
-                className="px-6 py-3.5 rounded-2xl bg-white text-slate-900 font-extrabold text-sm shadow-xl hover:bg-slate-100 transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+                className="px-6 py-3.5 rounded-2xl bg-white text-[#26324B] font-extrabold text-sm shadow-xl hover:bg-[#FFF9F0] transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
               >
                 <span>Launch All 5 Scenarios</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-[#315CEB]" />
               </button>
             </div>
           </div>
@@ -383,16 +383,16 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+            <span className="text-xs font-black uppercase tracking-wider text-[#315CEB]">
               Structured Curriculum
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#26324B]">
               Core Learning Journey
             </h2>
           </div>
           <button
             onClick={() => onNavigateTab('journey')}
-            className="flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline"
+            className="flex items-center gap-1.5 text-xs font-bold text-[#315CEB] hover:underline"
           >
             <span>View Full Journey Roadmap</span>
             <ArrowRight className="w-4 h-4" />
@@ -404,26 +404,26 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div
               key={topic.id}
               onClick={() => onNavigateToTopic(topic.id)}
-              className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 hover:shadow-xl transition-all cursor-pointer group flex flex-col justify-between"
+              className="p-6 rounded-3xl bg-white border border-[#E8E5DE] hover:border-[#315CEB] hover:shadow-playful-lg shadow-playful transition-all cursor-pointer group flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-extrabold px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/80 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-800">
+                  <span className="text-xs font-black px-3 py-1 rounded-full bg-[#EBF0FD] text-[#315CEB] border border-[#315CEB]/20">
                     Topic 0{topic.topicNumber}
                   </span>
-                  <span className="text-xs text-slate-400 font-medium">
+                  <span className="text-xs text-[#667085] font-medium">
                     ~{topic.estimatedMinutes} mins
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-2">
+                <h3 className="text-lg font-bold text-[#26324B] group-hover:text-[#315CEB] transition-colors mb-2">
                   {topic.title}
                 </h3>
-                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                <p className="text-xs text-[#667085] leading-relaxed mb-4">
                   {topic.subtitle}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-brand-600 dark:text-brand-400">
+              <div className="pt-4 border-t border-[#E8E5DE] flex items-center justify-between text-xs font-bold text-[#315CEB]">
                 <span>Start Lesson</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -434,17 +434,17 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       {/* FEATURED VIDEO SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-slate-900 to-navy-950 text-white border border-slate-800 shadow-2xl">
+        <div className="p-8 sm:p-10 rounded-3xl bg-[#26324B] text-white border border-[#344465] shadow-playful-lg">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#FF8066]/20 text-[#FF8066] border border-[#FF8066]/40">
                 <YoutubeIcon className="w-3.5 h-3.5" />
                 <span>Featured Video Lecture by Sharika T R</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
                 {featuredVideo.title}
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-[#E8E5DE] leading-relaxed">
                 {featuredVideo.description}
               </p>
 
@@ -452,7 +452,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 {featuredVideo.keyConcepts.map((c, i) => (
                   <span
                     key={i}
-                    className="text-[11px] font-medium px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300"
+                    className="text-[11px] font-medium px-2.5 py-1 rounded-lg bg-[#344465] border border-[#4A5D84] text-[#FFF9F0]"
                   >
                     ✓ {c}
                   </span>
@@ -464,7 +464,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   href={featuredVideo.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs transition-colors shadow-lg shadow-rose-600/25"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#315CEB] hover:bg-[#2548BA] text-white font-bold text-xs transition-colors shadow-playful-sm"
                 >
                   <Play className="w-3.5 h-3.5 fill-current" />
                   <span>Watch on YouTube</span>
@@ -473,7 +473,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                 <button
                   onClick={() => onNavigateTab('videos')}
-                  className="text-xs font-semibold text-slate-300 hover:text-white underline underline-offset-4"
+                  className="text-xs font-semibold text-[#E8E5DE] hover:text-white underline underline-offset-4"
                 >
                   Browse all channel video lectures
                 </button>
@@ -481,19 +481,19 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <div className="lg:col-span-5">
-              <div className="aspect-video rounded-2xl bg-slate-800/80 border border-slate-700 overflow-hidden shadow-inner flex flex-col items-center justify-center p-6 text-center">
-                <div className="w-14 h-14 rounded-2xl bg-rose-600/30 border border-rose-500/50 flex items-center justify-center text-rose-400 mb-3">
+              <div className="aspect-video rounded-2xl bg-[#1A2333] border border-[#344465] overflow-hidden shadow-inner flex flex-col items-center justify-center p-6 text-center">
+                <div className="w-14 h-14 rounded-2xl bg-[#315CEB]/20 border border-[#315CEB]/40 flex items-center justify-center text-[#315CEB] mb-3">
                   <Play className="w-7 h-7 fill-current ml-0.5" />
                 </div>
                 <div className="font-bold text-sm text-white mb-1">Interactive Lesson Video</div>
-                <p className="text-xs text-slate-400 max-w-xs mb-4">
+                <p className="text-xs text-[#E8E5DE]/80 max-w-xs mb-4">
                   Follow along with worked exam problems and derivations on YouTube.
                 </p>
                 <a
                   href={featuredVideo.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-mono text-brand-400 hover:text-brand-300 flex items-center gap-1"
+                  className="text-xs font-mono text-[#F5C94B] hover:text-white flex items-center gap-1"
                 >
                   <span>youtube.com/@sharikatr</span>
                   <ExternalLink className="w-3 h-3" />
@@ -506,23 +506,23 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       {/* CREATOR & INSTITUTIONAL ATTRIBUTION CARD */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div className="p-8 rounded-3xl bg-white border border-[#E8E5DE] shadow-playful">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-5">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-2xl shadow-md shrink-0">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#315CEB] to-[#FF8066] flex items-center justify-center text-white font-extrabold text-2xl shadow-playful-sm shrink-0">
                 ST
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">Sharika T R</h3>
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-100 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+                  <h3 className="text-xl font-bold text-[#26324B]">Sharika T R</h3>
+                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#FEF9EB] text-[#8C6B0F] border border-[#F5C94B]">
                     Lead Educator
                   </span>
                 </div>
-                <p className="text-xs text-slate-600 dark:text-slate-400">
+                <p className="text-xs text-[#667085]">
                   Assistant Professor, Department of Computer Science and Engineering
                 </p>
-                <div className="flex items-center gap-1.5 text-xs text-brand-600 dark:text-brand-400 font-semibold mt-1">
+                <div className="flex items-center gap-1.5 text-xs text-[#315CEB] font-semibold mt-1">
                   <School className="w-3.5 h-3.5" />
                   <a
                     href="https://www.adishankara.ac.in/"
@@ -540,7 +540,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="flex items-center gap-3">
               <button
                 onClick={() => onNavigateTab('about')}
-                className="px-4 py-2.5 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors"
+                className="px-4 py-2.5 rounded-xl text-xs font-bold border border-[#E8E5DE] hover:bg-[#FFF9F0] text-[#26324B] transition-colors shadow-sm"
               >
                 Creator Profile
               </button>
@@ -548,7 +548,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 href="https://youtube.com/@sharikatr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold bg-rose-600 hover:bg-rose-700 text-white transition-colors shadow-md shadow-rose-600/20"
+                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold bg-[#FF8066] hover:bg-[#E0664F] text-white transition-colors shadow-playful-sm"
               >
                 <YoutubeIcon className="w-3.5 h-3.5" />
                 <span>YouTube Channel</span>

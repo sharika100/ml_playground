@@ -40,7 +40,7 @@ interface ScenarioFrameProps {
 export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
   title,
   badge,
-  badgeColor = 'bg-brand-50 text-brand-700 dark:bg-brand-950/70 dark:text-brand-300 border-brand-200 dark:border-brand-800',
+  badgeColor = 'bg-playful-cobalt/10 text-playful-cobalt border-playful-cobalt/25',
   story,
   isRunning,
   onTogglePlay,
@@ -61,30 +61,30 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
   const selectedOpt = prediction?.options.find((o) => o.id === userPrediction);
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6 transition-all">
+    <div className="playful-card p-6 sm:p-8 space-y-6">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-playful-softBorder gap-3">
         <div>
-          <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-bold mb-2 ${badgeColor}`}>
+          <div className={`inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full border text-xs font-bold mb-2 ${badgeColor}`}>
             <Sparkles className="w-3.5 h-3.5" />
             <span>{badge}</span>
           </div>
-          <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+          <h3 className="text-xl sm:text-2xl font-black text-playful-ink">
             {title}
           </h3>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-2xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-playful-muted mt-1 max-w-2xl leading-relaxed">
             <MathText text={story} />
           </p>
         </div>
 
         {/* Playback Controls */}
-        <div className="flex items-center gap-2 self-start sm:self-auto bg-slate-100 dark:bg-slate-800/80 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700/60 shadow-sm">
+        <div className="flex items-center gap-2 self-start sm:self-auto bg-playful-cream/60 p-1.5 rounded-2xl border border-playful-softBorder shadow-sm">
           <button
             onClick={onTogglePlay}
-            className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-sm ${
+            className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-playful-sm ${
               isRunning
-                ? 'bg-amber-500 hover:bg-amber-600 text-white'
-                : 'bg-brand-600 hover:bg-brand-700 text-white'
+                ? 'bg-playful-sunny text-amber-950 hover:bg-amber-400'
+                : 'playful-btn-primary'
             }`}
           >
             {isRunning ? (
@@ -103,7 +103,7 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
           <button
             onClick={onStep}
             disabled={isRunning}
-            className="flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 disabled:opacity-40 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-bold bg-white text-playful-ink border border-playful-softBorder disabled:opacity-40 hover:bg-playful-cream/60 transition-all shadow-sm"
             title="Advance one discrete time step"
           >
             <SkipForward className="w-3.5 h-3.5" />
@@ -112,14 +112,14 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
 
           <button
             onClick={onReset}
-            className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:white bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 transition-all"
+            className="p-2 rounded-xl text-playful-muted hover:text-playful-ink bg-white border border-playful-softBorder transition-all shadow-sm"
             title="Reset scenario to initial state"
           >
             <RotateCcw className="w-3.5 h-3.5" />
           </button>
 
           {/* Speed selector */}
-          <div className="flex items-center pl-2 pr-1 gap-1 text-[11px] font-mono font-bold text-slate-500 border-l border-slate-300 dark:border-slate-700">
+          <div className="flex items-center pl-2 pr-1 gap-1 text-[11px] font-mono font-bold text-playful-muted border-l border-playful-softBorder">
             <span className="hidden md:inline text-[10px] uppercase">Speed:</span>
             {[1, 2].map((s) => (
               <button
@@ -127,8 +127,8 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
                 onClick={() => onSpeedChange(s)}
                 className={`px-2 py-1 rounded-lg transition-all ${
                   speed === s
-                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
-                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-playful-cobalt text-white shadow-sm'
+                    : 'text-playful-muted hover:text-playful-ink'
                 }`}
               >
                 {s}x
@@ -139,22 +139,22 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
       </div>
 
       {/* Main Animated Viewport Slot */}
-      <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-950 text-white overflow-hidden shadow-xl relative min-h-[340px]">
+      <div className="rounded-3xl border border-playful-softBorder bg-[#141A28] text-white overflow-hidden shadow-playful-md relative min-h-[340px]">
         {children}
       </div>
 
       {/* Telemetry & Current Step Narrative */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
-        <div className="md:col-span-8 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 flex items-center gap-3">
-          <div className="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse shrink-0"></div>
-          <div className="text-xs text-slate-700 dark:text-slate-300">
-            <strong className="text-slate-900 dark:text-white block sm:inline mr-1">Current Action:</strong>
+        <div className="md:col-span-8 p-4 rounded-2xl bg-playful-cream/40 border border-playful-softBorder flex items-center gap-3">
+          <div className="w-2.5 h-2.5 rounded-full bg-playful-cobalt animate-pulse shrink-0"></div>
+          <div className="text-xs text-playful-ink">
+            <strong className="text-playful-ink block sm:inline mr-1">Current Action:</strong>
             <span><MathText text={currentStepDescription} /></span>
           </div>
         </div>
 
         {telemetry && (
-          <div className="md:col-span-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 flex items-center justify-around text-xs font-mono">
+          <div className="md:col-span-4 p-4 rounded-2xl bg-playful-cream/40 border border-playful-softBorder flex items-center justify-around text-xs font-mono text-playful-ink">
             {telemetry}
           </div>
         )}
@@ -162,26 +162,26 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
 
       {/* Prediction Challenge Slot */}
       {prediction && (
-        <div className="p-5 sm:p-6 rounded-3xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-900/50 space-y-4">
-          <div className="flex items-center gap-2 text-indigo-800 dark:text-indigo-300 text-xs font-black uppercase tracking-wider">
-            <HelpCircle className="w-4 h-4 text-indigo-600" />
+        <div className="p-5 sm:p-6 rounded-3xl bg-playful-cobalt/5 border border-playful-cobalt/20 space-y-4">
+          <div className="flex items-center gap-2 text-playful-cobalt text-xs font-black uppercase tracking-wider">
+            <HelpCircle className="w-4 h-4 text-playful-cobalt" />
             <span>Learner Prediction Challenge</span>
           </div>
-          <h4 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
+          <h4 className="text-sm sm:text-base font-extrabold text-playful-ink">
             <MathText text={prediction.question} />
           </h4>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {prediction.options.map((opt) => {
               const isSelected = userPrediction === opt.id;
-              let style = 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-indigo-400 text-slate-800 dark:text-slate-200';
+              let style = 'bg-white border-playful-softBorder hover:border-playful-cobalt/40 text-playful-ink shadow-sm';
               if (userPrediction) {
                 if (opt.isCorrect) {
-                  style = 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400 text-emerald-950 dark:text-emerald-200 font-bold ring-2 ring-emerald-400/40';
+                  style = 'bg-playful-mint/20 border-playful-mint/80 text-emerald-950 font-bold ring-2 ring-playful-mint/50';
                 } else if (isSelected && !opt.isCorrect) {
-                  style = 'bg-rose-50 dark:bg-rose-950/40 border-rose-400 text-rose-950 dark:text-rose-200';
+                  style = 'bg-playful-coral/20 border-playful-coral/40 text-rose-950';
                 } else {
-                  style = 'opacity-40 border-slate-200 dark:border-slate-800';
+                  style = 'opacity-40 border-playful-softBorder bg-white';
                 }
               }
 
@@ -197,10 +197,10 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
                 >
                   <span><MathText text={opt.label} /></span>
                   {userPrediction && opt.isCorrect && (
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 ml-2" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0 ml-2" />
                   )}
                   {userPrediction && isSelected && !opt.isCorrect && (
-                    <XCircle className="w-4 h-4 text-rose-600 shrink-0 ml-2" />
+                    <XCircle className="w-4 h-4 text-rose-700 shrink-0 ml-2" />
                   )}
                 </button>
               );
@@ -211,8 +211,8 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
             <div
               className={`p-4 rounded-2xl text-xs leading-relaxed animate-fade-in ${
                 selectedOpt.isCorrect
-                  ? 'bg-emerald-100/80 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-800'
-                  : 'bg-rose-100/80 dark:bg-rose-950/60 text-rose-900 dark:text-rose-200 border border-rose-300 dark:border-rose-800'
+                  ? 'bg-playful-mint/30 text-emerald-950 border border-playful-mint/70'
+                  : 'bg-playful-coral/20 text-rose-950 border border-playful-coral/50'
               }`}
             >
               <strong>{selectedOpt.isCorrect ? '✓ Spot On!' : '✕ Scientific Clarification:'}</strong>{' '}
@@ -224,24 +224,24 @@ export const ScenarioFrame: React.FC<ScenarioFrameProps> = ({
 
       {/* Scientific Explanation & Curriculum Connection Accordion */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-        <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 space-y-2">
-          <span className="text-[11px] font-black uppercase tracking-wider text-brand-600 dark:text-brand-400 block">
+        <div className="p-5 rounded-2xl bg-playful-cream/30 border border-playful-softBorder space-y-2">
+          <span className="text-[11px] font-black uppercase tracking-wider text-playful-cobalt block">
             The Science Behind The Movement
           </span>
-          <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+          <p className="text-xs text-playful-muted leading-relaxed">
             <MathText text={scientificExplanation} />
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 space-y-2">
-          <span className="text-[11px] font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block">
+        <div className="p-5 rounded-2xl bg-playful-cream/30 border border-playful-softBorder space-y-2">
+          <span className="text-[11px] font-black uppercase tracking-wider text-playful-cobalt block">
             Course Curriculum Connection
           </span>
-          <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+          <p className="text-xs text-playful-muted leading-relaxed">
             <MathText text={formalConcept} />
           </p>
           {followUpChallenge && (
-            <div className="text-[11px] font-semibold text-brand-700 dark:text-brand-300 pt-1 border-t border-slate-200 dark:border-slate-700">
+            <div className="text-[11px] font-semibold text-playful-cobalt pt-1 border-t border-playful-softBorder">
               💡 <strong>Follow-up Experiment:</strong> <MathText text={followUpChallenge} />
             </div>
           )}

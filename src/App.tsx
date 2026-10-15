@@ -82,7 +82,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-navy-950 text-slate-900 dark:text-slate-100 font-sans transition-colors">
+    <div className="min-h-screen flex flex-col bg-[#FFF9F0] text-[#26324B] font-sans selection:bg-[#315CEB] selection:text-white transition-colors">
       {/* Global Header */}
       <Header
         activeTab={activeTab}
