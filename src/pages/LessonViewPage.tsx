@@ -318,20 +318,30 @@ export const LessonViewPage: React.FC<LessonViewPageProps> = ({
               </div>
 
               {/* Numerical Walkthrough */}
-              <div className="p-6 rounded-3xl bg-[#26324B] text-white font-mono text-xs space-y-4 border border-[#344465] shadow-playful-lg overflow-hidden">
-                <div className="text-[#F5C94B] font-bold uppercase tracking-wider text-[11px]">
-                  Worked Numerical Example: {lesson.mathsSimple.numericalExample.problem}
+              <div className="p-4 sm:p-6 rounded-3xl bg-[#26324B] text-white font-mono text-xs space-y-4 border border-[#344465] shadow-playful-lg">
+                <div className="text-[#F5C94B] font-bold uppercase tracking-wider text-[11px] flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#F5C94B] animate-pulse"></span>
+                  <span>Worked Numerical Example: {lesson.mathsSimple.numericalExample.problem}</span>
                 </div>
                 <div className="space-y-3">
                   {lesson.mathsSimple.numericalExample.steps.map((st, idx) => (
-                    <div key={idx} className="p-3.5 rounded-2xl bg-[#1A2333] border border-[#344465] overflow-hidden">
-                      <div className="text-[#E8E5DE] text-[10px] font-sans font-bold mb-1.5">{st.stepName}</div>
-                      <div className="text-[#F5C94B] font-bold flex flex-wrap items-center gap-2 overflow-x-auto py-1 text-xs sm:text-sm">
-                        <InlineMath math={st.calculation} />
-                        <span className="text-[#667085] text-xs">➔</span>
-                        <InlineMath math={st.result} />
+                    <div key={idx} className="p-3.5 sm:p-4 rounded-2xl bg-[#1A2333] border border-[#344465]">
+                      <div className="text-[#E8E5DE] text-[11px] font-sans font-bold mb-2 flex items-center justify-between">
+                        <span>{st.stepName}</span>
+                        <span className="text-[10px] text-[#A8E6CF] bg-[#A8E6CF]/10 px-2 py-0.5 rounded-full font-mono">Step {idx + 1}</span>
                       </div>
-                      <div className="text-[#E8E5DE]/80 text-[11px] font-sans italic mt-1.5 leading-relaxed">
+                      <div className="math-display-scroll overflow-x-auto py-1.5 my-1 bg-[#121927] p-2.5 sm:p-3 rounded-xl border border-[#27354E]">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 min-w-min">
+                          <div className="text-[#F5C94B] font-bold text-xs sm:text-sm">
+                            <InlineMath math={st.calculation} />
+                          </div>
+                          <div className="flex items-center gap-1.5 text-[#A8E6CF] font-bold text-xs sm:text-sm shrink-0 sm:pl-3 sm:border-l sm:border-[#344465]">
+                            <span className="text-[#667085] text-xs">➔</span>
+                            <InlineMath math={st.result} />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-[#E8E5DE]/85 text-[11px] font-sans italic mt-2 leading-relaxed">
                         <MathText text={st.explanation} />
                       </div>
                     </div>

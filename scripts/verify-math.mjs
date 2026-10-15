@@ -172,6 +172,24 @@ filesToCheck.forEach((relPath) => {
   }
 });
 
+// 6. Test RevisionStudioPage Formulas
+console.log('\n--- 6. KaTeX Parsing of RevisionStudioPage Formulas ---');
+const revPath = path.join(rootDir, 'src/pages/RevisionStudioPage.tsx');
+const revContent = fs.readFileSync(revPath, 'utf8');
+const revFormulas = [...revContent.matchAll(/formula="([^"]+)"/g)];
+console.log(`Found ${revFormulas.length} formulas in RevisionStudioPage.tsx`);
+revFormulas.forEach((m, idx) => {
+  const expr = m[1].replace(/\\\\/g, '\\');
+  testKatexRender(expr, `Revision Studio Formula #${idx + 1}`, false);
+});
+
+// 7. Test MathText Regex & Escaped Dollar Splitting
+console.log('\n--- 7. MathText Tokenizer & Escaped Dollar Safety ---');
+const mathRegex = /(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)|\$\$(?:[\s\S]*?)\$\$|(?<!\\)\$[^\$\n]+?(?<!\\)\$)/g;
+const testStr1 = "Cost is \\$450,000 while math is $H(S) = 0.940$ and test \\$10.";
+const tokens1 = [...testStr1.matchAll(mathRegex)];
+assert(tokens1.length === 1 && tokens1[0][0] === '$H(S) = 0.940$', 'Math regex correctly ignores escaped \\$ in plain text');
+
 console.log(`\n========================================`);
 console.log(`AUDIT RESULTS: ${passedTests} PASSED, ${failedTests} FAILED out of ${totalTests} CHECKS.`);
 console.log(`========================================\n`);

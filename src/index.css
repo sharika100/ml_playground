@@ -218,6 +218,17 @@
 /* Mathematical Rendering & Overflow Safety */
 .math-display-scroll {
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(79, 102, 148, 0.4) transparent;
+}
+
+.math-display-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.math-display-scroll::-webkit-scrollbar-thumb {
+  background: rgba(79, 102, 148, 0.4);
+  border-radius: 4px;
 }
 
 .katex-display {
@@ -232,7 +243,7 @@
 .katex {
   font-size: 1.05em;
   text-rendering: optimizeLegibility;
-  color: var(--color-dark-ink);
+  color: inherit;
 }
 
 .inline-math {

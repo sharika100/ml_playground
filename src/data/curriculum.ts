@@ -138,8 +138,8 @@ export const CURRICULUM: LessonSection[] = [
       numericalExample: {
         problem: 'Contrast the data format for House Price Prediction (Supervised) vs Market Basket Association (Unsupervised).',
         steps: [
-          { stepName: 'Supervised Pair', calculation: '(x, y) = ([2000 \\text{ sqft}, 3 \\text{ bed}], \\$450,000)', result: '\\text{Explicit target } y', explanation: 'Supervised mapping function f(x) \\to y.' },
-          { stepName: 'Unsupervised Set', calculation: 'x = \\{\\text{Bread, Butter, Milk}\\}', result: '\\text{No target label } y', explanation: 'Model discovers association rules directly from unlabelled data.' },
+          { stepName: 'Supervised Pair', calculation: '(\\mathbf{x}, y) = ([2000\\text{ sqft}, 3\\text{ beds}], \\text{USD } 450{,}000)', result: 'y \\in \\mathbb{R} \\; (\\text{target outcome})', explanation: 'Supervised dataset pairs each input feature vector x with a known ground-truth supervisor y.' },
+          { stepName: 'Unsupervised Set', calculation: '\\mathbf{x} = \\{\\text{Bread, Butter, Milk}\\}', result: '\\text{unlabelled observation}', explanation: 'Model discovers hidden item associations directly without any target label y.' },
         ],
         finalMeaning: 'Supervised problems evaluate prediction error against y; unsupervised problems evaluate clustering cohesion or association support.',
       },
@@ -242,8 +242,8 @@ export const CURRICULUM: LessonSection[] = [
         steps: [
           { stepName: 'Calculate Class Probabilities', calculation: 'P(\\text{Yes}) = \\frac{9}{14} \\approx 0.643, \\quad P(\\text{No}) = \\frac{5}{14} \\approx 0.357', result: 'p_1 = 0.643, \\; p_2 = 0.357', explanation: 'Proportions of positive and negative examples in parent dataset S.' },
           { stepName: 'Compute Logarithms base 2', calculation: '\\log_2(9/14) \\approx -0.637, \\quad \\log_2(5/14) \\approx -1.485', result: '-0.637, \\; -1.485', explanation: 'Using base 2 since information uncertainty is measured in binary bits.' },
-          { stepName: 'Substitute into Entropy Formula', calculation: 'H(S) = - [0.643 \\cdot (-0.637)] - [0.357 \\cdot (-1.485)]', result: '0.4098 + 0.5303 = 0.9401', explanation: 'Intermediate product terms summed together.' },
-          { stepName: 'Final Shannon Entropy', calculation: 'H(S) = 0.940 \\text{ bits}', result: '0.940 \\text{ bits}', explanation: 'The parent dataset has 0.940 bits of impurity.' },
+          { stepName: 'Substitute into Entropy Formula', calculation: 'H(S) = - [0.643 \\cdot (-0.637)] - [0.357 \\cdot (-1.485)]', result: '\\approx 0.4098 + 0.5305 = 0.9403', explanation: 'Intermediate product terms summed together.' },
+          { stepName: 'Final Shannon Entropy', calculation: 'H(S) = -\\sum_{i=1}^c p_i \\log_2(p_i)', result: 'H(S) \\approx 0.9403 \\text{ bits} \\; (0.940)', explanation: 'The parent dataset has 0.9403 bits of impurity (randomness).' },
         ],
         finalMeaning: 'Because 0.940 is close to 1.0, there is high uncertainty. Splitting on Outlook yields Information Gain = 0.247 bits (the highest of all attributes), making Outlook the optimal root node.',
       },
@@ -350,7 +350,7 @@ export const CURRICULUM: LessonSection[] = [
         steps: [
           { stepName: 'Train Error (Degree 1)', calculation: '\\text{MSE}_{\\text{train}} = \\frac{1}{7} \\sum_{i=1}^7 (y_i - \\hat{y}_i)^2', result: '0.082', explanation: 'Slight residual error on training data (underfitting is minimal).' },
           { stepName: 'Train Error (Degree 6)', calculation: '\\text{MSE}_{\\text{train}} = \\frac{1}{7} \\sum_{i=1}^7 0^2', result: '0.000', explanation: 'Zero training error! Touches every single point exactly.' },
-          { stepName: 'Test Error Comparison', calculation: '\\text{MSE}_{\\text{test}}(\\text{deg 1}) = 0.095 \\quad \\text{vs} \\quad \\text{MSE}_{\\text{test}}(\\text{deg 6}) = 14.82', result: '\\text{Degree 1 wins by 150}\\times', explanation: 'The Degree 6 curve oscillates wildly between points, causing immense error on new data.' },
+          { stepName: 'Test Error Comparison', calculation: '\\text{MSE}_{\\text{test}}(\\text{deg 1}) = 0.095 \\quad \\text{vs} \\quad \\text{MSE}_{\\text{test}}(\\text{deg 6}) = 14.82', result: '\\text{Degree 1 wins by } 150\\times', explanation: 'The Degree 6 curve oscillates wildly between points, causing immense error on new data.' },
         ],
         finalMeaning: 'Even though Degree 6 had a "perfect" training score, Degree 1 generalizes vastly better. This proves Ockham’s Razor empirically.',
       },

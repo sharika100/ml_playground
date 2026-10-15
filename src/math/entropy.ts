@@ -70,7 +70,7 @@ export function calculateEntropy(counts: number[]): EntropyResult {
         result: (-term).toFixed(4),
       });
     } else {
-      termStrings.push(`- (0/${total}) \\cdot \\log_2(0) [= 0]`);
+      termStrings.push(`- (0)`);
       steps.push({
         label: `Class ${idx + 1} (Zero Probability)`,
         expression: 'lim_{p -> 0} (p * log2(p)) = 0',

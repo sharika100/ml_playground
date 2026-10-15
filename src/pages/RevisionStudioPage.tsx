@@ -193,23 +193,23 @@ export const RevisionStudioPage: React.FC = () => {
               </p>
               <div>
                 <strong>Step 1 (Parent Entropy):</strong>
-                <MathFormula formula="H(S) = - \frac{9}{14} \log_2\left(\frac{9}{14}\right) - \frac{5}{14} \log_2\left(\frac{5}{14}\right) = 0.940 \text{ bits}" block />
+                <MathFormula formula="H(S) = - \frac{9}{14} \log_2\left(\frac{9}{14}\right) - \frac{5}{14} \log_2\left(\frac{5}{14}\right) \approx 0.9403 \text{ bits} \quad (0.940 \text{ to 3 d.p.})" block />
               </div>
               <div className="space-y-1.5">
                 <strong>Step 2 (Partition by Outlook):</strong>
                 <div className="pl-2 space-y-1 text-[#667085]">
-                  <div>• <strong>Sunny:</strong> 5 samples (2 Yes, 3 No) ➔ <InlineMath math="H(S_{\text{Sunny}}) = 0.971 \text{ bits}" /></div>
-                  <div>• <strong>Overcast:</strong> 4 samples (4 Yes, 0 No) ➔ <InlineMath math="H(S_{\text{Overcast}}) = 0.0 \text{ bits (Pure!)}" /></div>
-                  <div>• <strong>Rain:</strong> 5 samples (3 Yes, 2 No) ➔ <InlineMath math="H(S_{\text{Rain}}) = 0.971 \text{ bits}" /></div>
+                  <div>• <strong>Sunny:</strong> 5 samples (2 Yes, 3 No) ➔ <InlineMath math="H(S_{\text{Sunny}}) \approx 0.9710 \text{ bits}" /></div>
+                  <div>• <strong>Overcast:</strong> 4 samples (4 Yes, 0 No) ➔ <InlineMath math="H(S_{\text{Overcast}}) = 0.0000 \text{ bits (Pure!)}" /></div>
+                  <div>• <strong>Rain:</strong> 5 samples (3 Yes, 2 No) ➔ <InlineMath math="H(S_{\text{Rain}}) \approx 0.9710 \text{ bits}" /></div>
                 </div>
               </div>
               <div>
                 <strong>Step 3 (Weighted Average Child Entropy):</strong>
-                <MathFormula formula="\sum_{v} \frac{|S_v|}{|S|} H(S_v) = \frac{5}{14}(0.971) + \frac{4}{14}(0) + \frac{5}{14}(0.971) = 0.693 \text{ bits}" block />
+                <MathFormula formula="\sum_{v} \frac{|S_v|}{|S|} H(S_v) = \frac{5}{14}(0.9710) + \frac{4}{14}(0) + \frac{5}{14}(0.9710) \approx 0.6935 \text{ bits} \quad (0.694 \text{ to 3 d.p.})" block />
               </div>
               <div className="p-5 rounded-2xl bg-[#F0FAF6] border border-[#A8E6CF] text-[#1F6B4F] font-semibold space-y-2 shadow-sm">
                 <div><strong>Step 4 (Final Information Gain):</strong></div>
-                <MathFormula formula="\text{Gain}(S, \text{Outlook}) = H(S) - 0.693 = 0.940 - 0.693 = 0.247 \text{ bits}" block />
+                <MathFormula formula="\text{Gain}(S, \text{Outlook}) = H(S) - 0.6935 = 0.9403 - 0.6935 = 0.2468 \approx 0.247 \text{ bits}" block />
                 <div className="text-xs font-normal">
                   Because 0.247 exceeds Humidity (0.151), Wind (0.048), and Temperature (0.029), <strong>Outlook</strong> is mathematically verified as the Root Decision Node!
                 </div>

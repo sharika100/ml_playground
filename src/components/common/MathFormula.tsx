@@ -136,9 +136,9 @@ export const MathText: React.FC<{ text: string; className?: string }> = ({
   const parts = useMemo(() => {
     if (!text) return [];
 
-    // Regex to split on $$...$$, \[...\], $...$, or \(...\)
-    // Negative lookbehind or replacement for literal \$ handled
-    const regex = /(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\$[^\$\n]+?\$|\\\([\s\S]*?\\\))/g;
+    // Regex to split on $$...$$, \[...\], \(...\), or $...$
+    // Supports escaped \$ inside text without mistaking it for math delimiter
+    const regex = /(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)|\$\$(?:[\s\S]*?)\$\$|(?<!\\)\$[^\$\n]+?(?<!\\)\$)/g;
     const tokens: { isMath: boolean; content: string }[] = [];
     let lastIndex = 0;
     let match: RegExpExecArray | null;
@@ -173,7 +173,7 @@ export const MathText: React.FC<{ text: string; className?: string }> = ({
         p.isMath ? (
           <InlineMath key={idx} math={p.content} />
         ) : (
-          <React.Fragment key={idx}>{p.content}</React.Fragment>
+          <React.Fragment key={idx}>{p.content.replace(/\\\$/g, '$')}</React.Fragment>
         )
       )}
     </span>
